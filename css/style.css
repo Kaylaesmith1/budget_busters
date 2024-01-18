@@ -1,3 +1,59 @@
-h1 {
-    background-color: teal;
+
+* style.css */ body {
+    background-color: #f8f9fa;
+    /* Example background color */
 }
+
+h1,
+h2 {
+    padding: 10px;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #343a40;
+    color: white;
+}
+
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white;
+    /* Example navbar text color */
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    /* Example color for the toggler icon */
+}
+
+/* Footer styles */
+footer {
+    background-color: lightgray;
+    /* Example background color */
+    color: black;
+    /* Example text color */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Social media links styles */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+    /* Adjust the font size as needed */
+}
+
+
+/* Additional styles for the footer paragraph */
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
