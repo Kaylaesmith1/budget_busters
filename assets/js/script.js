@@ -7,72 +7,51 @@ document.addEventListener("DOMContentLoaded", function () {
     const budgetDisplay = document.getElementById("budget-display");
 
     // Function to add click event listener to a button
-    function addButtonClickListeners(category, type) {
+    function addButtonClickListeners(type) {
         document.getElementById(`${type.toLowerCase()}-button`).addEventListener("click", function () {
-            manipulateExpenses(category, type);
-     // Get the entered cost value
-     const costValue = parseFloat(costInput.value);
+            // Get the entered cost value
+            const costValue = parseFloat(costInput.value);
 
-     // Check if the entered value is empty
-     if (isNaN(costValue) || costValue <= 0) {
-         console.log("Please enter a valid amount.");
-         return;
-     }
+            // Check if the entered value is empty
+            if (isNaN(costValue) || costValue <= 0) {
+                console.log("Please enter a valid amount.");
+                return;
+            }
 
-     // Log all relevant variables in one statement
-     console.log(`Manipulated Category: ${category}, Type: ${type}, Cost Value: ${costValue}`);
+            // Create a data object with current date, type, category, and amount
+            const currentDate = new Date().toLocaleDateString();
+            const data = {
+                expense_date: currentDate,
+                expense_type: type,
+                expense_category: "Example Category", // Update with the actual category
+                expense_value: costValue,
+            };
 
-           
+            // Try to retrieve existing data from localStorage
+            let savedData;
+            const storageKey = "expense_tracker_DB";
+            try {
+                savedData = JSON.parse(localStorage.getItem(storageKey)) || [];
+            } catch (error) {
+                console.error("Error parsing existing data:", error);
+                savedData = [];
+            }
+
+            // Clear the input field after saving
+            costInput.value = "";
+            // Add the new data to the array
+            savedData.push(data);
+
+            // Save the updated array back to localStorage
+            localStorage.setItem(storageKey, JSON.stringify(savedData));
+
+            // Display the updated budget value (if needed)
+            // displayBudget();
+
+            // Log the current content of the database
+            console.log(`Current content of "${storageKey}" database after manipulation:`);
+            console.log(localStorage.getItem(storageKey));
         });
-    }
-
-    // Function to handle button click events
-    function manipulateExpenses(category, type) {
-        // Get the entered cost value
-        const costValue = parseFloat(costInput.value);
-
-        // Check if the entered value is empty
-        if (isNaN(costValue) || costValue <= 0) {
-            console.log("Please enter a valid amount.");
-            return;
-        }
-
-        // Create a data object with timestamp, category, type, and amount
-        const data = {
-            username: "exampleUser",
-            goal_id: 1,
-            user_id: 1,
-            goal_title: "Example Goal",
-            goal_start_value: 100,
-            goal_end_value: 500,
-            goal_start_month: "January",
-            goal_end_month: "February",
-            goal_status: "In Progress",
-            goal_notes: "Example notes",
-            spend_category: category,
-            spend_type: type,
-            spend_amount_value: costValue,
-            budget_value: 233,
-        };
-
-        // Try to retrieve existing data from localStorage
-        let savedData;
-        try {
-            savedData = JSON.parse(localStorage.getItem("budget_busters_DB")) || [];
-        } catch (error) {
-            console.error("Error parsing existing data:", error);
-            savedData = [];
-        }
-
-        // Add the new data to the array
-        savedData.push(data);
-
-        // Save the updated array back to localStorage
-        localStorage.setItem("budget_busters_DB", JSON.stringify(savedData));
-        console.log("Data saved locally:", data);
-
-        // Display the updated budget value
-        displayBudget();
     }
 
     // Function to display the budget value
@@ -80,19 +59,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // Try to retrieve existing data from localStorage
         let savedData;
         try {
-            savedData = JSON.parse(localStorage.getItem("budget_busters_DB")) || [];
+            savedData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
         } catch (error) {
             console.error("Error parsing existing data:", error);
             savedData = [];
         }
 
-        const totalSpend = savedData.reduce((total, entry) => total + parseFloat(entry.spend_amount_value), 0);
-        budgetDisplay.textContent = `Budget: $${Math.max(0, 233 - totalSpend).toFixed(2)}`;
+        const totalSpend = savedData.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
+        budgetDisplay.textContent = `Total Expense: $${totalSpend.toFixed(2)}`;
     }
 
     // Function to check if there's a database with the proper name
     function checkLocalStorage() {
-        const dbName = "budget_busters_DB";
+        const dbName = "expense_tracker_DB";
         const localStorageContent = localStorage.getItem(dbName);
         
         if (localStorageContent) {
@@ -103,37 +82,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to clear local storage (for testing purposes)
-    function clearLocalStorage() {
-        localStorage.clear();
-        console.log("Local storage cleared.");
-    }
+    //basic needs buttons
+    addButtonClickListeners("Food");
+    addButtonClickListeners("Transport");
+    addButtonClickListeners("Education");
+    addButtonClickListeners("Healthcare");
+    addButtonClickListeners("Housing");
+    addButtonClickListeners("Utilities");
 
-    // Add click event listeners for Basic Needs buttons
-    addButtonClickListeners("basicNeeds", "Food");
-    addButtonClickListeners("basicNeeds", "Transport");
-    addButtonClickListeners("basicNeeds", "Education");
-    addButtonClickListeners("basicNeeds", "Healthcare");
-    addButtonClickListeners("basicNeeds", "Housing");
-    addButtonClickListeners("basicNeeds", "Utilities");
-
-    // Add click event listeners for Luxury buttons
-    addButtonClickListeners("luxury", "Entertainment");
-    addButtonClickListeners("luxury", "Travel");
-    addButtonClickListeners("luxury", "Dining");
-    addButtonClickListeners("luxury", "Gadgets");
-    addButtonClickListeners("luxury", "Clothing");
-    addButtonClickListeners("luxury", "Beauty");
+    //expenses buttons
+    addButtonClickListeners("Entertainment");
+    addButtonClickListeners("Travel");
+    addButtonClickListeners("Dining");
+    addButtonClickListeners("Gadgets");
+    addButtonClickListeners("Clothing");
+    addButtonClickListeners("Beauty");
 
     // Uncomment the following line to clear local storage (for testing purposes)
     // clearLocalStorage();
 
-    function clearLocalStorage() {
-        const dbName = "budget_busters_DB";
-        localStorage.removeItem(dbName);
-        console.log(`Local storage cleared for "${dbName}". Starting fresh.`);
-    }
-    //clearLocalStorage();
     // Check if there's a database with the proper name
     checkLocalStorage();
 });
