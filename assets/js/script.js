@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const costInput = document.getElementById("cost-value-input");
     const budgetInput = document.getElementById("budget-input");
     const budgetDisplay = document.getElementById("budget-display");
-
+   
+   
     // Initial budget value
     let initialBudget = 0; // Set initial budget to 0
 
@@ -74,20 +75,37 @@ document.addEventListener("DOMContentLoaded", function () {
         budgetDisplay.textContent = `Remaining Budget: $${remainingBudget.toFixed(2)}`;
     }
 
+    // Function to read initial budget from local storage
+    function readInitialBudget() {
+        const storedBudget = localStorage.getItem("initial_budget");
+
+        if (storedBudget !== null) {
+            initialBudget = parseFloat(storedBudget);
+        }
+
+        // Display the initial budget
+        displayBudget(initialBudget);
+    }
+    //readInitialBudget();
+
+
     // Function to set the planned budget manually
     function setPlannedBudget() {
-        const plannedBudget = parseFloat(budgetInput.value);
+        const plannedBudget = parseFloat(costInput.value);
 
         if (isNaN(plannedBudget) || plannedBudget < 0) {
             console.log("Please enter a valid planned budget.");
             return;
         }
+        console.log("Clicked");
 
         // Set the initial budget to the planned budget
         initialBudget = plannedBudget;
 
         // Display the updated budget value
         displayBudget(initialBudget);
+         // Clear the input field after saving
+         costInput.value = "";
     }
 
     // Example usage:
@@ -112,4 +130,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listener for setting the planned budget manually
     document.getElementById("update-budget-button").addEventListener("click", setPlannedBudget);
+   
 });
