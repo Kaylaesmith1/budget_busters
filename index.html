@@ -61,22 +61,33 @@
         <div id="expense-section">
         
            
-            <p id="budget-display">BUDGET:1000</p>
-        
+           <!-- Elemets to set budget -->
+           <div id="update-budget-container">
+            <!-- Elemets to display budget -->
+         <div id="display-budget-container">
+             <p id="budget-display"></p>
+             <button id="display-update-budget-button">+</button>
+     
+            </div>
+             <div id="budget-input-container">
+             <input type="number" id="budget-input" placeholder="Enter planed budget..."> <!-- Input field -->
+             <button id="update-budget-button">UPDATE</button>
+         </div>
+            </div>
 
                 <div class="card-container">
                     <div class="card">
                         <h3>Basic Needs</h3>
                         <table>
                             <tr>
-                                <td><button class="button-text" id="basic-cat1">Food</button></td>
-                                <td><button class="button-text" id="transport-button">Transport</button></td>
-                                <td><button class="button-text" id="education-button">Education</button></td>
+                                <td><button class="button-text basic-needs-buttons"id="food-button">Food</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="transport-button">Transport</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="education-button">Education</button></td>
                             </tr>
                             <tr>
-                                <td><button class="button-text" id="healthcare-button">Healthcare</button></td>
-                                <td><button class="button-text" id="housing-button">Housing</button></td>
-                                <td><button class="button-text" id="utilities-button">Utilities</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="healthcare-button">Healthcare</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="utilities-button">Utilities</button></td>
                             </tr>
                         </table>
                     </div>
@@ -98,14 +109,14 @@
                                 <tr>
 
                                     <!-- <div class="buttons-container"> -->
-                                    <td><button class="button-text" id="entertainment-button">Entertainment</button></td>
-                                    <td><button class="button-text" id="travel-button">Travel</button></td>
-                                    <td><button class="button-text" id="dining-button">Dining</button></td>
+                                    <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button></td>
+                                    <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
+                                    <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="button-text" id="gadgets-button">Gadgets</button></td>
-                                    <td><button class="button-text" id="clothing-button">Clothing</button></td>
-                                    <td><button class="button-text" id="beauty-button">Beauty</button></td>
+                                    <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
+                                    <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
+                                    <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
                                 </tr>
                                 <!-- </div> -->
                         </div>
