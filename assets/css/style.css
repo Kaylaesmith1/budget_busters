@@ -62,7 +62,7 @@ h2 {
 }
 #cost-value-input{
     display: block;
-    margin: 0 auto;/* This will center the element horizontally */
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -90,7 +90,27 @@ h2 {
     min-height: 3em;
     background: #EEB533;
 }
-
+#display-budget-container{
+    display: flex;
+    flex-direction: row;
+}
+/*display budget style*/
+#budget-display{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+#display-update-budget-button{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+/*budget input container styles*/
+#budget-input-container{
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
 
 /* Allow buttons to wrap into multiple rows */
 .expense-buttons {
