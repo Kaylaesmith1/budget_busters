@@ -60,3 +60,11 @@ footer p {
 
 }
 
+.foot-link {
+    color: white;
+}
+
+.foot-link:hover {
+    text-decoration: none;
+}
+
