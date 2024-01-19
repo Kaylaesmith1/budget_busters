@@ -1,106 +1,115 @@
 /**
- * Index dom to handle expenses
+ * Index dom to handle expenses,
+ * budget
  */
 document.addEventListener("DOMContentLoaded", function () {
-    // Get reference to the input field for cost value
+    // Get references to the input fields
     const costInput = document.getElementById("cost-value-input");
+    const budgetInput = document.getElementById("budget-input");
     const budgetDisplay = document.getElementById("budget-display");
 
+    // Initial budget value
+    let initialBudget = 0; // Set initial budget to 0
+
     // Function to add click event listener to a button
-    function addButtonClickListeners(type) {
+    function addButtonClickListeners(category, type) {
         document.getElementById(`${type.toLowerCase()}-button`).addEventListener("click", function () {
-            // Get the entered cost value
-            const costValue = parseFloat(costInput.value);
-
-            // Check if the entered value is empty
-            if (isNaN(costValue) || costValue <= 0) {
-                console.log("Please enter a valid amount.");
-                return;
-            }
-
-            // Create a data object with current date, type, category, and amount
-            const currentDate = new Date().toLocaleDateString();
-            const data = {
-                expense_date: currentDate,
-                expense_type: type,
-                expense_category: "Example Category", // Update with the actual category
-                expense_value: costValue,
-            };
-
-            // Try to retrieve existing data from localStorage
-            let savedData;
-            const storageKey = "expense_tracker_DB";
-            try {
-                savedData = JSON.parse(localStorage.getItem(storageKey)) || [];
-            } catch (error) {
-                console.error("Error parsing existing data:", error);
-                savedData = [];
-            }
-
-            // Clear the input field after saving
-            costInput.value = "";
-            // Add the new data to the array
-            savedData.push(data);
-
-            // Save the updated array back to localStorage
-            localStorage.setItem(storageKey, JSON.stringify(savedData));
-
-            // Display the updated budget value (if needed)
-            // displayBudget();
-
-            // Log the current content of the database
-            console.log(`Current content of "${storageKey}" database after manipulation:`);
-            console.log(localStorage.getItem(storageKey));
+            manipulateExpenses(category, type);
         });
     }
 
-    // Function to display the budget value
-    function displayBudget() {
+    // Function to handle button click events
+    function manipulateExpenses(category, type) {
+        // Get the entered cost value
+        const costValue = parseFloat(costInput.value);
+
+        // Check if the entered value is empty
+        if (isNaN(costValue) || costValue <= 0) {
+            console.log("Please enter a valid amount.");
+            return;
+        }
+
+        // Create a data object with current date, type, category, and amount
+        const currentDate = new Date().toLocaleDateString();
+        const data = {
+            expense_date: currentDate,
+            expense_type: type,
+            expense_category: category,
+            expense_value: costValue,
+        };
+
         // Try to retrieve existing data from localStorage
         let savedData;
+        const storageKey = "expense_tracker_DB";
         try {
-            savedData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
+            savedData = JSON.parse(localStorage.getItem(storageKey)) || [];
         } catch (error) {
             console.error("Error parsing existing data:", error);
             savedData = [];
         }
 
+        // Add the new data to the array
+        savedData.push(data);
+
+        // Save the updated array back to localStorage
+        localStorage.setItem(storageKey, JSON.stringify(savedData));
+
+        // Calculate the remaining budget
         const totalSpend = savedData.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
-        budgetDisplay.textContent = `Total Expense: $${totalSpend.toFixed(2)}`;
+        const remainingBudget = initialBudget - totalSpend;
+
+        // Display the updated budget value
+        displayBudget(remainingBudget);
+
+        // Log the current content of the database
+        console.log(`Current content of "${storageKey}" database after manipulation:`);
+        console.log(localStorage.getItem(storageKey));
+
+        // Clear the input field after saving
+        costInput.value = "";
     }
 
-    // Function to check if there's a database with the proper name
-    function checkLocalStorage() {
-        const dbName = "expense_tracker_DB";
-        const localStorageContent = localStorage.getItem(dbName);
-        
-        if (localStorageContent) {
-            console.log(`Database "${dbName}" found in localStorage.`);
-            console.log("Content:", localStorageContent);
-        } else {
-            console.log(`Database "${dbName}" not found in localStorage.`);
+    // Function to display the budget value
+    function displayBudget(remainingBudget) {
+        budgetDisplay.textContent = `Remaining Budget: $${remainingBudget.toFixed(2)}`;
+    }
+
+    // Function to set the planned budget manually
+    function setPlannedBudget() {
+        const plannedBudget = parseFloat(budgetInput.value);
+
+        if (isNaN(plannedBudget) || plannedBudget < 0) {
+            console.log("Please enter a valid planned budget.");
+            return;
         }
+
+        // Set the initial budget to the planned budget
+        initialBudget = plannedBudget;
+
+        // Display the updated budget value
+        displayBudget(initialBudget);
     }
 
-    //basic needs buttons
-    addButtonClickListeners("Food");
-    addButtonClickListeners("Transport");
-    addButtonClickListeners("Education");
-    addButtonClickListeners("Healthcare");
-    addButtonClickListeners("Housing");
-    addButtonClickListeners("Utilities");
+    // Example usage:
+    // Basic Needs buttons
+    addButtonClickListeners("Basic Needs", "Food");
+    addButtonClickListeners("Basic Needs", "Transport");
+    addButtonClickListeners("Basic Needs", "Education");
+    addButtonClickListeners("Basic Needs", "Healthcare");
+    addButtonClickListeners("Basic Needs", "Housing");
+    addButtonClickListeners("Basic Needs", "Utilities");
 
-    //expenses buttons
-    addButtonClickListeners("Entertainment");
-    addButtonClickListeners("Travel");
-    addButtonClickListeners("Dining");
-    addButtonClickListeners("Gadgets");
-    addButtonClickListeners("Clothing");
-    addButtonClickListeners("Beauty");
+    // Luxury buttons
+    addButtonClickListeners("Luxury", "Entertainment");
+    addButtonClickListeners("Luxury", "Travel");
+    addButtonClickListeners("Luxury", "Dining");
+    addButtonClickListeners("Luxury", "Gadgets");
+    addButtonClickListeners("Luxury", "Clothing");
+    addButtonClickListeners("Luxury", "Beauty");
 
-    // Uncomment the following line to clear local storage (for testing purposes)
-    // clearLocalStorage();
+    // Display initial budget
+    displayBudget(initialBudget);
 
-    // Check if there's a database with the proper name
-    checkLocalStorage();
+    // Event listener for setting the planned budget manually
+    document.getElementById("update-budget-button").addEventListener("click", setPlannedBudget);
 });
