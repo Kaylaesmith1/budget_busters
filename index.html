@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Busters</title>
+    <title>Budget Wise | Home</title>
 
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -20,84 +20,108 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+
 </head>
 
 
 <body>
-    <h1>header 1</h1>
+    <!-- <h1>header 1</h1> -->
 
 
-        <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">Your Logo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/index.html">
 
-        <h2>About</h2>
-
-
-        <div id="expense-section">
-        
-           
-            <p id="budget-display">BUDGET:1000</p>
-        
-
-            <div class="expense-buttons" id="basic-needs-buttons">
-                <h3>Basic Needs</h3>
-                <div class="buttons-container">
-                   <!-- Category Sample-->
-                <button id="food-button">Food</button>
-                <button id="transport-button">Transport</button>
-                <button id="education-button">Education</button>
-                <button id="healthcare-button">Healthcare</button>
-                <button id="housing-button">Housing</button>
-                <button id="utilities-button">Utilities</button>
-            </div>
-            </div>
-<div id="main-content-container">
-            <input type="number" id="cost-value-input" placeholder="Enter amount and press type of cost..."> <!-- Input field -->
-
-            <div class="expense-buttons" id="luxury-buttons">
-                <h3>Luxury</h3>
-                <div class="buttons-container">
-                <button id="entertainment-button">Entertainment</button>
-                <button id="travel-button">Travel</button>
-                <button id="dining-button">Dining</button>
-                <button id="gadgets-button">Gadgets</button>
-                <button id="clothing-button">Clothing</button>
-                <button id="beauty-button">Beauty</button>
-            </div>  
-         </div>            
+            <img class="logo-image" src="assets/images/logo-bolder.png" alt="Budget Wise logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+
+    <h2>About</h2>
 
 
-        <!--Goals section-->
-        <section id="goals-container">
+    <section id="cost-section">
+        <h2>Calculate Costs</h2>
 
-            <p>You don't have any saved goals yet.</p>
-           
-    
-         </section>
-    
-    </div>
-      
-    
+        <p id="budget-display"></p>
+
+        <!-- TEST TABLE LAYOUT -->
+
+        <div class="cost-buttons" id="basic-needs-buttons">
+
+            <div class="cost-buttons" id="basic-needs-buttons">
+
+                <div class="card-container">
+                    <div class="card">
+                        <h3>Basic Needs</h3>
+                        <table>
+                            <tr>
+                                <td><button class="button-text" id="basic-cat1">Food</button></td>
+                                <td><button class="button-text" id="transport-button">Transport</button></td>
+                                <td><button class="button-text" id="education-button">Education</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="button-text" id="healthcare-button">Healthcare</button></td>
+                                <td><button class="button-text" id="housing-button">Housing</button></td>
+                                <td><button class="button-text" id="utilities-button">Utilities</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-type" id="main-content-container">
+                <input type="number" id="cost-value-input" placeholder="Enter amount & click type of cost...">
+            </div>
+
+
+
+
+                <div class="expense-buttons" id="luxury-buttons">
+                    <div class="card-container">
+                        <div class="card">
+                            <h3>Luxury</h3>
+                            <table>
+                                <tr>
+
+                                    <!-- <div class="buttons-container"> -->
+                                    <td><button class="button-text" id="entertainment-button">Entertainment</button></td>
+                                    <td><button class="button-text" id="travel-button">Travel</button></td>
+                                    <td><button class="button-text" id="dining-button">Dining</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="button-text" id="gadgets-button">Gadgets</button></td>
+                                    <td><button class="button-text" id="clothing-button">Clothing</button></td>
+                                    <td><button class="button-text" id="beauty-button">Beauty</button></td>
+                                </tr>
+                                <!-- </div> -->
+                        </div>
+                        </table>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+    </section>
+
+
 
     <main>
 
