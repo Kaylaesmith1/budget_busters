@@ -3,9 +3,21 @@
     /* Example background color */
 }
 
+* {
+    background-color: #F9F0D9;
+    
+}
+
+.active {
+    color: #EEB533 !important;
+    font-weight: 700;
+}
+
 h1,
 h2 {
     padding: 10px;
+    margin: 0;
+    background-color: #3D946E;
 }
 
 /* Navbar styles */
@@ -26,6 +38,25 @@ h2 {
     /* Example color for the toggler icon */
 }
 
+.goals-box {
+    padding: 15px;
+    border-radius: 4px;
+    border: 3px solid #3D946E;
+    background-color: #B8F3D9;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
 /* Footer styles */
 footer {
     background-color: lightgray;
@@ -44,7 +75,7 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: #3D946E;
     text-decoration: none;
     margin: 0 10px;
     font-size: 24px;
@@ -61,10 +92,12 @@ footer p {
 }
 
 .foot-link {
-    color: white;
+    color: #3D946E;
 }
 
 .foot-link:hover {
     text-decoration: none;
+    font-weight: 700;
+    color: #EEB533;
 }
 
