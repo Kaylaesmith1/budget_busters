@@ -22,8 +22,8 @@ h2 {
 
 /* Navbar styles */
 .navbar {
-    background-color: lightgray;
     color: white;
+    border: 3px solid #EEB533;
 }
 
 
@@ -59,8 +59,6 @@ h2 {
 
 /* Footer styles */
 footer {
-    background-color: lightgray;
-    /* Example background color */
     color: black;
     /* Example text color */
     padding: 20px;
