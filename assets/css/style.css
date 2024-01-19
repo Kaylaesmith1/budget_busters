@@ -57,9 +57,9 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f0f0f0; 
 }
+
 #cost-value-input{
     display: block;
     margin: 0 auto;/* This will center the element horizontally */
@@ -90,8 +90,14 @@ h3 {
     min-height: 3em;
     background: #EEB533;
 }
+/*display budget input*/
+#update-budget-container{
 
-
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    
+}
 /* Allow buttons to wrap into multiple rows */
 .expense-buttons {
   
@@ -108,6 +114,13 @@ h3 {
     width: 100%;
 }
 
+#luxury-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 .buttons-container{
     display: flex;
     flex-wrap: wrap;
@@ -243,8 +256,11 @@ input {
     border: 3px solid #EEB533;
 
 }
+#update-budget-button{
+    width: 100%;
+}
 
-#cost-value-input {
+#main-input-value {
     width: 300px;
     text-align: center;
 }
