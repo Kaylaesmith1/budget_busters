@@ -1,4 +1,4 @@
-<h3>THIS TEMPLATE IS ONLY TO BE USED ON THE JANUARY HACKATHON PROJECT</h3>
+<h3>THIS TEMPLATE IS ONLY TO BE USED ON THE JANUARY HACKATHON PROJECT Nikola.</h3>
 <h4>Please do not use it for the course project work</h4>
 <br>
 <h1 align="center"><strong>💲💲💲 Budget Busters: New Year, New Numbers 💲💲💲</strong>
