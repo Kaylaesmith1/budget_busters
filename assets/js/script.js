@@ -527,3 +527,49 @@ calendarGrid.addEventListener("click", function (event) {
   hideCalendar();
 });
 
+
+    // SCROLL TO TOP FUNCTION
+    const scrollToTopButton = document.getElementById('scroll-top');
+    const scrollButton = document.getElementById('scroll-button');
+    
+    // Show / hide button at 1000px
+    function toggleScrollToTopButton() {
+      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        scrollToTopButton.style.display = 'block';
+      } else {
+        scrollToTopButton.style.display = 'none';
+      }
+    }
+    
+    // Return to top of page
+    function scrollToTop() {
+      document.body.scrollTop = 0; //Safari
+      document.documentElement.scrollTop = 0; //Other browsers
+    }
+    
+    // EventListener: toggles button visibility when scrolling
+    window.addEventListener('scroll', toggleScrollToTopButton);
+    
+    // EventListener: scroll to top when clicked
+    scrollButton.addEventListener('click', scrollToTop);
+
+
+
+    // TEST DIRECT TO CATEGORY ON HOMEPAGE
+    // Get the element by its class name
+    var elementToHide = document.querySelector('.about-text');
+
+    // Check if the element is found
+    if (elementToHide) {
+        // Set the style property to hide the element
+        elementToHide.style.display = 'none';
+    }
+
+
+    // TESTING
+    function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
