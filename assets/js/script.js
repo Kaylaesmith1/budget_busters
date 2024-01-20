@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
@@ -523,7 +521,9 @@ calendarGrid.addEventListener("click", function (event) {
       closeDataListButton.style.display = 'block'
 
     }
+
   });
   // Initially hide the calendar
   hideCalendar();
 });
+
