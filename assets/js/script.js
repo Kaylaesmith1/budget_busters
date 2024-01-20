@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
+    const dataDisplayList = document.getElementById("data-display-list");
+    const displayDataButton = document.getElementById("display-data-button");
 
     let initialBudget = 0;
 
@@ -117,4 +119,105 @@ document.addEventListener("DOMContentLoaded", function () {
     displayBudget(initialBudget);
 
     document.getElementById("update-budget-button").addEventListener("click", setPlannedBudget);
+
+    function displayAnalyticsData() {
+        let savedData;
+        const storageKey = "expense_tracker_DB";
+        try {
+            savedData = JSON.parse(localStorage.getItem(storageKey)) || [];
+        } catch (error) {
+            console.error("Error parsing existing data:", error);
+            savedData = [];
+        }
+    
+        dataDisplayList.innerHTML = "";
+        const totalSpend = savedData.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
+        const analyticsData = calculateAnalyticsData(savedData, totalSpend);
+        displayAnalyticsList(analyticsData);
+    }
+    
+    function calculateAnalyticsData(data, totalSpend) {
+        const categories = {};
+        const types = {};
+        const remainingBudget = initialBudget - totalSpend;
+
+        data.forEach((entry) => {
+            // Calculate percentage spent
+            const percentage = (entry.expense_value / totalSpend) * 100;
+    
+            // Calculate remaining budget
+    
+            // Update category data
+            if (!categories[entry.expense_category]) {
+                categories[entry.expense_category] = {
+                    total: 0,
+                    percentage: 0,
+                };
+            }
+            categories[entry.expense_category].total += entry.expense_value;
+            categories[entry.expense_category].percentage = percentage;
+    
+            // Update type data
+            if (!types[entry.expense_type]) {
+                types[entry.expense_type] = {
+                    total: 0,
+                    percentage: 0,
+                };
+            }
+            types[entry.expense_type].total += entry.expense_value;
+            types[entry.expense_type].percentage = percentage;
+        });
+    
+        return {
+            categories,
+            types,
+            totalSpend,
+            remainingBudget,
+        };
+    }
+    
+    function displayAnalyticsList(analyticsData) {
+        const categories = analyticsData.categories;
+        const types = analyticsData.types;
+        const totalSpend = analyticsData.totalSpend;
+        const remainingBudget = analyticsData.remainingBudget;
+    
+        // Display category data
+        for (const category in categories) {
+            const categoryData = categories[category];
+            const categoryItem = document.createElement("li");
+            categoryItem.textContent = `${category}, €${categoryData.total.toFixed(2)}, Percentage: ${categoryData.percentage.toFixed(2)}%`;
+            dataDisplayList.appendChild(categoryItem);
+        }
+    
+        // Display type data
+        for (const type in types) {
+            const typeData = types[type];
+            const typeItem = document.createElement("li");
+            typeItem.innerHTML = `<strong>${type}</strong>: Total: €${typeData.total.toFixed(2)}, Percentage: ${typeData.percentage.toFixed(2)}%`;
+            dataDisplayList.appendChild(typeItem);
+        }
+    
+        // Display total spend and remaining budget
+        const totalSpendItem = document.createElement("li");
+        totalSpendItem.textContent = `Total Spent: €${totalSpend.toFixed(2)}`;
+        dataDisplayList.appendChild(totalSpendItem);
+    
+        const remainingBudgetItem = document.createElement("li");
+        remainingBudgetItem.textContent = `Remaining Budget: €${remainingBudget.toFixed(2)}`;
+        dataDisplayList.appendChild(remainingBudgetItem);
+    }
+  // Event listener for the "Analyze Data" button
+  displayDataButton.addEventListener("click", function () {
+    if (dataDisplayList.style.display === "none" || !dataDisplayList.style.display) {
+        // Display data and update button text
+        displayAnalyticsData();
+        dataDisplayList.style.display = "block";
+        displayDataButton.textContent = "Close";
+    } else {
+        // Hide data and update button text
+        dataDisplayList.style.display = "none";
+        displayDataButton.textContent = "Analyze";
+    }
+});
 });
