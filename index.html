@@ -34,8 +34,6 @@
     <!-- <h1>header 1</h1> -->
 
 
-
-
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <a href="/index.html">
@@ -52,15 +50,6 @@
                     <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/diary.html">Diary <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/insights.html">Insights <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/setup.html">Setup</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/about.html">About</a>
                 </li>
                 <li class="nav-item">
@@ -73,27 +62,28 @@
     <main>
 
     <h2>About</h2>
-
-        <section id="display-data">
-            <ul id="data-display-list"></ul>
-            <button id="display-data-button">ANALYSE</button>
-
-        </section>
-        <div id="expense-section">
-        
-         
-            <!-- Elemets to display budget container -->
-         <div id="display-budget-container">
-
-<!-- Text to display planned budget-->
-             <p id="budget-display"></p>
-             <p id="input-animation-value-display" class="fadeout-animation"></p>
-
-<!--Button that add to the budget getting values from amount/type input not styled -->
-             <button id="update-budget-button">UPDATE BUDGET</button>
-         </div>
-            </div>
-
+   <div class="calendar-container">
+  <button id="calendar-icon">&#128197;</button>
+  <div id="calendar" class="calendar-class">
+    <select id="year-select"></select>
+    <select id="month-select">
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    <div id="calendar-grid"></div>
+  </div>
+</div>
+ 
                 <div class="card-container">
                     <div class="card">
                         <h3>Basic Needs</h3>
@@ -113,113 +103,58 @@
                 </div>
             </div>
 
-    <p id="input-animation-value-display" class="fadeout-animation"></p>
-    <div class="input-type" id="main-content-container">
-        <input type="number" id="cost-value-input" placeholder="Enter amount & click type of cost...">
-    </div>
-
-
-
-
-    <div class="expense-buttons" id="luxury-buttons">
-        <div class="card-container">
-            <div class="card">
-                <h3>Luxury</h3>
-                <table>
-                    <tr>
-
-                        <!-- <div class="buttons-container"> -->
-                        <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button>
-                        </td>
-                        <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
-                        <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
-                        <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
-                        <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
-                    </tr>
-                </table>
+            <p id="input-animation-value-display" class="fadeout-animation"></p>
+            <div class="input-type" id="main-content-container">
+                <input type="number" id="cost-value-input"  placeholder="Enter amount & click type of cost...">
             </div>
-        </div>
-
-    </div>
-    <div>
-
-        <section>
-            <h2>About</h2>
-        </section>
-    </div>
-    <div>
-
-        <section>
-            <h2>Contact</h2>
-        </section>
-    </div>
 
 
 
 
-    <!-- </section> -->
+                <div class="expense-buttons" id="luxury-buttons">
+                    <div class="card-container">
+                        <div class="card">
+                            <h3>Luxury</h3>
+                            <table>
+                                <tr>
+
+                                    <!-- <div class="buttons-container"> -->
+                                    <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button></td>
+                                    <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
+                                    <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
+                                    <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
+                                    <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
+                                </tr>
+                                <!-- </div> -->
+                        </div>
+                        </table>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+    </section>
 
 
 
-    <main>
-
-    </main> -->
+    </main>
 
 
 
     <!-- Footer -->
     <footer class="footer">
         <div class="social-links">
-            <a href="https://github.com/Kaylaesmith1/budget_busters/" target="_blank" rel="noopener noreferrer"><i
-                    class="fab fa-github"></i></a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
-                    class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
-                    class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
             <!-- Add more social media links with icons as needed -->
         </div>
         <p>&copy; 2024 Your Website Name</p>
-        <div><a href="#" class="foot-link">Contact Us</a></div>
     </footer>
 
     <script src="assets/js/script.js"></script>
 </body>
 
 </html>
-
-
-<!-- Contact Form
-        <div class="contact-body">
-            <div class="contact-container w-50 mt-5">
-                <form class="contact-form" method="get" action="thankyou.html">
-                    <h2>Contact Us<span style="font-size: 1.5em;"></span></h2>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
-
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-
-                    <div class="file-upload-container">
-                        <label for="file" class="btn btn-outline-light h-50 m-1 search-button">Choose File</label>
-                        <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
-                    </div>
-
-                    <label for="enquiry-type">Enquiry Type:</label>
-                    <select id="enquiry-type" name="enquiry-type" required>
-                        <option value="" disabled selected>Please select</option>
-                        <option value="general">General Enquiry</option>
-                        <option value="advertising">Advertising Enquiry</option>
-                    </select>
-
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
-
-                    <button class="search-button btn btn-outline-light w-100" type="submit">Submit</button>
-                </form>
-            </div>
-        </div> -->

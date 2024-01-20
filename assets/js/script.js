@@ -503,3 +503,5 @@ calendarGrid.addEventListener("click", function (event) {
   // Initially hide the calendar
   hideCalendar();
 });
+
+
