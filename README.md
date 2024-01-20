@@ -52,7 +52,9 @@ One way (perhaps a final solution) would be to build this using Django framework
 ![ColorScheme](/assets/images/jan-hack-color-scheme.png)
 
 ### Typography
+Tienne font from [Google Font](https://fonts.google.com) was used for a clean, easy to read, calm user experience.
 
+![GoogleFont](/assets/images/font-tienne.png)
 
 
 ### Wireframes

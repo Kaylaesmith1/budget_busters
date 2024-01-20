@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Calendar-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 
     <!-- Bootstrap CSS -->
@@ -61,81 +61,86 @@
 
     <main>
 
-    <h2>About</h2>
-   <div class="calendar-container">
-  <button id="calendar-icon">&#128197;</button>
-  <div id="calendar" class="calendar-class">
-    <select id="year-select"></select>
-    <select id="month-select">
-      <option value="0">January</option>
-      <option value="1">February</option>
-      <option value="2">March</option>
-      <option value="3">April</option>
-      <option value="4">May</option>
-      <option value="5">June</option>
-      <option value="6">July</option>
-      <option value="7">August</option>
-      <option value="8">September</option>
-      <option value="9">October</option>
-      <option value="10">November</option>
-      <option value="11">December</option>
-    </select>
-    <div id="calendar-grid"></div>
-  </div>
-</div>
- 
-                <div class="card-container">
-                    <div class="card">
-                        <h3>Basic Needs</h3>
-                        <table>
-                            <tr>
-                                <td><button class="button-text basic-needs-buttons"id="food-button">Food</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="transport-button">Transport</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="education-button">Education</button></td>
-                            </tr>
-                            <tr>
-                                <td><button class="button-text basic-needs-buttons" id="healthcare-button">Healthcare</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="utilities-button">Utilities</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+        <h2>About</h2>
+        <div class="calendar-container">
+            <button id="calendar-icon">&#128197;</button>
+            <div id="calendar" class="calendar-class">
+                <select id="year-select"></select>
+                <select id="month-select">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                </select>
+                <div id="calendar-grid"></div>
             </div>
+        </div>
 
-            <p id="input-animation-value-display" class="fadeout-animation"></p>
-            <div class="input-type" id="main-content-container">
-                <input type="number" id="cost-value-input"  placeholder="Enter amount & click type of cost...">
+        <div class="card-container">
+            <div class="card">
+                <h3>Basic Needs</h3>
+                <table>
+                    <tr>
+                        <td><button class="button-text basic-needs-buttons" id="food-button">Food</button></td>
+                        <td><button class="button-text basic-needs-buttons" id="transport-button">Transport</button>
+                        </td>
+                        <td><button class="button-text basic-needs-buttons" id="education-button">Education</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button class="button-text basic-needs-buttons" id="healthcare-button">Healthcare</button>
+                        </td>
+                        <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button></td>
+                        <td><button class="button-text basic-needs-buttons" id="utilities-button">Utilities</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
+        </div>
+        </div>
+
+        <p id="input-animation-value-display" class="fadeout-animation"></p>
+        <div class="input-type" id="main-content-container">
+            <input type="number" id="cost-value-input" placeholder="Enter amount & click type of cost...">
+        </div>
 
 
 
 
-                <div class="expense-buttons" id="luxury-buttons">
-                    <div class="card-container">
-                        <div class="card">
-                            <h3>Luxury</h3>
-                            <table>
-                                <tr>
+        <div class="expense-buttons" id="luxury-buttons">
+            <div class="card-container">
+                <div class="card">
+                    <h3>Luxury</h3>
+                    <table>
+                        <tr>
 
-                                    <!-- <div class="buttons-container"> -->
-                                    <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button></td>
-                                    <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
-                                    <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
-                                </tr>
-                                <tr>
-                                    <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
-                                    <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
-                                    <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
-                                </tr>
-                                <!-- </div> -->
-                        </div>
-                        </table>
-                    </div>
+                            <!-- <div class="buttons-container"> -->
+                            <td><button class="button-text luxury-buttons"
+                                    id="entertainment-button">Entertainment</button></td>
+                            <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
+                            <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
+                            <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
+                            <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
+                        </tr>
+                        <!-- </div> -->
                 </div>
-            <!-- </div> -->
+                </table>
+            </div>
+        </div>
+        <!-- </div> -->
 
-    </section>
+        </section>
 
 
 
