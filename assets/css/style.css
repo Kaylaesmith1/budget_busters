@@ -290,10 +290,10 @@ input {
 }
 /*animations for expanse and budget inputs*/
 .fadeout-animation {
-    animation: fadeOut 1.5s ease-in-out forwards;
+    animation: fadeOut 1s ease-in-out forwards;
 }
 
 @keyframes fadeOut {
     0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-100%); }
+    100% { opacity: 0; transform: translateY(-200%); }
 }
