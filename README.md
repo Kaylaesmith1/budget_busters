@@ -1,11 +1,9 @@
-<h3>THIS TEMPLATE IS ONLY TO BE USED ON THE JANUARY HACKATHON PROJECT</h3>
-<h4>Please do not use it for the course project work</h4>
+
 <br>
-<h1 align="center"><strong>💲💲💲 NAME OF PROJECT WITH ICON 💲💲💲</strong>
+
+![Favicon](assets/images/logo-bolder.png)
 
 </h1>
-
-<img src="https://res.cloudinary.com/djdefbnij/image/upload/v1705314715/Hackathons/Screenshot_2024-01-15_at_10.27.38_rc7lor.png" alt="BudgetBustersBanner" width="1200"/>
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Kaylaesmith1/budget_busters/main)
 ![GitHub contributors](https://img.shields.io/github/contributors/Kaylaesmith1/budget_busters)
@@ -20,26 +18,72 @@ The project is deployed and can be accessed at [http://your-deployed-link.com](h
 ## ✔️ Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
 
-- 💡 The project has a creative design that enhances user-experience
-- 💡 The project is finance related and has a real world use case
-- 💡 The project is Responsive and accessible on different screen sizes
-- 💡 The project is well-planned using GitHub Projects or other issue board
-- 💡 The project has a well documented README based on the provided template.
+💡 The design provides the user with an easy to capture and track financial information. 
+
+💡 Users can monitor and gain insights on how to reach their financial goals. 
+
+💡 The project is responsive to mobile, tablet, laptop, and desktop screensizes.  
+
+💡 The project is well-planned using GitHub Projects.
+
+💡 The project has a well documented README based on the provided template.
 
 # 📮 ABOUT SUBMISSION
 ## Intro
 One or two paragraphs providing an overview of our project
 
-## 🎯Goal
-The goal section provides a concise summary of the main objective or purpose of the project or software described in this README. It addresses the following aspects:
+## 🎯Project Goals
+The overall objective is to provide a low-cost, fully accessible financial tracker and planner that helps users achieve their financial goals.
 
-- ➡️ Problem Statement
-- ➡️ Objective(s)
-- ➡️ Target Audience
-- ➡️ Benefits
+➡️ Problem Statement - As a user I want to be able to easily track my expenditure so that I can achieve my financial goals.
+
+➡️ Objective(s) - The main objective is to provide a low-cost, responsive, fully-accessible financial tracker and planner.
+
+➡️ Target Audience - The target audience are all users who want to track their progress toward their financial goals with smartphones, tablets, laptops, and desktops.
+
+➡️ Benefits - Insights can be gained on spending habits and patterns. Monitoring progress toward reaching your financial goals is easy and accessible. 
+
+While creating this project we were mindful to future-proof for scalibility.  Google sheets was initially used as a backend - this was chosen as it was felt that this app should really have a way of saving data so that a returning user can enter spending data, in particular, over a period of time.
+
+One way (perhaps a final solution) would be to build this using Django frameworks which support full database and authentication functionality. To reduce deployment complexity, we opted for Google sheets. This has embarked us on a learning curve with Flask (used as the bridge between HTML and Python).
+
+## Design
+### Color Scheme
+![ColorScheme](/assets/images/jan-hack-color-scheme.png)
+
+### Typography
+
+
+
+### Wireframes
+
+#### Financial Goals Page
+
+![Wireframes](assets/images/wf1-goals.png)
+
+#### Spending Diary Page
+
+![Spending Diary](/assets/images/wf2-spending-diary.png)
+
+#### Insights Page
+
+![Insights](/assets/images/wf3-insights.png)
+
+#### Settings Page 
+
+![Settings](/assets/images/wf4-settings.png)
+
+#### About Page
+![About](/assets/images/wf5-about.png)
+
+
 
 ## 💻 Tech Stack
-In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
+- CSS
+- JavaScript
+- Python
+- Flask
+- Google Sheets
 
 ## 🙌 Credits
 The team consisted of: Kaylae Smith (scrum master), Deidre McCarthy, Nikola Simic and Caylin Dewey.
@@ -48,23 +92,27 @@ The team consisted of: Kaylae Smith (scrum master), Deidre McCarthy, Nikola Simi
 
 - [Git](https://git-scm.com/) - For version control.
 
-- [GitHub](https://github.com/) - To save and store the files for the website. GitHub projects was also utilised to plan and track tickets.
+- [GitHub](https://github.com/) - To save, store, and deploy files.  GitHub projects was used on a Kanban board to track tickets.
 
-- [) - API used to enable searching of recipes
+- [Google Cloud Console](https://console.cloud.google.com/) - An API was used to provide a database for this project.
 
-- [Bootstrap](https://getbootstrap.com/) - Version 5.3. A CSS framework to develop responsive and mobile first websites.
+- [Bootstrap](https://getbootstrap.com/) - For a CSS framework enabling responsive and mobile first websites.
+
+- [Logo](http://brandcrowd.com/) - For the logo.
+
+- [Coolers](http://coolers.com/) - The JanHack Color Scheme was used. 
+
+- [Font](https://fontawesome.com/) - Was used to source the favicon.
 
 - [Google Fonts](https://fonts.google.com/) - To import the fonts used on the website.
 
-- [Font Awesome](https://fontawesome.com/) - Version 6.5.1 Used for some iconography on the website.
+- [Balsamic](https://balsamiq.com/) - To create wireframes.
 
 - [Google Dev Tools](https://developer.chrome.com/docs/devtools/) - To ensure responsiveness and styling.
 
-- [Favicon.io](https://favicon.io/) To create favicon.
+- [Am I Responsive?](http://ami.responsivedesign.is/) - To display image on range of devices.
 
-- [Am I Responsive?](http://ami.responsivedesign.is/) To display image on range of devices.
-
-- [Shields.io](https://shields.io/) To use badges for the README file
+- [Shields.io](https://shields.io/) - To use badges for the README file
 
 - [ChatGPT](https://chat.openai.com/) - To format and check code, spelling and grammar.
 
