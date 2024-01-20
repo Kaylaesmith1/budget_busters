@@ -2,8 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
     const dataDisplayList = document.getElementById("data-display-list");
-    const displayDataButton = document.getElementById("display-data-button");
+    const dataDisplayForDateList = document.getElementById("data-display-for-date-list");
+    const dataTitle = document.getElementById("data-analytics-title");
+    const displayDataButton = document.getElementById("display-data-button"); 
+    const closeDataListButton = document.getElementById('close-data-for-date-button')
 
+
+    const calendarIcon = document.getElementById("calendar-icon");
+    const calendar = document.getElementById("calendar");
+    const yearSelect = document.getElementById("year-select");
+    const monthSelect = document.getElementById("month-select");
+    const calendarGrid = document.getElementById("calendar-grid");
+  
     let initialBudget = 0;
 
     function addButtonClickListeners(category, type) {
@@ -207,16 +217,289 @@ document.addEventListener("DOMContentLoaded", function () {
         dataDisplayList.appendChild(remainingBudgetItem);
     }
   // Event listener for the "Analyze Data" button
+  let isDataListDisplayed = false;
+
+  // Event listener for the "ANALYSE" button
   displayDataButton.addEventListener("click", function () {
-    if (dataDisplayList.style.display === "none" || !dataDisplayList.style.display) {
-        // Display data and update button text
-        displayAnalyticsData();
-        dataDisplayList.style.display = "block";
-        displayDataButton.textContent = "Close";
-    } else {
-        // Hide data and update button text
-        dataDisplayList.style.display = "none";
-        displayDataButton.textContent = "Analyze";
+      if (isDataListDisplayed) {
+          // Hide data and update button text
+          dataDisplayList.style.display = "none";
+          displayDataButton.textContent = "ANALYSE";
+          isDataListDisplayed = false;
+      } else {
+          // Display data and update button text
+          displayAnalyticsData(); // Display analytics for the selected day
+          dataDisplayList.style.display = "block";
+          displayDataButton.textContent = "Close";
+          isDataListDisplayed = true;
+      }
+  });
+    // Event listener for the "ANALYSE" button
+    closeDataListButton.addEventListener("click", function () {
+        dataDisplayForDateList.style.display = 'none'
+        closeDataListButton.style.display = 'none'
+    });
+
+
+function toggleCalendar() {
+    const calendar = document.getElementById("calendar");
+    calendar.style.display = calendar.style.display === "none" ? "block" : "none";
+    if (calendar.style.display === "block") {
+        renderCalendar();
     }
-});
+}
+
+function renderCalendar() {
+    const calendar = document.getElementById("calendar");
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+
+    const monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+    ];
+
+    // Clear previous content
+    calendar.innerHTML = "";
+
+    // Render header
+    const header = document.createElement("div");
+    header.className = "calendar-header";
+    header.textContent = `${monthNames[month]} ${year}`;
+    calendar.appendChild(header);
+
+    // Render days
+    const daysContainer = document.createElement("div");
+    daysContainer.className = "calendar-days";
+
+    // Create an array to hold the days of the week
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    // Render day names
+    for (let dayName of daysOfWeek) {
+        const dayElement = document.createElement("div");
+        dayElement.className = "calendar-day";
+        dayElement.textContent = dayName;
+        daysContainer.appendChild(dayElement);
+    }
+
+    // Render blank spaces for the first days
+    for (let i = 0; i < firstDay; i++) {
+        const dayElement = document.createElement("div");
+        dayElement.className = "calendar-day";
+        daysContainer.appendChild(dayElement);
+    }
+
+    // Render days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayElement = document.createElement("div");
+        dayElement.className = "calendar-day";
+        dayElement.textContent = day;
+        dayElement.addEventListener("click", () => onDayClick(year, month, day));
+        daysContainer.appendChild(dayElement);
+    }
+
+    calendar.appendChild(daysContainer);
+}
+
+function onDayClick(year, month, day) {
+    // You can implement logic to display costs for the selected date here
+    alert(`Selected date: ${month + 1}/${day}/${year}`);
+}
+
+
+
+  let selectedYear = new Date().getFullYear();
+  let selectedMonth = new Date().getMonth();
+
+  function updateCalendar() {
+    // Clear previous calendar
+    calendarGrid.innerHTML = "";
+
+    // Set the year and month in the selects
+    yearSelect.value = selectedYear;
+    monthSelect.value = selectedMonth;
+
+    // Get the first day of the month
+    const firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
+
+    // Get the last day of the month
+    const lastDay = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+
+    // Create header row
+    const headerRow = document.createElement("div");
+    headerRow.classList.add("calendar-row");
+
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    for (const day of daysOfWeek) {
+      const dayCell = document.createElement("div");
+      dayCell.classList.add("calendar-cell");
+      dayCell.textContent = day;
+      headerRow.appendChild(dayCell);
+    }
+
+    calendarGrid.appendChild(headerRow);
+
+    // Create calendar days
+    let dayCounter = 1;
+    for (let i = 0; i < 6; i++) {
+      const calendarRow = document.createElement("div");
+      calendarRow.classList.add("calendar-row");
+
+      for (let j = 0; j < 7; j++) {
+        const calendarCell = document.createElement("div");
+        calendarCell.classList.add("calendar-cell");
+
+        if (i === 0 && j < firstDay) {
+          // Empty cells before the first day
+          calendarCell.classList.add("empty-cell");
+        } else if (dayCounter <= lastDay) {
+          // Cells with days
+          calendarCell.textContent = dayCounter;
+          calendarCell.addEventListener("click", () => {
+            // Handle day click (you can implement cost display logic here)
+            console.log(`Clicked on ${selectedYear}-${selectedMonth + 1}-${dayCounter}`);
+          });
+          dayCounter++;
+        }
+
+        calendarRow.appendChild(calendarCell);
+      }
+
+      calendarGrid.appendChild(calendarRow);
+
+      if (dayCounter > lastDay) {
+        // Stop creating rows if we've displayed all days
+        break;
+      }
+    }
+  }
+
+  function updateYearAndMonth() {
+    selectedYear = parseInt(yearSelect.value);
+    selectedMonth = parseInt(monthSelect.value);
+    updateCalendar();
+  }
+
+  function initYearSelect() {
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear - 5; year <= currentYear + 5; year++) {
+      const option = document.createElement("option");
+      option.value = year;
+      option.textContent = year;
+      yearSelect.appendChild(option);
+    }
+  }
+
+  function showCalendar() {
+    calendar.style.display = "block";
+    updateCalendar();
+  }
+
+  function hideCalendar() {
+    calendar.style.display = "none";
+  }
+
+  // Initialize year select options
+  initYearSelect();
+
+  // Event listeners
+  calendarIcon.addEventListener("click", showCalendar);
+  yearSelect.addEventListener("change", updateYearAndMonth);
+  monthSelect.addEventListener("change", updateYearAndMonth);
+  function getLocalStorageData(storageKey) {
+    let savedData;
+    try {
+        const storedData = localStorage.getItem(storageKey);
+        savedData = storedData ? JSON.parse(storedData) : [];
+    } catch (error) {
+        console.error("Error parsing existing data:", error);
+        savedData = [];
+    }
+    console.log("Retrieved Data:", savedData);
+    return savedData;
+}
+  
+  function handleDayClick(day) {
+    // Log the selected day, month, and year
+    console.log(`Selected Date: ${selectedYear}-${selectedMonth + 1}-${day}`);
+
+    // Check local storage for expenses on the selected date
+    const selectedDate = new Date(selectedYear, selectedMonth, day).toLocaleDateString();
+    const savedData = getLocalStorageData("expense_tracker_DB");
+
+    const expensesForSelectedDate = savedData.filter(entry => entry.expense_date === selectedDate);
+
+    if (expensesForSelectedDate.length > 0) {
+        // If there are expenses for the selected date, display analytics data
+        calculateDateSpecificAnalyticsData(expensesForSelectedDate, selectedDate);
+    } else {
+        // If there are no expenses for the selected date, you can handle it accordingly
+        console.log("No expenses for the selected date.");
+    }
+}
+
+function calculateDateSpecificAnalyticsData(expensesForSelectedDate, selectedDate) {
+    dataDisplayForDateList.innerHTML = "";
+    const totalSpend = expensesForSelectedDate.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
+    const analyticsData = calculateAnalyticsData(expensesForSelectedDate, totalSpend);
+    displayAnalyticsListForDate(analyticsData, selectedDate);
+}
+
+function displayAnalyticsListForDate(analyticsData, selectedDate) {
+    const categories = analyticsData.categories;
+    const types = analyticsData.types;
+    const totalSpend = analyticsData.totalSpend;
+    const remainingBudget = analyticsData.remainingBudget;
+
+    // Display selected date and time
+    const selectedDateItem = document.createElement("li");
+    dataTitle.innerHTML = `<strong>Expenses for Date:</strong> ${selectedDate}`;
+    dataDisplayForDateList.appendChild(selectedDateItem);
+
+    // Display category data
+    for (const category in categories) {
+        const categoryData = categories[category];
+        const categoryItem = document.createElement("li");
+        categoryItem.innerHTML = `<strong>${category}</strong>, €${categoryData.total.toFixed(2)}, Percentage: ${categoryData.percentage.toFixed(2)}%`;
+        dataDisplayForDateList.appendChild(categoryItem);
+    }
+
+    // Display type data
+    for (const type in types) {
+        const typeData = types[type];
+        const typeItem = document.createElement("li");
+        typeItem.innerHTML = `<strong>${type}</strong>: Total: €${typeData.total.toFixed(2)}, Percentage: ${typeData.percentage.toFixed(2)}%`;
+        dataDisplayForDateList.appendChild(typeItem);
+    }
+
+    // Display total spend and remaining budget
+    const totalSpendItem = document.createElement("li");
+    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> €${totalSpend.toFixed(2)}`;
+    dataDisplayForDateList.appendChild(totalSpendItem);
+
+    const remainingBudgetItem = document.createElement("li");
+    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> €${remainingBudget.toFixed(2)}`;
+    dataDisplayForDateList.appendChild(remainingBudgetItem);
+}
+// Event listener for day clicks
+calendarGrid.addEventListener("click", function (event) {
+    const clickedCell = event.target;
+    const day = parseInt(clickedCell.textContent);
+  
+    if (!isNaN(day)) {
+      handleDayClick(day);
+      hideCalendar();
+      displayDataButton.style.display = 'none'
+      closeDataListButton.style.display = 'block'
+    }
+  });
+  // Initially hide the calendar
+  hideCalendar();
 });

@@ -11,6 +11,10 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!--Calendar-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -56,10 +60,33 @@
     </nav>
 
     <h2>About</h2>
-
+   <div class="calendar-container">
+  <button id="calendar-icon">&#128197;</button>
+  <div id="calendar" class="calendar-class">
+    <select id="year-select"></select>
+    <select id="month-select">
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    <div id="calendar-grid"></div>
+  </div>
+</div>
         <section id="display-data">
+            <h3 id="data-analytics-title"></h3>
             <ul id="data-display-list"></ul>
+            <ul id="data-display-for-date-list"></ul>
             <button id="display-data-button">ANALYSE</button>
+            <button id="close-data-for-date-button">CLOSE</button>
 
         </section>
         <div id="expense-section">

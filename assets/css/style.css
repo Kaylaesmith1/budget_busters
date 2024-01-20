@@ -292,7 +292,45 @@ input {
 .fadeout-animation {
     animation: fadeOut 1s ease-in-out forwards;
 }
-
+/*calendar styles*/
+.calendar-container {
+    position: relative;
+    z-index: 5;
+  }
+  
+  #calendar {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  #year-select,
+  #month-select {
+    margin-bottom: 10px;
+  }
+  
+  .calendar-row {
+    display: flex;
+  }
+  
+  .calendar-cell {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .empty-cell {
+    background-color: #eee;
+  }
+/*calendar data button*/
+#close-data-for-date-button{
+    display: none;
+}
 @keyframes fadeOut {
     0% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-200%); }
