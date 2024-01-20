@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
@@ -236,8 +238,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
     // Event listener for the "ANALYSE" button
     closeDataListButton.addEventListener("click", function () {
-        dataDisplayForDateList.style.display = 'none'
+       dataDisplayForDateList.style.display = 'none'
         closeDataListButton.style.display = 'none'
+        dataTitle.style.display = 'none'
+
     });
 
 
@@ -248,6 +252,7 @@ function toggleCalendar() {
         renderCalendar();
     }
 }
+
 
 function renderCalendar() {
     const calendar = document.getElementById("calendar");
@@ -498,10 +503,10 @@ calendarGrid.addEventListener("click", function (event) {
       hideCalendar();
       displayDataButton.style.display = 'none'
       closeDataListButton.style.display = 'block'
+      dataDisplayForDateList.style.display = 'block'
+
     }
   });
   // Initially hide the calendar
   hideCalendar();
 });
-
-
