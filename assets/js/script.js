@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const budgetDisplay = document.getElementById("budget-display");
     const dataDisplayList = document.getElementById("data-display-list");
     const dataDisplayForDateList = document.getElementById("data-display-for-date-list");
+    const closeDataDateContainer = document.getElementById("display-data-inner-conatiner");
     const dataTitle = document.getElementById("data-analytics-title");
     const displayDataButton = document.getElementById("display-data-button"); 
     const closeDataListButton = document.getElementById('close-data-for-date-button')
@@ -236,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (isDataListDisplayed) {
           // Hide data and update button text
           dataDisplayList.style.display = "none";
-          displayDataButton.textContent = "ANALYSE";
+          displayDataButton.textContent = "ANALYSE EXPENSES";
           isDataListDisplayed = false;
       } else {
           // Display data and update button text
@@ -244,15 +245,44 @@ document.addEventListener("DOMContentLoaded", function () {
           dataDisplayList.style.display = "block";
           displayDataButton.textContent = "Close";
           isDataListDisplayed = true;
+
       }
   });
-    // Event listener for the "ANALYSE" button
-    closeDataListButton.addEventListener("click", function () {
-       dataDisplayForDateList.style.display = 'none'
-        closeDataListButton.style.display = 'none'
-        dataTitle.style.display = 'none'
+  
+closeDataListButton.addEventListener("click", function () {
+    console.log("Button clicked. Performing actions:");
 
-    });
+    // Check and log the current state of closeDataDateContainer
+    console.log("closeDataDateContainer display style:", closeDataDateContainer.style.display);
+
+    // Check and log the current state of closeDataListButton
+    console.log("closeDataListButton display style:", closeDataListButton.style.display);
+
+    // Check and log the current state of dataTitle
+    console.log("dataTitle display style:", dataTitle.style.display);
+
+    // Check and log the current state of displayDataButton
+    console.log("displayDataButton display style:", displayDataButton.style.display);
+
+    // Perform actions
+    console.log("Hiding closeDataDateContainer");
+    closeDataDateContainer.style.display = 'none';
+
+    console.log("Hiding closeDataListButton");
+    closeDataListButton.style.display = 'none';
+
+    console.log("Hiding dataTitle");
+    dataTitle.style.display = 'none';
+
+    console.log("Displaying displayDataButton");
+    displayDataButton.style.display = 'block';
+
+    // Log the updated state after the actions
+    console.log("Updated closeDataDateContainer display style:", closeDataDateContainer.style.display);
+    console.log("Updated closeDataListButton display style:", closeDataListButton.style.display);
+    console.log("Updated dataTitle display style:", dataTitle.style.display);
+    console.log("Updated displayDataButton display style:", displayDataButton.style.display);
+});
 
 
 function toggleCalendar() {
@@ -519,6 +549,7 @@ calendarGrid.addEventListener("click", function (event) {
       hideCalendar();
       displayDataButton.style.display = 'none'
       closeDataListButton.style.display = 'block'
+      closeDataDateContainer.style.display = 'block'
 
     }
 
