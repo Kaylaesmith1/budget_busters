@@ -200,31 +200,37 @@ document.addEventListener("DOMContentLoaded", function () {
         const totalSpend = analyticsData.totalSpend;
         const remainingBudget = analyticsData.remainingBudget;
     
-        // Display category data
-        for (const category in categories) {
-            const categoryData = categories[category];
-            const categoryItem = document.createElement("li");
-            categoryItem.innerHTML = `<strong>${category}</strong>, €${categoryData.total.toFixed(2)}, Percentage: ${categoryData.percentage.toFixed(2)}%`;
-            dataDisplayList.appendChild(categoryItem);
-        }
-    
-        // Display type data
-        for (const type in types) {
-            const typeData = types[type];
-            const typeItem = document.createElement("li");
-            typeItem.innerHTML = `<strong>${type}</strong>: Total: €${typeData.total.toFixed(2)}, Percentage: ${typeData.percentage.toFixed(2)}%`;
-            dataDisplayList.appendChild(typeItem);
-        }
-    
-        // Display total spend and remaining budget
-        const totalSpendItem = document.createElement("li");
-        totalSpendItem.innerHTML = `<strong>Total Spent:</strong> €${totalSpend.toFixed(2)}`;        dataDisplayList.appendChild(totalSpendItem);
-    
-        const remainingBudgetItem = document.createElement("li");
-        remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> €${remainingBudget.toFixed(2)}`;
-        dataDisplayList.appendChild(remainingBudgetItem);
+         // Display category data
+    for (const category in categories) {
+        const categoryData = categories[category];
+        const categoryItem = document.createElement("li");
+        categoryItem.innerHTML = `<strong>${category}</strong>, 
+            Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">€${categoryData.total.toFixed(2)}</span>, 
+            Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
+        dataDisplayList.appendChild(categoryItem);
     }
-  // Event listener for the "Analyze Data" button
+
+    // Display type data
+    for (const type in types) {
+        const typeData = types[type];
+        const typeItem = document.createElement("li");
+        typeItem.innerHTML = `<strong>${type}</strong>: 
+            Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">€${typeData.total.toFixed(2)}</span>, 
+            Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
+        dataDisplayList.appendChild(typeItem);
+    }
+
+    // Display total spend and remaining budget
+    const totalSpendItem = document.createElement("li");
+    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
+        <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">€${totalSpend.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(totalSpendItem);
+
+    const remainingBudgetItem = document.createElement("li");
+    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
+        <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(remainingBudgetItem);
+}
   let isDataListDisplayed = false;
 
   // Event listener for the "ANALYSE" button
@@ -474,30 +480,36 @@ function displayAnalyticsListForDate(analyticsData, selectedDate) {
     dataTitle.innerHTML = `<strong>Expenses for Date:</strong> ${selectedDate}`;
     dataDisplayForDateList.appendChild(selectedDateItem);
 
-    // Display category data
-    for (const category in categories) {
-        const categoryData = categories[category];
-        const categoryItem = document.createElement("li");
-        categoryItem.innerHTML = `<strong>${category}</strong>, ${categoryData.total.toFixed(2)} , Percentage: ${categoryData.percentage.toFixed(2)}%`;
-        dataDisplayForDateList.appendChild(categoryItem);
-    }
+  // Display category data
+  for (const category in categories) {
+    const categoryData = categories[category];
+    const categoryItem = document.createElement("li");
+    categoryItem.innerHTML = `<strong>${category}</strong>, 
+        Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">${categoryData.total.toFixed(2)} €</span>, 
+        Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
+    dataDisplayForDateList.appendChild(categoryItem);
+}
 
-    // Display type data
-    for (const type in types) {
-        const typeData = types[type];
-        const typeItem = document.createElement("li");
-        typeItem.innerHTML = `<strong>${type}</strong>: Total: ${typeData.total.toFixed(2)} €, Percentage: ${typeData.percentage.toFixed(2)}%`;
-        dataDisplayForDateList.appendChild(typeItem);
-    }
+// Display type data
+for (const type in types) {
+    const typeData = types[type];
+    const typeItem = document.createElement("li");
+    typeItem.innerHTML = `<strong>${type}</strong>: 
+        Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">${typeData.total.toFixed(2)} €</span>, 
+        Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
+    dataDisplayForDateList.appendChild(typeItem);
+}
 
-    // Display total spend and remaining budget
-    const totalSpendItem = document.createElement("li");
-    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> ${totalSpend.toFixed(2)} €`;
-    dataDisplayForDateList.appendChild(totalSpendItem);
+// Display total spend and remaining budget
+const totalSpendItem = document.createElement("li");
+totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
+    <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">${totalSpend.toFixed(2)} €</span>`;
+dataDisplayForDateList.appendChild(totalSpendItem);
 
-    const remainingBudgetItem = document.createElement("li");
-    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> ${remainingBudget.toFixed(2)} €`;
-    dataDisplayForDateList.appendChild(remainingBudgetItem);
+const remainingBudgetItem = document.createElement("li");
+remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
+    <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">${remainingBudget.toFixed(2)} €</span>`;
+dataDisplayForDateList.appendChild(remainingBudgetItem);
 }
 // Event listener for day clicks
 calendarGrid.addEventListener("click", function (event) {
