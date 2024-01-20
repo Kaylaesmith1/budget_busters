@@ -298,8 +298,9 @@ input {
     z-index: 5;
     
   }
+
+
   #calendar {
-    display: none;
     position: absolute;
     top: 35px;
     left: 0;
