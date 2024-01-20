@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (const category in categories) {
             const categoryData = categories[category];
             const categoryItem = document.createElement("li");
-            categoryItem.textContent = `${category}, €${categoryData.total.toFixed(2)}, Percentage: ${categoryData.percentage.toFixed(2)}%`;
+            categoryItem.innerHTML = `<strong>${category}</strong>, €${categoryData.total.toFixed(2)}, Percentage: ${categoryData.percentage.toFixed(2)}%`;
             dataDisplayList.appendChild(categoryItem);
         }
     
@@ -200,11 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
     
         // Display total spend and remaining budget
         const totalSpendItem = document.createElement("li");
-        totalSpendItem.textContent = `Total Spent: €${totalSpend.toFixed(2)}`;
-        dataDisplayList.appendChild(totalSpendItem);
+        totalSpendItem.innerHTML = `<strong>Total Spent:</strong> €${totalSpend.toFixed(2)}`;        dataDisplayList.appendChild(totalSpendItem);
     
         const remainingBudgetItem = document.createElement("li");
-        remainingBudgetItem.textContent = `Remaining Budget: €${remainingBudget.toFixed(2)}`;
+        remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> €${remainingBudget.toFixed(2)}`;
         dataDisplayList.appendChild(remainingBudgetItem);
     }
   // Event listener for the "Analyze Data" button
