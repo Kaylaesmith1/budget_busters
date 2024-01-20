@@ -23,6 +23,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 TEMPLATE_DIR = os.path.abspath('templates')
 STATIC_DIR = os.path.abspath('../static')
 
+
 #Utility functions for messaging
 def print_message(text_string):
     """
@@ -60,47 +61,59 @@ def return_record(worksheet, row_num):
     return record_data
 
 
-def list_worksheet(worksheet, row_num):
+def list_worksheet(worksheet, row_num, user):
     """
     This is a utility function to print all data from a given worksheet.
-    If @row = 0 then list all rows,
-    else list heading plus specific row only
+    If @row>0 list heading plus specific row only
+    else (@row = 0)
+      if @user is "" then list all rows,
+      else list heading plus only rows that are linked to this user
     """
     if (row_num > 0):
+        # get first (titles) row and row that was specifically requested
         all_data = [get_worksheet(worksheet)[0],
                     get_worksheet(worksheet)[row_num]]
     else:
         all_data = get_worksheet(worksheet)
-    print_cols = []
-    if worksheet == "user_spend":
-        all_data[0] = ["spend_id", "spend_username", "spend_cat", "spend_cat_name", "spend_amt", "spend_date", "spend_YYMM",]
-        for data in all_data:
-            print_cols.append([data[0], data[1], data[2],
-                              data[3], data[4], data[5], data[6]])
-        all_data = print_cols
-    elif worksheet == "user_config":
-        all_data[0] = ["username", "budget", "basic_cat1", "basic_cat2","basic_cat3", 
-                       "basic_cat4", "basic_cat5", "basic_cat6","basic_cat7","basic_cat8",
-                       "lux_cat1", "lux_cat2", "lux_cat3","lux_cat4","lux_cat5","lux_cat6", 
-                       "lux_cat7", "lux_cat8"]
-                       
-        for data in all_data:
-            print_cols.append([data[0], data[1], data[2],
-                               data[3], data[4], data[5], 
-                               data[6], data[7], data[8], 
-                               data[9], data[10], data[11],
-                               data[12], data[13], data[14], 
-                               data[15], data[16], data[17]])
-        all_data = print_cols
-    elif worksheet == "user_goals":
-        all_data[0] = ["goal_user", "goal_seq", "goal_title", 
-                       "goal_start_value","goal_end_value","goal_start_month",
-                       "goal_end_month","goal_achieved","goal_notes"]
-        for data in all_data:
-            print_cols.append([data[0], data[1], data[2],
-                               data[3], data[4], data[5], 
-                               data[6], data[7], data[8]])
-        all_data = print_cols
+        print_cols = []
+        if worksheet == "user_spend":
+            all_data[0] = ["spend_id", "spend_username", "spend_cat", "spend_cat_name", "spend_amt", "spend_date", "spend_YYMM",]
+            for data in all_data:
+                #  if the search is for all records regardless of user, or if the username 
+                #  is found in 2nd column then include this record 
+                if user=="" or user==data[1]:
+                    print_cols.append([data[0], data[1], data[2],
+                                data[3], data[4], data[5], data[6]])
+            all_data = print_cols
+        elif worksheet == "user_config":
+            all_data[0] = ["username", "budget", "basic_cat1", "basic_cat2","basic_cat3", 
+                        "basic_cat4", "basic_cat5", "basic_cat6","basic_cat7","basic_cat8",
+                        "lux_cat1", "lux_cat2", "lux_cat3","lux_cat4","lux_cat5","lux_cat6", 
+                        "lux_cat7", "lux_cat8"]
+                        
+            for data in all_data:
+                #  if the search is for all records regardless of user, or if the username 
+                #  is found in 1st column then include this record 
+                if user=="" or user==data[0]:
+                    print_cols.append([data[0], data[1], data[2],
+                                    data[3], data[4], data[5], 
+                                    data[6], data[7], data[8], 
+                                    data[9], data[10], data[11],
+                                    data[12], data[13], data[14], 
+                                    data[15], data[16], data[17]])
+            all_data = print_cols
+        elif worksheet == "user_goals":
+            all_data[0] = ["goal_user", "goal_seq", "goal_title", 
+                        "goal_start_value","goal_end_value","goal_start_month",
+                        "goal_end_month","goal_achieved","goal_notes"]
+            for data in all_data:
+                #  if the search is for all records regardless of user, or if the username 
+                #  is found in 1st column then include this record 
+                if user=="" or user==data[1]:
+                    print_cols.append([data[0], data[1], data[2],
+                                    data[3], data[4], data[5], 
+                                    data[6], data[7], data[8]])
+            all_data = print_cols
     table1 = tabulate(all_data, headers='firstrow', tablefmt='fancy_grid')
     print(table1)
     return all_data
@@ -127,7 +140,7 @@ def find_records(worksheet, username):
                                  'black', 'on_white')).upper()
         if (disp_all == 'N'):
             return False
-    list_worksheet("repairs", row_num)
+    list_worksheet("repairs", row_num, "")
     print("")
     input(colored("Press ENTER key to return to main menu....",
                   'black', 'on_white'))
@@ -203,12 +216,12 @@ app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
     # template_folder and sttaic_folder hange the default folders for the
     # templates and static files used by the render function
 
-list_worksheet("user_spend", 2)
+list_worksheet("user_spend", 2, "fred")
 # list_worksheet("user_config", 1) throwing index out of range error
-list_worksheet("user_goals", 0) 
+list_worksheet("user_goals", 0, "") 
 
 # start off by showing the 'default user' config
-config_data = list_worksheet("user_config", 1)
+config_data = list_worksheet("user_config", 1, "default")
 print(f'Default user config is:', config_data )
 
 @app.route('/')
@@ -218,9 +231,9 @@ def index():
 @app.route('/show_user_data/', methods=['POST']) 
 def show_user_data(): 
     # call your Python function here 
-    user_goals = get_worksheet("user_goals") 
-    user_spend = get_worksheet("user_spend")
-    user_config = list_worksheet("user_config", 1)
+    user_goals = list_worksheet("user_goals", 0, "fred") 
+    user_spend = list_worksheet("user_spend", 0, "fred")
+    user_config = list_worksheet("user_config", 1, "default")
 
     return render_template('index_gs.html', user_goals=user_goals, user_spend=user_spend, user_config=user_config)
 
