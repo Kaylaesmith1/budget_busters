@@ -15,7 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearSelect = document.getElementById("year-select");
     const monthSelect = document.getElementById("month-select");
     const calendarGrid = document.getElementById("calendar-grid");
-  
+    const calendarCheckbox = document.getElementById('calendar-checkbox');
+
+
+  calendarIcon.addEventListener('click', () => {
+    calendarCheckbox.checked = !calendarCheckbox.checked;
+    calendar.classList.toggle('active', calendarCheckbox.checked);
+  });
     let initialBudget = 0;
 
     function addButtonClickListeners(category, type) {
@@ -472,7 +478,7 @@ function displayAnalyticsListForDate(analyticsData, selectedDate) {
     for (const category in categories) {
         const categoryData = categories[category];
         const categoryItem = document.createElement("li");
-        categoryItem.innerHTML = `<strong>${category}</strong>, €${categoryData.total.toFixed(2)}, Percentage: ${categoryData.percentage.toFixed(2)}%`;
+        categoryItem.innerHTML = `<strong>${category}</strong>, ${categoryData.total.toFixed(2)} , Percentage: ${categoryData.percentage.toFixed(2)}%`;
         dataDisplayForDateList.appendChild(categoryItem);
     }
 
@@ -480,17 +486,17 @@ function displayAnalyticsListForDate(analyticsData, selectedDate) {
     for (const type in types) {
         const typeData = types[type];
         const typeItem = document.createElement("li");
-        typeItem.innerHTML = `<strong>${type}</strong>: Total: €${typeData.total.toFixed(2)}, Percentage: ${typeData.percentage.toFixed(2)}%`;
+        typeItem.innerHTML = `<strong>${type}</strong>: Total: ${typeData.total.toFixed(2)} €, Percentage: ${typeData.percentage.toFixed(2)}%`;
         dataDisplayForDateList.appendChild(typeItem);
     }
 
     // Display total spend and remaining budget
     const totalSpendItem = document.createElement("li");
-    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> €${totalSpend.toFixed(2)}`;
+    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> ${totalSpend.toFixed(2)} €`;
     dataDisplayForDateList.appendChild(totalSpendItem);
 
     const remainingBudgetItem = document.createElement("li");
-    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> €${remainingBudget.toFixed(2)}`;
+    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> ${remainingBudget.toFixed(2)} €`;
     dataDisplayForDateList.appendChild(remainingBudgetItem);
 }
 // Event listener for day clicks
@@ -503,7 +509,6 @@ calendarGrid.addEventListener("click", function (event) {
       hideCalendar();
       displayDataButton.style.display = 'none'
       closeDataListButton.style.display = 'block'
-      dataDisplayForDateList.style.display = 'block'
 
     }
   });
