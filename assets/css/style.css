@@ -265,12 +265,35 @@ input {
     text-align: center;
 }
 
-/*styles top regulet color disp[layed budget*/
+/*styles top regulate color displayed budget*/
 /* Add this style to your CSS file */
 .positive-budget {
-    color: green;
+    color: #3D946E;
 }
 
 .negative-budget {
     color: red;
+}
+
+/*animation for cost?budget number styles*/
+#input-animation-value-display {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    margin-right: 20px;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/*animations for expanse and budget inputs*/
+.fadeout-animation {
+    animation: fadeOut 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-100%); }
 }
