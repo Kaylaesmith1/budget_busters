@@ -59,8 +59,6 @@
         </div>
     </nav>
 
-    <main>
-
     <h2>About</h2>
    <div class="calendar-container">
   <button id="calendar-icon">&#128197;</button>
@@ -83,7 +81,29 @@
     <div id="calendar-grid"></div>
   </div>
 </div>
- 
+        <section id="display-data">
+            <h3 id="data-analytics-title"></h3>
+            <ul id="data-display-list"></ul>
+            <ul id="data-display-for-date-list"></ul>
+            <button id="display-data-button">ANALYSE</button>
+            <button id="close-data-for-date-button">close</button>
+
+        </section>
+        <div id="expense-section">
+        
+         
+            <!-- Elemets to display budget container -->
+         <div id="display-budget-container">
+
+<!-- Text to display planned budget-->
+             <p id="budget-display"></p>
+             <p id="input-animation-value-display" class="fadeout-animation"></p>
+
+<!--Button that add to the budget getting values from amount/type input not styled -->
+             <button id="update-budget-button">UPDATE BUDGET</button>
+         </div>
+            </div>
+
                 <div class="card-container">
                     <div class="card">
                         <h3>Basic Needs</h3>
@@ -138,6 +158,8 @@
     </section>
 
 
+
+    <main>
 
     </main>
 
