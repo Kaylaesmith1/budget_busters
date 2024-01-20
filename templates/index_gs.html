@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    * style.css */ body {
+    background-color: lightblue;
+    /* Example background color */
+}
+
+* {
+    background-color: #F9F0D9;
+    
+}
+
+.active {
+    color: #EEB533 !important;
+    font-weight: 700;
+}
+
+h1,
+h2 {
+    padding: 10px;
+    margin: 0;
+    background-color: #3D946E;
+}
+
+/* Navbar styles */
+.navbar {
+    color: white;
+    border: 3px solid #EEB533;
+}
+
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white;
+    /* Example navbar text color */
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    /* Example color for the toggler icon */
+}
+
+.goals-box, 
+.spending-box, 
+.settings-box,
+.budget-box {
+    padding: 15px;
+    border-radius: 4px;
+    border: 3px solid #3D946E;
+    background-color: #B8F3D9;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+table th, table td {
+    border-width: 3px solid black;
+}
+
+
+
+
+
+/* Footer styles */
+footer {
+    color: black;
+    /* Example text color */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Social media links styles */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #3D946E;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+    /* Adjust the font size as needed */
+}
+
+
+/* Additional styles for the footer paragraph */
+footer p {
+    margin-top: 10px;
+
+    font-size: 14px;
+
+}
+
+.foot-link {
+    color: #3D946E;
+}
+
+.foot-link:hover {
+    text-decoration: none;
+    font-weight: 700;
+    color: #EEB533;
+}
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Busters</title>
+
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap JavaScript and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body>
+    <h1>header 1</h1>
+
+    <body>
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Your Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/goals.html">Goals <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diary.html">Diary <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/insights.html">Insights <span class="sr-only">(current)</span></a>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/setup.html">Setup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <h2>header 2</h2>
+       
+        
+        <div class="goals-box" id="goals-box">
+            <br>
+            <form field = "username" action="{{ url_for('show_user_data') }}" method="post"> 
+                <input type="text" id = "username" placeholder="Username" />
+                <button type="submit">Load My Data</button> 
+            </form> 
+            <br>
+            {% if user_config %}
+                <div class="budget-box"> My Monthly Budget: {{ user_config[1][1] }}</div>
+            {% endif %}
+
+            <br>
+            <h2> Financial Goals:</h2>
+            {% if user_goals %}
+                <table>
+                    <tr>                
+                        {% for goal_heading in user_goals[0] %}
+                        {% endfor %}
+                    </tr>
+                   {% for goal in user_goals %}
+                        {% if goal==user_goals[0] %}
+                            <tr>
+                                {% for goal_field in goal %}
+                                    <th> {{ goal_field }} </th>
+                                {% endfor %}
+                            </tr>
+                        {% else %}    
+                            <tr>    
+                                {% for goal_field in goal %}
+                                    <td>{{ goal_field }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            {% endif %}            
+            <form action="{{ url_for('add_data') }}" method="post"> 
+                <input type="text" id = "add-data" placeholder="" />
+                <button type="submit">Add spend/goal data to GS</button> 
+            </form> 
+            
+        </div>
+
+
+        <div class="spending-box" id="spending-box">
+            <h2>Spending Diary:</h2>
+                {% if user_spend %}
+                <table>
+                    {% for user_record in user_spend %}
+                        {% if user_record==user_spend[0] %}
+                            <tr>
+                                {% for record_field in user_record %}
+                                    <th> {{ record_field }} </th>
+                                {% endfor %}
+                            </tr>
+                        {% else %}    
+                            <tr>    
+                                {% for record_field in user_record %}
+                                    <td>{{ record_field }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            {% endif %}            
+        </div>
+
+        <div class="settings-box" id="settings_box">
+            <h2>Settings:</h2>
+            {% if user_config %}
+            <table>
+                {% for user_record in user_config %}
+                    {% if user_record==user_config[0] %}
+                        <tr>
+                            {% for record_field in user_record %}
+                                <th> {{ record_field }} </th>
+                            {% endfor %}
+                        </tr>
+                    {% else %}    
+                        <tr>    
+                            {% for record_field in user_record %}
+                                <td>{{ record_field }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% endif %}
+            
+        </div>
+
+    </body>
+
+    <main>
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/Kaylaesmith1/budget_busters/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-instagram"></i></a>
+            <!-- Add more social media links with icons as needed -->
+        </div>
+        <p>&copy; 2024 Your Website Name</p>
+        <div><a href="#" class="foot-link">Contact Us</a></div>
+
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
