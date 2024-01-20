@@ -264,3 +264,13 @@ input {
     width: 300px;
     text-align: center;
 }
+
+/*styles top regulet color disp[layed budget*/
+/* Add this style to your CSS file */
+.positive-budget {
+    color: green;
+}
+
+.negative-budget {
+    color: red;
+}

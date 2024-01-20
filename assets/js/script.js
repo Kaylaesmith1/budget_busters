@@ -4,8 +4,7 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
     // Get references to the input fields
-    const costInput = document.getElementById("cost-value-input");
-    const budgetInput = document.getElementById("budget-input");
+    const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
 
     // Initial budget value
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to handle button click events
     function manipulateExpenses(category, type) {
         // Get the entered cost value
-        const costValue = parseFloat(costInput.value);
+        const costValue = parseFloat(costBudgetInput.value);
 
         // Check if the entered value is empty
         if (isNaN(costValue) || costValue <= 0) {
@@ -57,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Subtract the expense amount from the budget
         initialBudget -= costValue;
 
+        // Update and store the current budget in local storage
+        localStorage.setItem("budget", initialBudget);
+
         // Display the updated budget value
         displayBudget(initialBudget);
 
@@ -65,13 +67,25 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(localStorage.getItem(storageKey));
 
         // Clear the input field after saving
-        costInput.value = "";
+        costBudgetInput.value = "";
     }
 
-    // Function to display the budget value
-    function displayBudget(remainingBudget) {
-        budgetDisplay.textContent = `Remaining Budget: $${remainingBudget.toFixed(2)}`;
+ // Function to display the budget value
+function displayBudget(remainingBudget) {
+    const formattedBudget = remainingBudget.toFixed(2);
+    budgetDisplay.textContent = `Remaining Budget: $${formattedBudget}`;
+
+    // Remove existing classes
+    budgetDisplay.classList.remove("positive-budget", "negative-budget");
+
+    // Add class based on the remaining budget
+    if (remainingBudget >= 0) {
+        budgetDisplay.classList.add("positive-budget");
+    } else {
+        budgetDisplay.classList.add("negative-budget");
     }
+}
+
 
     // Function to read initial budget from local storage
     function readInitialBudget() {
@@ -87,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to set the planned budget manually
     function setPlannedBudget() {
-        const plannedBudget = parseFloat(costInput.value);
+        const plannedBudget = parseFloat(costBudgetInput.value);
 
         if (isNaN(plannedBudget) || plannedBudget < 0) {
             console.log("Please enter a valid planned budget.");
@@ -95,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Set the initial budget to the planned budget
-        initialBudget = plannedBudget;
+        initialBudget += plannedBudget;
 
         // Save the initial budget to local storage
         localStorage.setItem("budget", initialBudget);
@@ -104,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
         displayBudget(initialBudget);
 
         // Clear the input field after saving
-        costInput.value = "";
+        costBudgetInput.value = "";
     }
 
     // Example usage:
