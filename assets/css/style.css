@@ -174,7 +174,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: #EEB533;
+    color: #EEB533 !important;
 }
 
 
@@ -235,7 +235,13 @@ h3, .card td {
     margin: 5px 0;
     box-shadow: 4px 4px 10px 0 rgba(38, 40, 40, 0.7);
     border-radius: 15px;
+    border: 2px solid #262828;
     padding: 6px;
+}
+
+.card button:hover {
+    background-color: #85CCAD;
+    /* background-color: #3D946E; */
 }
 
 .button-text {
@@ -251,14 +257,24 @@ h3, .card td {
 
 }
 
-input {
+input, textarea#message {
     padding: 5px;
     border-radius: 3px;
     border: 3px solid #EEB533;
+}
+
+input {
     width: 300px;
+}
+
+textarea {
+    height: 150px;
 }
 #update-budget-button{
     width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 3px solid #EEB533;
 }
 
 #main-input-value {
@@ -270,6 +286,9 @@ input {
 /* Add this style to your CSS file */
 .positive-budget {
     color: #3D946E;
+    font-family: 'Tienne', sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
 }
 
 .negative-budget {
@@ -388,9 +407,45 @@ a#insightsSection,
 a#setupSection {
     color: #212529;
 }
-/* .section {
-    height: 500px;
-    margin-top: 20px;
-    padding: 20px;
-} */
 
+
+/* /* CONTACT US */
+.container {
+    width: 400px;
+    padding: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+form#contact-form {
+    font-family: 'Tienne', sans-serif;
+    font-size: 16px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.submit-button {
+    width: 150px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid #3D946E;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color:#B8F3D9;
+}

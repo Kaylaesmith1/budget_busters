@@ -49,16 +49,7 @@
                     <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link diary" href="#" onclick="scrollToSection('diarySection')">Diary</a></li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="/diary.html">Diary <span class="sr-only">(current)</span></a>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/insights.html">Insights <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSection')">Insights</a></li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="/setup.html">Setup</a>
-                </li> -->
                 <li class="nav-item"><a class="nav-link setup" href="#" onclick="scrollToSection('setupSection')">Setup</a></li>
                 <li class="nav-item"><a class="nav-link about" href="#" onclick="scrollToSection('aboutSection')">About</a></li>
                 <li class="nav-item"><a class="nav-link contact" href="#" onclick="scrollToSection('contactSection')">Contact</a></li>
@@ -67,7 +58,7 @@
         </div>
     </nav>
 
-    <h2>About</h2>
+    <!-- <h2>About</h2> -->
    <div class="calendar-container">
      <!-- Toggle checkbox for the calendar -->
   <input type="checkbox" id="calendar-checkbox">
@@ -92,7 +83,6 @@
       <option value="11">December</option>
     </select>
     <div id="calendar-grid"></div>
-  </div>
 </div>
         <section id="display-data">
 <div id="display-data-inner-conatiner">
@@ -205,39 +195,50 @@ ADD PROPER CONTENT ABOUT THE APP HERE
 
     <div>
 
-        <section class="testKay">
+        <section>
             <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
-            <!-- Contact Form -->
-            <div class="contact-body">
-                <div class="contact-container w-50 mt-5">
-                    <form class="contact-form" method="get" action="thankyou.html">
-                        <!-- <h2>Contact Us<span style="font-size: 1.5em;"></span></h2> -->
+    <!-- TEST CONTACT FORM -->
+    <div class="container">
+        <form id="contact-form">
+            <div class="row">
+                
+            <div class="col-lg-6 col-md-6">
+            <label for="name">First Name:</label>
+            <br >
+            <input type="text" id="fname" name="fname" required>
+        </div>
+        
+        <div class="col-lg-6 col-md-6">
+            <label for="name">Last Name:</label>
+            <br >
+            <input type="text" id="lname" name="lname" required>
+        </div>
+        </div>
+
+        <div class="row">  
+            <div class="col-lg-6 col-md-6">
+            <label for="email">Email:</label>
+            <br >
+            <input type="email" id="email" name="email" required>
+        </div>
+
+            <div class="col-lg-6 col-md-6">
+            <label for="file" >Attachment:</label>
+            <br >
+            <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+        
+    </div>
+</div>
     
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+                <!-- <label for="file" class="btn btn-outline-light h-50 m-1 search-button">Choose File</label>
+                <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png"> -->
+                <br>
     
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-    
-                        <div class="file-upload-container">
-                            <label for="file" class="btn btn-outline-light h-50 m-1 search-button">Choose File</label>
-                            <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
-                        </div>
-    
-                        <label for="enquiry-type">Enquiry Type:</label>
-                        <select id="enquiry-type" name="enquiry-type" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="general">General Enquiry</option>
-                            <option value="advertising">Advertising Enquiry</option>
-                        </select>
-    
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
-    
-                        <button class="search-button btn btn-outline-light w-100" type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
+            <button class="submit-button" type="button" onclick="sendEmail()">Submit</button>
+        </form>
+    </div>
 
         </section>
     </div>
@@ -274,13 +275,18 @@ ADD PROPER CONTENT ABOUT THE APP HERE
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
                     class="fab fa-instagram"></i></a>
-            <!-- Add more social media links with icons as needed -->
         </div>
         <p>&copy; 2024 Your Website Name</p>
-        <!-- <div><a href="#" class="foot-link">Contact Us</a></div> -->
     </footer>
 
+
+
+
     <script src="assets/js/script.js"></script>
+
+    <!-- CONTACT FORM EMAILJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 </body>
 
 </html>

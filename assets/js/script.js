@@ -586,7 +586,7 @@ calendarGrid.addEventListener("click", function (event) {
 
 
 
-    // TEST DIRECT TO CATEGORY ON HOMEPAGE
+    // DIRECT TO CATEGORY ON HOMEPAGE
     // Get the element by its class name
     var elementToHide = document.querySelector('.about-text');
 
@@ -596,11 +596,26 @@ calendarGrid.addEventListener("click", function (event) {
         elementToHide.style.display = 'none';
     }
 
-
-    // TESTING
     function scrollToSection(sectionId) {
         var section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
+
+// CONTACT FORM
+
+emailjs.init("RWaSLQKXIbSTBLpY2");
+
+function sendEmail() {
+    const form = document.getElementById("contact-form");
+    emailjs.sendForm("service_6a8xgnp", "template_1nbot8m", form)
+        .then(function(response) {
+            console.log("Email sent:", response);
+            alert("Thank you! Your message has been sent.");
+        }, function(error) {
+            console.error("Error sending email:", error);
+            alert("Oops! Something went wrong. Please try again later.");
+        });
+}
