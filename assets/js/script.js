@@ -548,18 +548,18 @@ calendarGrid.addEventListener("click", function (event) {
     }
 
 
-    function ToggleDisplayById(displayItemId, displayOn) {
-        let displayItemID = document.getElementById(displayItemId);
-        if displayOn==True {
-            displayItemId.classList.remove('noDisplay');
-            displayItemId.classList.add('yesDisplay');
-        }
-        else  {
-            displayItemId.classList.add('noDisplay');
-            displayItemId.classList.remove('yesDisplay');
-        }
+    // function ToggleDisplayById(displayItemId, displayOn) {
+    //     let displayItemID = document.getElementById(displayItemId);
+    //     if displayOn==True {
+    //         displayItemId.classList.remove('noDisplay');
+    //         displayItemId.classList.add('yesDisplay');
+    //     }
+    //     else  {
+    //         displayItemId.classList.add('noDisplay');
+    //         displayItemId.classList.remove('yesDisplay');
+    //     }
 
 
-        calendar.style.display = "none";
-      }
+    //     calendar.style.display = "none";
+    //   }
 
