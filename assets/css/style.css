@@ -425,6 +425,10 @@ textarea {
     padding: 10px;
 }
 
+input#file {
+    padding: 3px;
+}
+
 .submit-button {
     width: 150px;
     margin: 0 auto;
@@ -471,4 +475,29 @@ textarea {
 
 .contact-section {
     margin-bottom: 80px;
+}
+
+
+/* TESTING CONTACT / SUCCESS MESSAGE */
+.message {
+    width: 100%;
+    position: relative;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.message .success {
+    font-size: 20px;
+    color: green;
+    animation: buttons .3s linear;
+    display: none;
+}
+
+.message .danger {
+    font-size: 20px;
+    color: red;
+    transition: .3s;
+    animation: buttons .3s linear;
+    display: none;
 }
