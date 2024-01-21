@@ -35,7 +35,6 @@ h3 {
 
 .navbar-toggler-icon {
     background-color: white;
-    /* Example color for the toggler icon */
 }
 
 .goals-box {
@@ -90,6 +89,10 @@ h3 {
     align-items: center;
     min-height: 3em;
     background: #EEB533;
+}
+
+button#filter-data-button {
+    margin: 10px 0 15px 20px;
 }
 /*display budget input*/
 #update-budget-container{
@@ -156,7 +159,6 @@ footer {
     text-decoration: none;
     margin: 0 10px;
     font-size: 24px;
-    /* Adjust the font size as needed */
 }
 
 .fab:hover {
@@ -181,9 +183,6 @@ footer p {
     font-weight: 700;
     color: #EEB533;
 }
-
-
-/* TESTING CSS */
 
 h3, .card td {
     background-color: #B8F3D9;
@@ -269,7 +268,6 @@ textarea {
 }
 
 /*styles top regulate color displayed budget*/
-/* Add this style to your CSS file */
 .positive-budget {
     color: #3D946E;
     font-family: 'Tienne', sans-serif;
@@ -437,7 +435,6 @@ input#file {
     width: 100%;
     flex-direction: column;
     z-index: 13883;
-    background-color: rgba(249, 247, 247, 1);
 }
  /*INSIGHST BUTTOONS*/
  #insights-buttons-container{
@@ -447,16 +444,17 @@ input#file {
     background-color: #212529;
     z-index: 13;
     justify-content: center;
+    margin: 45px 10px 0 25px;
+    padding: 15px;
  }
+ 
 #close-data-for-date-button{
     display: none;
 }
 
-
 .contact-section {
     margin-bottom: 80px;
 }
-
 
 /* TESTING CONTACT / SUCCESS MESSAGE */
 .message {

@@ -349,7 +349,7 @@ filterDataButton.addEventListener('click', function () {
     const scrollToTopButton = document.getElementById('scroll-top');
     const scrollButton = document.getElementById('scroll-button');
     
-    // Show / hide button at 1000px
+    // Show / hide button at 500px
     function toggleScrollToTopButton() {
       if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
         scrollToTopButton.style.display = 'block';
@@ -390,22 +390,6 @@ filterDataButton.addEventListener('click', function () {
     }
 
 
-    // function ToggleDisplayById(displayItemId, displayOn) {
-    //     let displayItemID = document.getElementById(displayItemId);
-    //     if displayOn==True {
-    //         displayItemId.classList.remove('noDisplay');
-    //         displayItemId.classList.add('yesDisplay');
-    //     }
-    //     else  {
-    //         displayItemId.classList.add('noDisplay');
-    //         displayItemId.classList.remove('yesDisplay');
-    //     }
-
-
-    //     calendar.style.display = "none";
-    //   }
-
-
 // CONTACT FORM
 function sendMail(contactForm) {
     emailjs.send("service_6a8xgnp","template_1nbot8m", {
@@ -427,35 +411,34 @@ function sendMail(contactForm) {
     }
 
     // POPUP SUCCESS / FAILURE MESSAGE
-    function popup() {
-        var fname = document.getElementById('fullname');
-        var lname = document.getElementById('lname');
-        var email = document.getElementById('emailaddress');
-        var attachment = document.getElementById('attachment');
-        var message = document.getElementById('message');
-        const success = document.getElementById('success');
-        const danger = document.getElementById('danger');
+    // function popup() {
+    //     var fname = document.getElementById('fullname');
+    //     var lname = document.getElementById('lname');
+    //     var email = document.getElementById('emailaddress');
+    //     var attachment = document.getElementById('attachment');
+    //     var message = document.getElementById('message');
+    //     const success = document.getElementById('success');
+    //     const danger = document.getElementById('danger');
     
-        if (fname.value === '' || lname.value === '' || email.value === '' || message.value === '') {
-            danger.style.display = 'block';
-        } else {
-            setTimeout(() => {
-                fname.value = '';
-                lname.value = '';
-                email.value = '';
-                attachment.value = '';
-                message.value = '';
-            }, 3000);
+    //     if (fname.value === '' || lname.value === '' || email.value === '' || message.value === '') {
+    //         danger.style.display = 'block';
+    //     } else {
+    //         setTimeout(() => {
+    //             fname.value = '';
+    //             lname.value = '';
+    //             email.value = '';
+    //             attachment.value = '';
+    //             message.value = '';
+    //             success.style.display = 'none';
+    //         }, 3000);
     
-            success.style.display = 'block';
-        }
+    //         success.style.display = 'block';
+    //     }
     
+    //     setTimeout(() => {
+    //         danger.style.display = 'none';
+    //     }, 3000);
+    // }
     
-        setTimeout(() => {
-            danger.style.display = 'none';
-            success.style.display = 'none';
-        }, 3000);
-    
-    }
 
     // CLEAR FORM FIELDS AFTER SUBMIT
