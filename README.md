@@ -54,48 +54,81 @@ One way (perhaps a final solution) would be to build this using Django framework
 ### Typography
 
 ## UX Design
+------------
 
-### User Stories
-**FTU**:
+### UX Design - Strategy
+------------------------
 
-FTU01 As a **first-time user** I want to **quickly understand the site purpose** so I **can decide whether to spend time exploring and discovering the site**
 
-FTU02 As a **first-time user** I want to **easily navigate the site** so I **don't become frustrated and leave**
 
-FTU03 As a **first-time user** I want to **be able to navigate the site without mandatory login** so **I can discover site features before deciding whether to commit to using site**
+### UX Design Strategy - Target audience
+* The target audience includes
 
-FTU04 As a **first-time user** I want to **increase my financial awareness** to **improve my personal financial circumstances**
+## UX Design Scope
+----------------
 
-FTU05 As a **first-time user** I want to **access this site on a device of my choosing (mobile, tablet, laptop, desktop)** so that I can **access by a method and at a time that is convenient and accessible to me**
+### UX Design Scope -- User Requirements and Expectations
 
-**Returning User:**
 
-RU01 As  a **returning user** I want to **enter my financial goals** so I can **target what's important to me personally**
+### UX Design Scope - Data
+The data being captured and displayed relates to a user's personal financial circumstances.
+It allows the user to enter their budget, and to track their spending against their budget.
+Based on the entered information, the app will give a detailed analysis of the users spending patterns and highlights 
+Version 2 implementation will store the users financial data in a Google Sheets database.
 
-RU02 As a  **returning user** I want to **create a spending diary** so I can **track my spending over time**
 
-RU03 As a **returning user** I want to **save data under my username** so I can **access my saved goals and spending history on subsequent site visits**
+### UX Design Scope Viewing Device 
+* NB  The target audience are likely to commence using the site on desktop, and then to progress to small-screen use.
+<br>
+A 'mobile' first approach has been taken to development, with responsive screens, and with minimal keyboard data entry.
+This makes the app particularly suitable for entry on small-screen/ mobile devices and is part of the USP for this app.
 
-RU04 As a **returning user** I want to **set a monthly spending budget** so I **know what amount is available to me**
 
-RU05 As a **returning user** I want to **see a breakdown of my spending by category** so I can **gain insights into my spending**
+## User Goals/ User Stories
+----------------
 
-RU06 As a **returning user** I want to **see insights and trends of my spending** so I can **adjust my spending behaviour**
 
-RU07 As a **returning user** I want to **track my progress against financial goals** so I can **adjust my spending behaviour if not meeting my goals**
+### First-time User Goals
+* FTU_01  As a **first-time user** I want to **quickly understand the site purpose** so I **can decide whether to spend time exploring and discovering the site**
 
-System Owner: SO:
+* FTU_02  As a **first-time user** I want to **easily navigate the site** so I **don't become frustrated and leave**
 
-SO01 As **System Owner** I **want to provide a system that is easy to use** to **encourage users to visit and return to the site**
+* FTU_03 As a **first-time user** I want to **be able to navigate the site without mandatory login** so **I can discover site features before deciding whether to commit to using site**
 
-SO02 As **System Owner** I **want to provide responsive web pages** to **encourage users to use the site across multiple devices**
+* FTU_04 As a **first-time user** I want to **increase my financial awareness** to **improve my personal financial circumstances**
 
-SO03 As **System Owner** I **want to provide interesting analysis and insights** to **increase user engagement with site**
+* FTU_05 As a **first-time user** I want to **access this site on a device of my choosing (mobile, tablet, laptop, desktop)** so that I can **access by a method and at a time that is convenient and accessible to me**
 
-SO04 As **System Owner** I want to **provide a low-cost website that can be implemented quickly** to **deliver this project**
 
-SO05 As **System Owner** I want to **provide informative content** to **increase user's financial literacy and awareness**
+### Returning User Goals
+* RU_01 As  a **returning user** I want to **enter my financial goals** so I can **target what's important to me personally**
+
+* RU_02 As a  **returning user** I want to **create a spending diary** so I can **track my spending over time**
+
+* RU_03 As a **returning user** I want to **save data under my username** so I can **access my saved goals and spending history on subsequent site visits**
+
+* RU_04 As a **returning user** I want to **set a monthly spending budget** so I **know what amount is available to me**
+
+* RU_05 As a **returning user** I want to **see a breakdown of my spending by category** so I can **gain insights into my spending**
+
+* RU_06 As a **returning user** I want to **see insights and trends of my spending** so I can **adjust my spending behaviour**
+
+* RU_07 As a **returning user** I want to **track my progress against financial goals** so I can **adjust my spending behaviour if not meeting my goals**
+
+
+### Site owner Goals
+* SO_01 As **System Owner** I **want to provide a system that is easy to use** to **encourage users to visit and return to the site**
+
+* SO_02 As **System Owner** I **want to provide responsive web pages** to **encourage users to use the site across multiple devices**
+
+* SO_03 As **System Owner** I **want to provide interesting analysis and insights** to **increase user engagement with site**
+
+* SO_04 As **System Owner** I want to **provide a low-cost website that can be implemented quickly** to **deliver this project**
+
+* SO_05 As **System Owner** I want to **provide informative content** to **increase user's financial literacy and awareness**
    
+## UX Design Decisions
+----------------
 
 ### Wireframes
 
@@ -120,7 +153,18 @@ SO05 As **System Owner** I want to **provide informative content** to **increase
 
 ![Settings](/assets/images/wf4-settings.png)
 
+
+### Typography
+
+
+### Color Scheme
+![ColorScheme](/assets/images/jan-hack-color-scheme.png)
+
+
+### Design Images
+
 ## Site Features
+---------------
 
 **F01 Site purpose is clearly identified and apparent a user who reaches the site**
 (Future.  as in the very near future before we submit)
@@ -153,7 +197,8 @@ The site performs well and satisfies accessibiliyt guidenlines (CHECK)
 <screenprint of lighthouse performance>
 <screenprint of W3C accessibility checker>
 
-**F05 Feature**
+**F05 Comprehsnsive site pages**
+
   
 F06
 F07
@@ -161,15 +206,66 @@ F08
 F09
 F10
 
+### Features in Scope - features vs user stories (requirements) 
+This website includes 6 functional screens and XX features 
+Features are as listed in previous section.
+The pages - which effectively bring these features together - are:
+* Landing page (image link)
+* Goals/settings screen (image link)
+* Spending Diary screen (image link)
+* Insights (image link)
+* Contact/Feedback page (image link)
+* About-Us page (image link)
+
+
+
+- __Landing Page__
+This page welcomes the user to the site and....
+
+
+- __Goals/settings screen__
+(This page shows details.... may remove this section as goals can become Version2 of this app) 
+
+- __Spending Diary__
+This screen allows the user to record and track their spending against a budget.
+This screen is designed to minimise keying and is a really strong feature of the app.
+
+- __Insights screen__
+This is a really powerful feature of the app.  
+
+- __Contact/feedback screen__
+This screen encourages users to interact with the applciation by entering feedback, useful comments, and participating in the development roadmap for this app.  Note that the user has the ability to add an attachment with their feedback.  This is really useful if they are commenting on existing site features, bugs they find (hopefully none!) and additional features they would like included in future versions of the app.
+
+
+- __About__
+This page gives some background to the app, the development team, with profile photos and contact details.
+
+### Features Left to Implement
+Some of the user stories could be addressed more directly in the future:
+* Deploy connected front- and back-end
+Considerable development work was done for the app version 1 to create a Google Sheets backend.  This has been tested and updates data successfully in the development environment, with working CRUD functionality.  Flask/ Jinga have been tested and proven to successfully exchange data between the html frontend and the python backend.  However, deployment proved overly difficult and hence scope of Version was reduced to focus on direct user functionality.
+
+
+
+
 ## 💻 Tech Stack
+- HTML
 - CSS
 - JavaScript
 - Python
 - Flask
 - Google Sheets
 
+## 💻 Python libraries
+- os
+- colorama
+- gspread - used to reading and updating information to Google Sheets
+- tabulate
+
+## Validation
+
 ## 🙌 Credits
-The team consisted of: Kaylae Smith (scrum master), Deidre McCarthy, Nikola Simic and Caylin Dewey.
+The team consisted of: Kaylae Smith (scrum master), Nikola Simic, Caylin Dewey, and Deidre McCarthy.
 
 ## 🌐 Media, Frameworks, Libraries & Programs Used
 
