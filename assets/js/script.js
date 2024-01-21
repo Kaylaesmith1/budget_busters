@@ -3,9 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const budgetDisplay = document.getElementById("budget-display");
     const dataDisplayList = document.getElementById("data-display-list");
     const getDataByDateButton = document.getElementById('get-data-by-date');
+    const getDataByTypeButton = document.getElementById('get-data-by-type');
+    const getDataByCategoryButton = document.getElementById('get-data-by-category');
+
     const getDataGeneralButton = document.getElementById('get-data-general');
     const dataTitle = document.getElementById("data-analytics-title");
-   
+    const calendar = document.getElementById("calendar");
+
 const filterDataButton = document.getElementById('filter-data-button');
 const insightsButtonsContainer = document.getElementById('insights-buttons-container');
 
@@ -106,12 +110,16 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
     getDataByDateButton.addEventListener('click', function() {
         toggleCalendar();
         insightsButtonsContainer.style.display = 'none';
+       clearDataDisplayList();
+       dataTitle.innerHTML = "EXPENSES BY DATE";
 
         console.log('Button Clicked:', getDataByDateButton.id);
     });
     getDataGeneralButton.addEventListener('click', function() { 
         dataDisplayList.style.display ='block'       
         displayAnalyticsData();
+        dataTitle.innerHTML = "GENERAL EXPENSES";
+        insightsButtonsContainer.style.display = 'none';
         console.log('Button Clicked:', getDataByDateButton.id);
     });
     function addButtonClickListeners(category, type) {
@@ -119,7 +127,38 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
             manipulateExpenses(category, type);
         });
     }
+    getDataByCategoryButton.addEventListener('click', function () {
+        // Retrieve your expense data from local storage
+        const savedData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
+        dataTitle.innerHTML = "EXPENSES BY CATEGORY";
+        insightsButtonsContainer.style.display = 'none';
+        // Calculate analytics data for expense categories
+        const categoryAnalyticsData = calculateCategoryAnalyticsData(savedData);
+    
+        // Clear previous data in the list
+        dataDisplayList.innerHTML = "";
+    
+        // Display the analytics data for expense categories
+        displayCategoryAnalyticsList(categoryAnalyticsData);
+    });
+    
+    getDataByTypeButton.addEventListener('click', function () {
+        // Retrieve your expense data from local storage
+        const savedTypeData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
+        insightsButtonsContainer.style.display = 'none';
 
+        clearDataDisplayList();
+        dataTitle.innerHTML = "EXPENSES BY TYPE";
+
+        // Call the function to display analytics data for expense types
+        const typeAnalyticsData = calculateTypeAnalyticsData(savedTypeData);
+    
+        // Clear previous data in the list
+        dataDisplayList.innerHTML = "";
+    
+        // Display the analytics data for expense types
+        displayTypeAnalyticsList(typeAnalyticsData);
+    });
     function manipulateExpenses(category, type) {
         const costValue = parseFloat(costBudgetInput.value);
 
@@ -227,6 +266,8 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
 
     document.getElementById("update-budget-button").addEventListener("click", setPlannedBudget);
 
+
+    /*display general data*/
     function displayAnalyticsData() {
         let savedData;
         const storageKey = "expense_tracker_DB";
@@ -243,6 +284,12 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         displayAnalyticsList(analyticsData);
     }
     
+    /*clear data list*/
+    function clearDataDisplayList() {
+        const dataDisplayList = document.getElementById("data-display-list");
+        dataDisplayList.innerHTML = "";
+    }
+
     function calculateAnalyticsData(data, totalSpend) {
         const categories = {};
         const types = {};
@@ -324,6 +371,109 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
             <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
         dataDisplayList.appendChild(remainingBudgetItem);
     }
+      /**
+     * code to get and display data for CATEGORIES of expense to get
+     */
+// Function to display analytics data for expense categories
+// Modify the event listener for the button
+
+// Function to calculate analytics data for expense categories
+function calculateCategoryAnalyticsData(data) {
+    const categories = {};
+    const totalSpend = data.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
+    const remainingBudget = initialBudget - totalSpend;
+
+    data.forEach((entry) => {
+        // Calculate percentage spent
+        const percentage = (entry.expense_value / totalSpend) * 100;
+
+        // Update category data
+        if (!categories[entry.expense_category]) {
+            categories[entry.expense_category] = {
+                total: 0,
+                percentage: 0,
+            };
+        }
+        categories[entry.expense_category].total += entry.expense_value;
+        categories[entry.expense_category].percentage = percentage;
+    });
+
+    return {
+        categories,
+        totalSpend,
+        remainingBudget,
+    };
+}
+
+// Function to display analytics data for expense categories
+function displayCategoryAnalyticsList(categoryAnalyticsData) {
+    const categories = categoryAnalyticsData.categories;
+    const totalSpend = categoryAnalyticsData.totalSpend;
+    const remainingBudget = categoryAnalyticsData.remainingBudget;
+
+    // Display category data
+    for (const category in categories) {
+        const categoryData = categories[category];
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("analytics-list-item");
+        categoryItem.innerHTML = `<strong>${category}</strong>, 
+            Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">€${categoryData.total.toFixed(2)}</span>, 
+            Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
+        dataDisplayList.appendChild(categoryItem);
+    }
+
+    // Display total spend and remaining budget for categories
+    const totalSpendItem = document.createElement("li");
+    totalSpendItem.classList.add("analytics-list-item");
+    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
+        <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">€${totalSpend.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(totalSpendItem);
+
+    const remainingBudgetItem = document.createElement("li");
+    remainingBudgetItem.classList.add("analytics-list-item");
+    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
+        <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(remainingBudgetItem);
+}
+
+
+    /**
+     * code to get and display data for TYPES of expense to get
+     */
+// Function to display analytics data for all expense types
+function displayTypeAnalyticsList(typeAnalyticsData) {
+    const types = typeAnalyticsData.types;
+    const totalSpend = typeAnalyticsData.totalSpend;
+    const remainingBudget = typeAnalyticsData.remainingBudget;
+
+    // Assuming you have a dataDisplayList element
+    const dataDisplayList = document.getElementById("data-display-list");
+    dataDisplayList.innerHTML = ""; // Clear previous data
+
+    // Display type data for all expense types
+    for (const expenseType in types) {
+        const typeData = types[expenseType];
+        const typeItem = document.createElement("li");
+        typeItem.classList.add("analytics-list-item");
+        typeItem.innerHTML = `<strong>${expenseType}</strong>: 
+            Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">€${typeData.total.toFixed(2)}</span>, 
+            Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
+        dataDisplayList.appendChild(typeItem);
+    }
+
+    // Display total spend and remaining budget for types
+    const totalSpendItem = document.createElement("li");
+    totalSpendItem.classList.add("analytics-list-item");
+    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
+        <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">€${totalSpend.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(totalSpendItem);
+
+    const remainingBudgetItem = document.createElement("li");
+    remainingBudgetItem.classList.add("analytics-list-item");
+    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
+        <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(remainingBudgetItem);
+}
 
 function toggleCalendar() {
     const calendar = document.getElementById('calendar');
@@ -331,9 +481,63 @@ function toggleCalendar() {
 }
 
 
-displayAnalyticsData();
+function calculateTypeAnalyticsData(data) {
+    const types = {};
+    const totalSpend = data.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
+    const remainingBudget = initialBudget - totalSpend;
 
+    data.forEach((entry) => {
+        // Calculate percentage spent
+        const percentage = (entry.expense_value / totalSpend) * 100;
 
+        // Update type data
+        if (!types[entry.expense_type]) {
+            types[entry.expense_type] = {
+                total: 0,
+                percentage: 0,
+            };
+        }
+        types[entry.expense_type].total += entry.expense_value;
+        types[entry.expense_type].percentage = percentage;
+    });
+
+    return {
+        types,
+        totalSpend,
+        remainingBudget,
+    };
+}
+
+// Function to display analytics data for expense types
+function displayTypeAnalyticsList(typeAnalyticsData) {
+    const types = typeAnalyticsData.types;
+    const totalSpend = typeAnalyticsData.totalSpend;
+    const remainingBudget = typeAnalyticsData.remainingBudget;
+
+    // Display type data
+    for (const type in types) {
+        const typeData = types[type];
+        const typeItem = document.createElement("li");
+        typeItem.classList.add("analytics-list-item");
+        typeItem.innerHTML = `<strong>${type}</strong>: 
+            Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">€${typeData.total.toFixed(2)}</span>, 
+            Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
+        dataDisplayList.appendChild(typeItem);
+    }
+
+    // Display total spend and remaining budget for types
+    const totalSpendItem = document.createElement("li");
+    totalSpendItem.classList.add("analytics-list-item");
+    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
+        <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">€${totalSpend.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(totalSpendItem);
+
+    const remainingBudgetItem = document.createElement("li");
+    remainingBudgetItem.classList.add("analytics-list-item");
+    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
+        <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
+    dataDisplayList.appendChild(remainingBudgetItem);
+}
 filterDataButton.addEventListener('click', function () {
     // Toggle the visibility of insights-buttons-container
     insightsButtonsContainer.style.display = (insightsButtonsContainer.style.display === 'none') ? 'flex' : 'none';
