@@ -45,7 +45,9 @@ function generateCalendar(year, month) {
 function handleDayClick(year, month, day) {
     const selectedDate = new Date(year, month, day).toLocaleDateString();
     displayExpensesForSelectedDay(year, month, day);
-calendarGrid.style.display = 'none'
+
+    calendar.style.display = 'none'
+
 }
 function displayExpensesForSelectedDay(selectedYear, selectedMonth, selectedDay) {
     let savedData;
@@ -77,6 +79,10 @@ function displayExpensesForSelectedDay(selectedYear, selectedMonth, selectedDay)
 
     // Display the filtered entries
     displayCostsList(entriesForSelectedDate);
+
+        // Update the title text
+    dataTitle.textContent = `Expenses on ${selectedDay}/${selectedMonth + 1}/${selectedYear}`;
+
 }
 
 // Function to display the filtered entries
@@ -327,7 +333,6 @@ displayAnalyticsData();
 filterDataButton.addEventListener('click', function () {
     // Toggle the visibility of insights-buttons-container
     insightsButtonsContainer.style.display = (insightsButtonsContainer.style.display === 'none') ? 'flex' : 'none';
-
     // Close the calendar if it is open
     const calendar = document.getElementById('calendar');
     if (calendar.style.display !== 'none') {
