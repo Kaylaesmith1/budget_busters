@@ -146,7 +146,9 @@ h3 {
     margin-bottom: 10px; 
 } */
 
-
+.testKay{
+    display: none;
+}
 
 
 
@@ -155,6 +157,9 @@ footer {
     color: black;
     /* Example text color */
     padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
 }
 
@@ -399,6 +404,7 @@ a#setupSection {
 /*INSIGHT SCREEN SECTION*/
 #insights-container{
      color: white;
+     display: flex;
     display: block;
     align-items: center;
     justify-content: center;
@@ -408,4 +414,8 @@ a#setupSection {
     position: absolute;
     z-index: 3;
     background-color: rgba(253, 251, 251, 0.8);
+}
+#analytics-buttons-container{
+    display: flex;
+    background-color: #212529;
 }
