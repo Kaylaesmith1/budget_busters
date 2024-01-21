@@ -289,37 +289,41 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         const totalSpend = analyticsData.totalSpend;
         const remainingBudget = analyticsData.remainingBudget;
     
-         // Display category data
-    for (const category in categories) {
-        const categoryData = categories[category];
-        const categoryItem = document.createElement("li");
-        categoryItem.innerHTML = `<strong>${category}</strong>, 
-            Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">${categoryData.total.toFixed(2)}</span>, 
-            Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
-        dataDisplayList.appendChild(categoryItem);
+        // Display category data
+        for (const category in categories) {
+            const categoryData = categories[category];
+            const categoryItem = document.createElement("li");
+            categoryItem.classList.add("analytics-list-item"); // Add a class to the list item
+            categoryItem.innerHTML = `<strong>${category}</strong>, 
+                Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">${categoryData.total.toFixed(2)}</span>, 
+                Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
+            dataDisplayList.appendChild(categoryItem);
+        }
+    
+        // Display type data
+        for (const type in types) {
+            const typeData = types[type];
+            const typeItem = document.createElement("li");
+            typeItem.classList.add("analytics-list-item"); // Add a class to the list item
+            typeItem.innerHTML = `<strong>${type}</strong>: 
+                Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">€${typeData.total.toFixed(2)}</span>, 
+                Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
+            dataDisplayList.appendChild(typeItem);
+        }
+    
+        // Display total spend and remaining budget
+        const totalSpendItem = document.createElement("li");
+        totalSpendItem.classList.add("analytics-list-item"); // Add a class to the list item
+        totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
+            <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">€${totalSpend.toFixed(2)}</span>`;
+        dataDisplayList.appendChild(totalSpendItem);
+    
+        const remainingBudgetItem = document.createElement("li");
+        remainingBudgetItem.classList.add("analytics-list-item"); 
+        remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
+            <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
+        dataDisplayList.appendChild(remainingBudgetItem);
     }
-
-    // Display type data
-    for (const type in types) {
-        const typeData = types[type];
-        const typeItem = document.createElement("li");
-        typeItem.innerHTML = `<strong>${type}</strong>: 
-            Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">€${typeData.total.toFixed(2)}</span>, 
-            Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
-        dataDisplayList.appendChild(typeItem);
-    }
-
-    // Display total spend and remaining budget
-    const totalSpendItem = document.createElement("li");
-    totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
-        <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">€${totalSpend.toFixed(2)}</span>`;
-    dataDisplayList.appendChild(totalSpendItem);
-
-    const remainingBudgetItem = document.createElement("li");
-    remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
-        <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
-    dataDisplayList.appendChild(remainingBudgetItem);
-}
 
 function toggleCalendar() {
     const calendar = document.getElementById('calendar');
