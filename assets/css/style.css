@@ -50,6 +50,12 @@ h3 {
     justify-content: center;
     align-items: center;
 }
+.analytics-list-item {
+    border: 1px solid #ccc; 
+    margin: 0px 0; 
+    list-style: none; 
+
+}
 
 /*expense section*/
 #expense-section {
@@ -60,7 +66,34 @@ h3 {
     justify-content: center;
     align-items: center;
 }
+#display-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+#display-data-inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#data-analytics-title {
+    margin-top: 0; /* Reset top margin for the title */
+}
+
+#data-display-list {
+    list-style: none; /* Remove default list item bullets */
+    padding: 0; /* Remove default padding for the list */
+}
+#data-display-list > li:nth-last-child(2) {
+border-top: 0.2rem solid gray;
+border-bottom: 0.2rem solid gray;
+}
+
+#close-data-for-date-button {
+    margin-top: 10px; /* Add margin at the top of the button for spacing */
+}
 #cost-value-input{
     display: block;
     margin: 0 auto;/* This will center the element horizontally */
@@ -273,7 +306,7 @@ textarea {
 .positive-budget {
     color: #3D946E;
     font-family: 'Tienne', sans-serif;
-    font-size: 24px;
+    font-size: 1.1rem;
     font-weight: bolder;
 }
 
