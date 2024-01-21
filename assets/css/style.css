@@ -430,6 +430,31 @@ form#contact-form {
     font-size: 16px;
 }
 
+label {
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.submit-button {
+    width: 150px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid #3D946E;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color:#B8F3D9;
+}
+
 
 /*INSIGHT SCREEN SECTION*/
 #insights-container{

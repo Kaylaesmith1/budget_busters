@@ -49,7 +49,7 @@
                     <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link diary" href="#" onclick="scrollToSection('diarySection')">Diary</a></li>
-                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSection')">Insights</a></li>
+                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSectrion')">Insights</a></li>
                 <li class="nav-item"><a class="nav-link setup" href="#" onclick="scrollToSection('setupSection')">Setup</a></li>
                 <li class="nav-item"><a class="nav-link about" href="#" onclick="scrollToSection('aboutSection')">About</a></li>
                 <li class="nav-item"><a class="nav-link contact" href="#" onclick="scrollToSection('contactSection')">Contact</a></li>
@@ -59,7 +59,6 @@
     </nav>
 
 
-    <h2>About</h2>
     <main>
         <!-- INSIGHT CONTAINER-->
         <div id="insights-container">
@@ -84,7 +83,6 @@
                  <option value="11">December</option>
                </select>
                <div id="calendar-grid"></div>
-             </div>
            </div>
          <div id="display-data-inner-container">
 
@@ -158,6 +156,18 @@
            
 
     <div>
+        <section>
+            <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
+        </section>
+        <section>
+            <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
+        </section>
+        <section>
+            <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
+        </section>
+        <section>
+            <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
+        </section>
 
         <section>
             <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
@@ -205,16 +215,18 @@
     </div>
 
         </section>
+
     </div>
+
+    
     </main>
+
 
         <!-- BACK TO TOP SCROLL BUTTON -->
         <div class="scroll-top" id="scroll-top">
             <button class="scroll-button" id="scroll-button">
               <i class="fas fa-arrow-up arrow"></i>
             </button>
-            <!-- <br>
-            Top -->
           </div>
           <!-- END SCROLL TO TOP BUTTON -->
 
@@ -239,8 +251,7 @@
 
     <script src="assets/js/script.js"></script>
 
-    <!-- CONTACT FORM EMAILJS -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 
 </body>
 
