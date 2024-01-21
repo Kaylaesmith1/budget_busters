@@ -31,7 +31,6 @@
 
 
 <body>
-    <!-- <h1>header 1</h1> -->
 
 
     <!-- Nav Bar -->
@@ -49,20 +48,19 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"><a class="nav-link diary" href="#" onclick="scrollToSection('diarySection')">Diary</a></li>
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/diary.html">Diary <span class="sr-only">(current)</span></a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="/insights.html">Insights <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/setup.html">Setup</a>
-                </li>
-                <li class="nav-item"><a class="nav-link about" href="#" onclick="scrollToSection('aboutSection')">About</a></li>
-
+                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSection')">Insights</a></li>
                 <!-- <li class="nav-item">
-                    <a class="nav-link" href="/contact.html">Contact</a>
+                    <a class="nav-link" href="/setup.html">Setup</a>
                 </li> -->
+                <li class="nav-item"><a class="nav-link setup" href="#" onclick="scrollToSection('setupSection')">Setup</a></li>
+                <li class="nav-item"><a class="nav-link about" href="#" onclick="scrollToSection('aboutSection')">About</a></li>
                 <li class="nav-item"><a class="nav-link contact" href="#" onclick="scrollToSection('contactSection')">Contact</a></li>
 
             </ul>
@@ -168,13 +166,33 @@
                 </div>
         
             </div>
-            <div>
-        <!-- </div>
-
-    </div>
-    <div> -->
+            <!-- <div> -->
 
         <div id="content-container">
+            <section>
+                <div>
+    
+                <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
+   DIARY SECTION
+                </div>
+            </section>
+
+            <section>
+                <div>
+    
+                <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
+   INSIGHTS SECTION
+                </div>
+            </section>
+
+            <section>
+                <div>
+    
+                <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
+   SETUP SECTION
+                </div>
+            </section>
+
         <section>
             <div>
 
@@ -182,8 +200,9 @@
 ADD PROPER CONTENT ABOUT THE APP HERE
             </div>
         </section>
-        </div>
     </div>
+
+
     <div>
 
         <section class="testKay">
