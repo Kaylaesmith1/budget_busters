@@ -420,4 +420,3 @@ filterDataButton.addEventListener('click', function () {
 
     //     calendar.style.display = "none";
     //   }
-
