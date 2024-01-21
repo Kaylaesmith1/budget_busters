@@ -399,3 +399,58 @@ filterDataButton.addEventListener('click', function () {
 
     //     calendar.style.display = "none";
     //   }
+
+
+// CONTACT FORM
+function sendMail(contactForm) {
+    emailjs.send("service_6a8xgnp","template_1nbot8m", {
+    "from_name": contactForm.name.value,
+    "from_lname": contactForm.lname.value,
+    "from_email": contactForm.emailaddress.value,
+    "file": contactForm.file.value,
+    "message": contactForm.message.value,
+    })
+    .then(
+        function(response) {
+            console.log("Email successfully sent", response);
+        },
+        function(error) {
+            console.log("Email failed to send", error);
+        }
+    );
+        return false;
+    }
+
+    // POPUP SUCCESS / FAILURE MESSAGE
+    function popup() {
+        var fname = document.getElementById('fullname');
+        var lname = document.getElementById('lname');
+        var email = document.getElementById('emailaddress');
+        var attachment = document.getElementById('attachment');
+        var message = document.getElementById('message');
+        const success = document.getElementById('success');
+        const danger = document.getElementById('danger');
+    
+        if (fname.value === '' || lname.value === '' || email.value === '' || message.value === '') {
+            danger.style.display = 'block';
+        } else {
+            setTimeout(() => {
+                fname.value = '';
+                lname.value = '';
+                email.value = '';
+                attachment.value = '';
+                message.value = '';
+            }, 3000);
+    
+            success.style.display = 'block';
+        }
+    
+    
+        setTimeout(() => {
+            danger.style.display = 'none';
+            success.style.display = 'none';
+        }, 3000);
+    
+    }
+
+    // CLEAR FORM FIELDS AFTER SUBMIT

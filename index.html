@@ -26,6 +26,14 @@
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+        <!-- INSTALL EMAIL JS -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("RWaSLQKXIbSTBLpY2");
+            })();
+        </script>
 
 </head>
 
@@ -49,7 +57,7 @@
                     <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link diary" href="#" onclick="scrollToSection('diarySection')">Diary</a></li>
-                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSectrion')">Insights</a></li>
+                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSection')">Insights</a></li>
                 <li class="nav-item"><a class="nav-link setup" href="#" onclick="scrollToSection('setupSection')">Setup</a></li>
                 <li class="nav-item"><a class="nav-link about" href="#" onclick="scrollToSection('aboutSection')">About</a></li>
                 <li class="nav-item"><a class="nav-link contact" href="#" onclick="scrollToSection('contactSection')">Contact</a></li>
@@ -173,10 +181,10 @@
             <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
         </section>
 
-        <section>
+        <section class="contact-section">
             <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
     <!-- TEST CONTACT FORM -->
-    <div class="container">
+    <!-- <div class="container">
         <form id="contact-form">
             <div class="row">
                 
@@ -210,17 +218,65 @@
     
             <label for="message">Message:</label>
             <textarea id="message" name="message" required></textarea>
-                <!-- <label for="file" class="btn btn-outline-light h-50 m-1 search-button">Choose File</label>
-                <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png"> -->
+
                 <br>
     
             <button class="submit-button" type="button" onclick="sendEmail()">Submit</button>
         </form>
     </div>
 
-        </section>
+        </section> 
+     </div> -->
 
+     <!-- CONTACT FORM TEST -->
+     <div class="container">
+     <div class="contact-form">
+        <form onsubmit="return sendMail(this);">
+            <div class="row">  
+             <div class="col-lg-6 col-md-6"> 
+                <label for="name">First name:</label>           
+            <input type="text" name="name" id="fullname" class="form-control" required />
+            <br >
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <label for="lname">Last name:</label>
+            <input type="text" name="lname" id="lname" class="form-control" required />
+        </div>
     </div>
+    <div class="row">  
+        <div class="col-lg-6 col-md-6">
+            <label for="email" >Email:</label>
+            <input type="email" name="email" id="emailaddress" class="form-control"
+                required />
+        </div>
+                <div class="col-lg-6 col-md-6">
+                    <label for="file" >Attachment:</label>
+                    <br >
+                    <input type="file" name="file" id="file" class="form-control" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+                
+            </div>
+    </div>
+    <br >
+    <label for="file" >Message:</label>
+            <textarea rows="5" name="message" id="message" class="form-control" required></textarea>
+                <br >
+            <div class="form-row text-center">
+                <div class="col">
+                    <button type="submit" class="submit-button">Submit</button>
+
+                </div>
+        
+                <div class="message">
+                    <div class="success" id="success">Your message has been sent.</div>
+                    <div class="danger" id="danger">Please fill out all fields.</div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- END CONTACT FORM -->
 
     
     </main>
@@ -252,9 +308,9 @@
 
 
 
+<script src="assets/js/sendEmail.js"></script>
 
-    <script src="assets/js/script.js"></script>
-
+<script src="assets/js/script.js"></script>
 
 
 </body>
