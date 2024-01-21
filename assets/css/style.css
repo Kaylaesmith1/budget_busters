@@ -55,6 +55,7 @@ h3 {
 #expense-section {
     flex: 1;
     display: flex;
+    margin-top: 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -272,6 +273,7 @@ textarea {
 .positive-budget {
     color: #3D946E;
     font-family: 'Tienne', sans-serif;
+    font-size: 24px;
     font-weight: bolder;
 }
 
@@ -287,6 +289,7 @@ textarea {
     position: absolute;
     top: 20%;
     right: 5%;
+    z-index: 10000;
     transform: translateY(-50%);
     margin-right: 20px;
     padding: 5px;
@@ -299,59 +302,38 @@ textarea {
 .fadeout-animation {
     animation: fadeOut 1s ease-in-out forwards;
 }
-/*calendar styles*/
-#calendar { 
+/* Updated calendar styles */
+#calendar {
+    max-width: 400px;
+    margin: 20px auto;
     display: none;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.dropdowns-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-select {
-    padding: 10px;
-    font-size: 16px;
-    margin: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* Add the following line to make the dropdown open downwards */
-    transform: scaleY(1);
 }
 
 #calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    margin: 20px 0;
+    gap: 5px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .day {
-    padding: 10px;
     text-align: center;
-    border-radius: 4px;
+    padding: 10px;
     cursor: pointer;
 }
 
 .day:hover {
-    background-color: #ddd;
+    background-color: #e0e0e0;
 }
 
-.fa-calendar-alt {
-    margin-right: 5px;
-    color: #007BFF;
-}
-
-.fa-chevron-down {
-    margin-left: 5px;
-    color: #007BFF;
+.current-month {
+    grid-column: span 7;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
  
 @keyframes fadeOut {
@@ -449,12 +431,10 @@ input#file {
 #insights-container{
     color: white;
     display: flex;
-    display: none;
+    display: block;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 100vh;
-    position: absolute;
     flex-direction: column;
     z-index: 13883;
     background-color: rgba(249, 247, 247, 1);
