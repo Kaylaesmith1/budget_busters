@@ -40,7 +40,28 @@
     }
 
     .container-team-profiles {
-       display: flex;
+    grid-area: hd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 75px;
+    padding: 0;
+    background-color: rgb(96, 239, 191);
+    }
+
+    .profile-card {
+    position: relative;
+    background-color: transparent;
+    border: 3px solid;
+    border-color: rgb(2, 136, 209);
+    border-radius: 15%;
+    width: 200px;
+    height: 150px;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
     </style>
@@ -151,10 +172,10 @@
             </div>
         </div>
         <hr>
-        <div id="team-container">
-            <div id="team-profiles-container">
+        <div id="profile-container" class="profile-team-container">
+            <div id="container-team-profiles">
                 <!-- Kayla's card -->
-                <div class="team-card">
+                <div class="profile-card">
                     <div class="team-picture-container">
                         <img src="assets/pictures/kayla2.jpeg" alt="Picture of Kayla">
                         <div class="team-card_info">
@@ -178,7 +199,7 @@
             </div>
             <!-- Nikolas' card -->
             <div id="team-card-container">
-                <div class="team-card">
+                <div class="profile-card">
                     <div class="team-picture-container">
                         <img src="assets/pictures/nikola.jpeg" alt="Picture of Nikola">
                         <div class="team-card_info">
@@ -200,7 +221,7 @@
             </div>
             <!-- Caylin's card -->
             <div id="team-card-container">
-                <div class="team-card">
+                <div class="profiile-card">
                     <div class="team-picture-container">
                         <img src="assets/pictures/caylin.jpg" alt="Picture of Caylin">
                         <div class="team-card_info">
