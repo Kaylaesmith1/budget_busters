@@ -394,3 +394,18 @@ a#setupSection {
     padding: 20px;
 } */
 
+
+
+/*INSIGHT SCREEN SECTION*/
+#insights-container{
+     color: white;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background-color: rgba(253, 251, 251, 0.8);
+}
