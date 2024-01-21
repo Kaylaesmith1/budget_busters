@@ -57,28 +57,44 @@ One way (perhaps a final solution) would be to build this using Django framework
 
 ### User Stories
 **FTU**:
+
 FTU01 As a **first-time user** I want to **quickly understand the site purpose** so I **can decide whether to spend time exploring and discovering the site**
+
 FTU02 As a **first-time user** I want to **easily navigate the site** so I **don't become frustrated and leave**
+
 FTU03 As a **first-time user** I want to **be able to navigate the site without mandatory login** so **I can discover site features before deciding whether to commit to using site**
+
 FTU04 As a **first-time user** I want to **increase my financial awareness** to **improve my personal financial circumstances**
+
 FTU05 As a **first-time user** I want to **access this site on a device of my choosing (mobile, tablet, laptop, desktop)** so that I can **access by a method and at a time that is convenient and accessible to me**
 
 **Returning User:**
+
 RU01 As  a **returning user** I want to **enter my financial goals** so I can **target what's important to me personally**
+
 RU02 As a  **returning user** I want to **create a spending diary** so I can **track my spending over time**
+
 RU03 As a **returning user** I want to **save data under my username** so I can **access my saved goals and spending history on subsequent site visits**
+
 RU04 As a **returning user** I want to **set a monthly spending budget** so I **know what amount is available to me**
+
 RU05 As a **returning user** I want to **see a breakdown of my spending by category** so I can **gain insights into my spending**
+
 RU06 As a **returning user** I want to **see insights and trends of my spending** so I can **adjust my spending behaviour**
+
 RU07 As a **returning user** I want to **track my progress against financial goals** so I can **adjust my spending behaviour if not meeting my goals**
 
 System Owner: SO:
+
 SO01 As **System Owner** I **want to provide a system that is easy to use** to **encourage users to visit and return to the site**
+
 SO02 As **System Owner** I **want to provide responsive web pages** to **encourage users to use the site across multiple devices**
+
 SO03 As **System Owner** I **want to provide interesting analysis and insights** to **increase user engagement with site**
+
 SO04 As **System Owner** I want to **provide a low-cost website that can be implemented quickly** to **deliver this project**
-SO05 
-SO03 As **System Owner** I want to **provide informative content** to **increase user's financial literacy and awareness**
+
+SO05 As **System Owner** I want to **provide informative content** to **increase user's financial literacy and awareness**
    
 
 ### Wireframes
@@ -105,33 +121,40 @@ SO03 As **System Owner** I want to **provide informative content** to **increase
 ![Settings](/assets/images/wf4-settings.png)
 
 ## Site Features
-Site features(first draft):
-F01 Site purpose is clearly identified and apparent a user who reaches the site
-(Future. as in the very near future before we submit)
-Information is organised logically, with goal-setting, spend tracking, budget monitoring and insight analysis.
-There is an infomative 'About' page and an opportunity for the user to provide feedback, suggestions for future development, or issues withthe site.
 
+**F01 Site purpose is clearly identified and apparent a user who reaches the site**
+(Future.  as in the very near future before we submit)
+Information is organised logically, with goal-setting, spend tracking, budget monitoring and insight analysis.
+There is an infomative 'About' page and an opportunity for the user to provide feedback, suggestions for future development, or issues withthe site. 
+<screenprints to folllow>
+<landing page>
+<navbar>
 
 This satisfies user required FTU01 - clear site purpose in order to decide to proceed.
 
-** F02 Ease of navigation**
+**F02 Ease of navigation**
 The overall site layout follows a show-hide system, so relevant sections of the site are visible to the user.
-A navgation bar gives ease of movement between the various site functions.
+A navgation bar gives ease of movement between the various site functions.  
 
 At the bottom of each section there is a 'minimise' arrow to hide the relevant section and return to the navbar options.
-This satisfies user requirements FTU02, FTU03, allowing the user, whether first-time or returning user to navigate smoothly within the site.
+This satisfies user requirements FTU02, FTU03, allowing the user, whether first-time or returning user to navigate smoothly within the site. 
 
-** F03 Responsivess **
-The site was constructed on a mobile-first principle. Each section has been constructed to be responsive to the screen size of the device it is run on.
-Responsive design principles such as using on-sceen buttons, pre-filled prompts and pop-ups rather than text-based entry, make the site good for small-screen usage.
+**F03 Responsivess**
+The site was constructed on a mobile-first principle.   Each section has been constructed to be responsive to the screen size of the device it is run on.   
+<am-i-responsive- screenprint>
+
+Responsive design principles such as using on-sceen buttons, pre-filled prompts and pop-ups rather than text-based entry,  make the site good for small-screen usage.
 <screenprint(s) of spending entry panel>
 
 This satisfies first-time user requirements FTU05
 
-** F04 Accessibility and Performance **
+**F04 Accessibility and Performance**
 The site performs well and satisfies accessibiliyt guidenlines (CHECK)
+<screenprint of lighthouse performance>
+<screenprint of W3C accessibility checker>
 
-** F05
+**F05 Feature**
+  
 F06
 F07
 F08
