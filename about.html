@@ -79,10 +79,6 @@
             </ul>
         </div>
     </nav>
-<section id="about-section" class="yes-display">
-    <h2>About</h2>
-
-</section>
 
 <section id="all-other-sections" class="no-display">
    <div class="calendar-container no-display">
@@ -92,28 +88,10 @@
     <!-- Calendar icon (label for the checkbox) -->
     <label for="calendar-checkbox" id="calendar-icon">&#128197;</label>
 
-    <div id="calendar" class="calendar-class">
-        <select id="year-select"></select>
-        <select id="month-select">
-        <option value="0">January</option>
-        <option value="1">February</option>
-        <option value="2">March</option>
-        <option value="3">April</option>
-        <option value="4">May</option>
-        <option value="5">June</option>
-        <option value="6">July</option>
-        <option value="7">August</option>
-        <option value="8">September</option>
-        <option value="9">October</option>
-        <option value="10">November</option>
-        <option value="11">December</option>
-        </select>
-        <div id="calendar-grid"></div>
-    </div>
     </div>
 </section>
-            <section id="display-data" class="no-display">
-<div id="display-data-inner-container">
+<section id="display-data" class="no-display">
+        <div id="display-data-inner-container">
             <h3 id="data-analytics-title"></h3>
             <ul id="data-display-list"></ul>
             <ul id="data-display-for-date-list"></ul>
@@ -123,79 +101,17 @@
             <button id="display-data-button">ANALYSE EXPENSES</button>
 
         </section>
-        <div id="expense-section" class="no-display">
         
-         
-            <!-- Elemets to display budget container -->
-         <div id="display-budget-container">
-
-<!-- Text to display planned budget-->
-             <p id="budget-display" class="no-display"></p>
-             <p id="input-animation-value-display" class="fadeout-animation"></p>
-
-<!--Button that add to the budget getting values from amount/type input not styled -->
-             <button id="update-budget-button">UPDATE BUDGET</button>
-         </div>
-            </div>
-
-                <div class="card-container no-display">
-                    <div class="card">
-                        <h3>Basic Needs</h3>
-                        <table>
-                            <tr>
-                                <td><button class="button-text basic-needs-buttons"id="food-button">Food</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="transport-button">Transport</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="education-button">Education</button></td>
-                            </tr>
-                            <tr>
-                                <td><button class="button-text basic-needs-buttons" id="healthcare-button">Healthcare</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="utilities-button">Utilities</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <p id="input-animation-value-display" class="fadeout-animation"></p>
-            <div class="input-type no-display" id="main-content-container">
-                <input type="number" id="cost-value-input"  placeholder="Enter amount & click type of cost...">
-            </div>
-            <div class="expense-buttons" id="luxury-buttons">
-                <div class="card-container no-display">
-                    <div class="card">
-                        <h3>Luxury</h3>
-                        <table>
-                            <tr>
         
-                                <!-- <div class="buttons-container"> -->
-                                <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button>
-                                </td>
-                                <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
-                                <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
-                            </tr>
-                            <tr>
-                                <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
-                                <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
-                                <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-        
-            </div>
-            <!-- <div> -->
+        <section class="no-display">
+            <div>
 
-        <div id="content-container no-display">
-            <section>
-                <div>
-    
-                <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
+            <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
    DIARY SECTION
                 </div>
             </section>
 
-            <section>
+            <section class="no-display">
                 <div>
     
                 <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
@@ -203,7 +119,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="no-display">
                 <div>
     
                 <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
@@ -211,21 +127,23 @@
                 </div>
             </section>
 
-        <section>
+    <section id="About" class="about-section yes-display">
             <div>
-
+                <section class="yes-display">
+                    <h2>About</h2>
+                </section>
             <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
-ADD PROPER CONTENT ABOUT THE APP HERE
-  <!-- Main section introducing the team behind the project -->      
-    <section class="about-us">
+    <div id="about-us">
         <h3>WHO WE ARE</h3>
         <p>Meet the team!</p>
-    </section>
+    </div>
+        
+  <!-- Main section introducing the team behind the project -->      
     <section>
         <div id="team-intro">
             <div>
                 <i class="fas fa sack-dollar"></i>  <strong>BudgetWise</strong> - The BudgetWise team was formed to rapidly build a prototype to help with January Budget Busting!! 
-                Notwithstanding our dwindling numbers, 
+                Notwithstanding our dwindling numbers (we didn't budget for that!), 
                 we are committed to helping you manage your finances using a helpful app which runs on the device of your choosing.
             </div>
         </div>
