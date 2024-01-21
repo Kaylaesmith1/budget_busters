@@ -530,7 +530,7 @@ calendarGrid.addEventListener("click", function (event) {
 
 
 
-    // TEST DIRECT TO CATEGORY ON HOMEPAGE
+    // DIRECT TO CATEGORY ON HOMEPAGE
     // Get the element by its class name
     var elementToHide = document.querySelector('.about-text');
 
@@ -540,14 +540,13 @@ calendarGrid.addEventListener("click", function (event) {
         elementToHide.style.display = 'none';
     }
 
-
-    // TESTING
     function scrollToSection(sectionId) {
         var section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
 
     function ToggleDisplayById(displayItemId, displayOn) {
         let displayItemID = document.getElementById(displayItemId);
@@ -563,3 +562,4 @@ calendarGrid.addEventListener("click", function (event) {
 
         calendar.style.display = "none";
       }
+
