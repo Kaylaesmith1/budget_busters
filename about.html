@@ -30,7 +30,7 @@
     <!--Extra CSS-->
 
     <style>
-    /* DMcC 28/05/23:  The yesDisplay and noDisplay below are used to toggle key screen elements on/off display */
+    /* DMcC:  The yesDisplay and noDisplay below are used to toggle key screen elements on/off display */
     .no-display {
         display: none;
     }
@@ -39,9 +39,33 @@
         display: flex;
     }
 
+    profile-container {
+        width: 400px;
+        padding: 20px;
+        position: absolute;
+        justify-content: space-between;
+        
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+   .profile-card-container {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;     } 
+
+ .profile-card {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;     }
+
+        .profile-image {
+            display:flex;
+        }
+
   /*  .container-team-profiles {
     grid-area: hd;
     display: flex;
+
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -174,17 +198,18 @@
             </div>
         </div>
         <hr>
-        <div id="profile-container" class="card-container">
+        <div id="profile-container" class="profile-container">
             <div id="container-team-profiles">
                 <!-- Kayla's card -->
-                <div class="card-container">
+                <div class="profile-card-container">
                     <div class="card">
                         <img src="assets/images/kayla2.jpg" alt="Picture of Kayla">
                         <div class="profile-card_info">
-                            <span>Scrum<br> Master</span></a>
-                            <span>Hackathon<br> Veteran</span></a>
+                            <span>Scrum Master</span></a>
+                            <br>
+                            <span>Hackathon Veteran</span></a>
                         </div>
-                        <div class="profile-card-info card">
+                        <div class="profile-card-info">
                             <h4>Kayla</h4>
                         </div>
                         <div class="profile-links">
@@ -196,14 +221,14 @@
                         </a>
                         </div>
                    </div> <!-- end card -->
-                </div> <!-- end card-container-->
+                </div> <!-- end profile-card-container-->
             
                 <!-- Nikolas' card -->
-                <div class="card-container">
+                <div class="profile-card-container">
                     <div class="card">
-                        <img src="assets/images/nikola.jpeg" alt="Picture of Nikola">
+                        <img src="assets/images/nikola.png" alt="Picture of Nikola">
                         <div class="profile-card_info">
-                            <span>Hackathon<br> Newbie</span>
+                            <span>Hackathon Newbie</span>
                         </div>
                         <div class="profile-card_text">
                             <h4>Nikola</h4>
@@ -217,14 +242,14 @@
                             </a>
                         </div>
                     </div> <!-- end card -->
-                </div> <!-- end card-container -->
+                </div> <!-- end profile-card-container -->
 
                 <!-- Caylin's card -->
-                <div class="card-container">
+                <div class="profile-card-container">
                 <div class="card">
                     <img src="assets/images/caylin.jpg" alt="Picture of Caylin">
                     <div class="profile-card-info">
-                        <span>Hackathon<br> Enthusiast</span>
+                        <span>Hackathon Enthusiast</span>
                     </div>
                     <div class="profile-card-text">
                         <h4>Caylin</h4>
@@ -238,14 +263,14 @@
                         </a>
                     </div>
                 </div> <!-- end card -->
-            </div> <!-- end card-container -->
+            </div> <!-- end profile-card-container -->
         
             <!-- Deirdre's card  -->
-            <div class="card-container">
+            <div class="profile-card-container">
                 <div class="card">
                     <img src="assets/images/deirdre.jpg" alt="Picture of Caylin">
                     <div class="profile-card_info">
-                        <span>Hackathon<br> Enthusiast</span>
+                        <span>Hackathon Enthusiast</span>
                     </div>
                     <div class="profile-card_text">
                         <h4>Deirdre</h4>
@@ -259,7 +284,7 @@
                         </a>
                     </div> <!-- end profile-links -->
                 </div> <!-- end card -->
-            </div> <!-- end card-container -->
+            </div> <!-- end profile-card-container -->
         </div> <!-- end div container-team-profiles -->
     </section>
 </main>
