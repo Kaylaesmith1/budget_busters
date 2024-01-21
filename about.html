@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Wise | Home</title>
+
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Calendar-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap JavaScript and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+
+    <!--Extra CSS-->
+
+    <style>
+    /* DMcC 28/05/23:  The yesDisplay and noDisplay below are used to toggle key screen elements on/off display */
+    .no-display {
+        display: none;
+    }
+    
+    .yes-display {
+        display: flex;
+    }
+    </style>
+    
+</head>
+
+
+<body>
+
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/index.html">
+
+            <img class="logo-image" src="assets/images/logo.png" alt="Budget Wise logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kaylaesmith1.github.io/budget_busters/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link diary" href="#" onclick="scrollToSection('diarySection')">Diary</a></li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="/diary.html">Diary <span class="sr-only">(current)</span></a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kaylaesmith1.github.io/budget_busters/insights.html">Insights <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSection')">Insights</a></li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="/setup.html">Setup</a>
+                </li> -->
+                <li class="nav-item"><a class="nav-link setup" href="#" onclick="scrollToSection('setupSection')">Setup</a></li>
+                <li class="nav-item active"><a class="nav-link about" href="https://kaylaesmith1.github.io/budget_busters/about" onclick="scrollToSection('aboutSection')">About</a></li>
+                <li class="nav-item"><a class="nav-link contact" href="https://kaylaesmith1.github.io/budget_busters/contact" onclick="scrollToSection('contactSection')">Contact</a></li>
+
+            </ul>
+        </div>
+    </nav>
+<section id="about-section" class="yes-display">
+    <h2>About</h2>
+
+</section>
+
+<section id="all-other-sections" class="no-display">
+   <div class="calendar-container no-display">
+     <!-- Toggle checkbox for the calendar -->
+    <input type="checkbox" id="calendar-checkbox">
+
+    <!-- Calendar icon (label for the checkbox) -->
+    <label for="calendar-checkbox" id="calendar-icon">&#128197;</label>
+
+    <div id="calendar" class="calendar-class">
+        <select id="year-select"></select>
+        <select id="month-select">
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+        </select>
+        <div id="calendar-grid"></div>
+    </div>
+    </div>
+</section>
+            <section id="display-data" class="no-display">
+<div id="display-data-inner-container">
+            <h3 id="data-analytics-title"></h3>
+            <ul id="data-display-list"></ul>
+            <ul id="data-display-for-date-list"></ul>
+        </div>
+        <button id="close-data-for-date-button">close</button>
+
+            <button id="display-data-button">ANALYSE EXPENSES</button>
+
+        </section>
+        <div id="expense-section" class="no-display">
+        
+         
+            <!-- Elemets to display budget container -->
+         <div id="display-budget-container">
+
+<!-- Text to display planned budget-->
+             <p id="budget-display" class="no-display"></p>
+             <p id="input-animation-value-display" class="fadeout-animation"></p>
+
+<!--Button that add to the budget getting values from amount/type input not styled -->
+             <button id="update-budget-button">UPDATE BUDGET</button>
+         </div>
+            </div>
+
+                <div class="card-container no-display">
+                    <div class="card">
+                        <h3>Basic Needs</h3>
+                        <table>
+                            <tr>
+                                <td><button class="button-text basic-needs-buttons"id="food-button">Food</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="transport-button">Transport</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="education-button">Education</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="button-text basic-needs-buttons" id="healthcare-button">Healthcare</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="utilities-button">Utilities</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <p id="input-animation-value-display" class="fadeout-animation"></p>
+            <div class="input-type no-display" id="main-content-container">
+                <input type="number" id="cost-value-input"  placeholder="Enter amount & click type of cost...">
+            </div>
+            <div class="expense-buttons" id="luxury-buttons">
+                <div class="card-container no-display">
+                    <div class="card">
+                        <h3>Luxury</h3>
+                        <table>
+                            <tr>
+        
+                                <!-- <div class="buttons-container"> -->
+                                <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button>
+                                </td>
+                                <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
+                                <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
+                                <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
+                                <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        
+            </div>
+            <!-- <div> -->
+
+        <div id="content-container no-display">
+            <section>
+                <div>
+    
+                <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
+   DIARY SECTION
+                </div>
+            </section>
+
+            <section>
+                <div>
+    
+                <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
+   INSIGHTS SECTION
+                </div>
+            </section>
+
+            <section>
+                <div>
+    
+                <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
+   SETUP SECTION
+                </div>
+            </section>
+
+        <section>
+            <div>
+
+            <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
+ADD PROPER CONTENT ABOUT THE APP HERE
+  <!-- Main section introducing the team behind the project -->      
+    <section class="about-us">
+        <h3>WHO WE ARE</h3>
+        <p>Meet the team!</p>
+    </section>
+    <section>
+        <div id="team-intro">
+            <div>
+                <i class="fas fa sack-dollar"></i>  <strong>BudgetWise</strong> - The BudgetWise team was formed to rapidly build a prototype to help with January Budget Busting!! 
+                Notwithstanding our dwindling numbers, 
+                we are committed to helping you manage your finances using a helpful app which runs on the device of your choosing.
+            </div>
+        </div>
+        <hr>
+        <div id="team-container">
+            <div id="team-card-container">
+                <!-- Kayla's card -->
+                <div class="team-card">
+                    <div class="team-picture-container">
+                        <img src="assets/pictures/kayla2.jpeg" alt="Picture of Kayla">
+                        <div class="team-card_info">
+                            <span>Scrum<br> Master</span></a>
+                            <span>Hackathon<br> Veteran</span></a>
+                            
+                        </div>
+                    </div>
+                    <div class="team-card_text">
+                        <h3>Kayla</h3>
+                    </div>
+                </div>
+                <div class="team-card-icon-container">
+                    <a href="https://github.com/kaylaesmith" aria-label="Kayla's Github page" target="_blank">
+                        <i class="fab fa-github-square github-icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kayla-smith-ab1595101//" aria-label="Kayla's LinkedIn page" target="_blank">
+                        <i class="fab fa-linkedin linkedin-icon"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Nikolas' card -->
+            <div id="team-card-container">
+                <div class="team-card">
+                    <div class="team-picture-container">
+                        <img src="assets/pictures/nikola.jpeg" alt="Picture of Nikola">
+                        <div class="team-card_info">
+                            <span>Hackathon<br> Newbie</span>
+                        </div>
+                    </div>
+                    <div class="team-card_text">
+                        <h3>Nikola</h3>
+                    </div>
+                </div>
+                <div class="team-card-icon-container">
+                    <a href="https://github.com/stef-cruz" aria-label="Stef's Github page" target="_blank">
+                        <i class="fab fa-github-square github-icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/stefaniecruz" aria-label="Stef's LinkedIn page" target="_blank">
+                        <i class="fab fa-linkedin linkedin-icon"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Caylin's card -->
+            <div id="team-card-container">
+                <div class="team-card">
+                    <div class="team-picture-container">
+                        <img src="assets/pictures/valentino.jpeg" alt="Picture of Valentino">
+                        <div class="team-card_info">
+                            <span>Hackathon<br> Enthusiast</span>
+                        </div>
+                    </div>
+                    <div class="team-card_text">
+                        <h3>Caylin</h3>
+                    </div>
+                </div>
+                <div class="team-card-icon-container">
+                    <a href="https://github.com/tinobragaa" aria-label="Valentino's Github page" target="_blank">
+                        <i class="fab fa-github-square github-icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/valentinobragaa/" aria-label="Valentino's LinkedIn page" target="_blank">
+                        <i class="fab fa-linkedin linkedin-icon"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Deirdre's card  -->
+            <div id="team-card-container">
+                <div class="team-card">
+                    <div class="team-picture-container">
+                        <img src="assets/pictures/georgina.jpeg" alt="Picture of Deirdre">
+                        <div class="team-card_info">
+                            <span>Hackathon<br> Enthusiast</span>
+                        </div>
+                    </div>
+                    <div class="team-card_text">
+                        <h3>Deirdre</h3>
+                    </div>
+                </div>
+                <div class="team-card-icon-container">
+                    <a href="https://github.com/DeeMcCart" aria-label="Deirdre's Github page" target="_blank">
+                        <i class="fab fa-github-square github-icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/deirdre-mccarthy-2ba3b0a/" aria-label="Deirdre's LinkedIn page" target="_blank">
+                        <i class="fab fa-linkedin linkedin-icon"></i>
+                    </a>
+                </div>
+            </div>
+            
+    </section>
+</main>
+
+
+
+            </div>
+        </section>
+    </div>
+
+
+    <div>
+
+        <section class="testKay no-display">
+            <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
+            <!-- Contact Form -->
+            <div class="contact-body">
+                <div class="contact-container w-50 mt-5">
+                    <form class="contact-form" method="get" action="thankyou.html">
+                        <!-- <h2>Contact Us<span style="font-size: 1.5em;"></span></h2> -->
+    
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+    
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+    
+                        <div class="file-upload-container">
+                            <label for="file" class="btn btn-outline-light h-50 m-1 search-button">Choose File</label>
+                            <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+                        </div>
+    
+                        <label for="enquiry-type">Enquiry Type:</label>
+                        <select id="enquiry-type" name="enquiry-type" required>
+                            <option value="" disabled selected>Please select</option>
+                            <option value="general">General Enquiry</option>
+                            <option value="advertising">Advertising Enquiry</option>
+                        </select>
+    
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
+    
+                        <button class="search-button btn btn-outline-light w-100" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+    </section>
+
+
+
+    <main>
+
+
+    </main>
+
+        <!-- BACK TO TOP SCROLL BUTTON -->
+        <div class="scroll-top" id="scroll-top">
+            <button class="scroll-button" id="scroll-button">
+              <i class="fas fa-arrow-up arrow"></i>
+            </button>
+            <!-- <br>
+            Top -->
+          </div>
+          <!-- END SCROLL TO TOP BUTTON -->
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/Kaylaesmith1/budget_busters/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-instagram"></i></a>
+            <!-- Add more social media links with icons as needed -->
+        </div>
+        <p>&copy; 2024 Your Website Name</p>
+        <!-- <div><a href="#" class="foot-link">Contact Us</a></div> -->
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+<script>   
+function ToggleDisplayById(displayItemId, displayOn) {
+    let displayItemID = document.getElementById(displayItemId);
+    if (displayOn==True) {
+        displayItemId.classList.remove('no-display');
+        displayItemId.classList.add('yes-display');
+    }
+    else  {
+        displayItemId.classList.add('no-display');
+        displayItemId.classList.remove('yes-display');
+    }
+}
+</script>
+
+</html>
