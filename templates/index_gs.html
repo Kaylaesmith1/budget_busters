@@ -344,10 +344,11 @@ input {
         
         <div class="goals-box" id="goals-box">
             <br>
-            <form field = "username" action="{{ url_for('show_user_data') }}" method="post"> 
-                <input type="text" id = "username" placeholder="Username" />
+             <form field="username"  action="{{ url_for('user_data', username='fred') }}"  method="POST"> 
+                <input type="text" id="user1" placeholder="Username" />
+                
                 <button type="submit">Load My Data</button> 
-            </form> 
+            </form>           
             <br>
             {% if user_config %}
                 <div class="budget-box"> My Monthly Budget: {{ user_config[1][1] }}</div>
