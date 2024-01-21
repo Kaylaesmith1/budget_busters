@@ -39,28 +39,61 @@
         display: flex;
     }
 
-    profile-container {
-        width: 400px;
-        padding: 20px;
-        position: absolute;
-        justify-content: space-between;
-        
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-}
-
-   .profile-card-container {
+    /* body styling grid format */
+/*    .profile-body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+*/
+    
+    .profile-header {
+        grid-area: hd;
         display: flex;
-        flex-direction: row;
-        flex-flow: wrap;     } 
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 75px;
+        padding: 0;
+    }
 
- .profile-card {
-        display: flex;
-        flex-direction: row;
-        flex-flow: wrap;     }
+    /* 16/04/23 DMcC:  Container needed for responsive media queries */
+    .profile-container {
+        width: 90%;
+        margin: 3em auto 5em;
+        max-width: 200em;
+        display: grid;
+        gap: 3em;
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+        position: relative;
+    }
 
-        .profile-image {
-            display:flex;
+
+    
+    .profile-card {
+        width: 15em;
+        height: 20em;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 5px;
+    }
+
+    .profile-image {
+        height: 15em;
+        width: 15em;
         }
+
+    .profile-info {
+        width: 14em;
+        height: 16em;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        position: relative;
+        left: 0.5em;
+        bottom: 1em;
+        background: linear-gradient(rgba(53,151,16, 1) 0%, rgba(255,255,255,1) 20%);
+        border-top: 1px solid black;
+        box-shadow: 0 -3px 8px rgba(53,151,16, 0.8);
+    }
 
   /*  .container-team-profiles {
     grid-area: hd;
@@ -130,126 +163,77 @@
         </div>
     </nav>
 
-<section id="all-other-sections" class="no-display">
-   <div class="calendar-container no-display">
-     <!-- Toggle checkbox for the calendar -->
-    <input type="checkbox" id="calendar-checkbox">
-
-    <!-- Calendar icon (label for the checkbox) -->
-    <label for="calendar-checkbox" id="calendar-icon">&#128197;</label>
-
-    </div>
-</section>
-<section id="display-data" class="no-display">
-        <div id="display-data-inner-container">
-            <h3 id="data-analytics-title"></h3>
-            <ul id="data-display-list"></ul>
-            <ul id="data-display-for-date-list"></ul>
-        </div>
-        <button id="close-data-for-date-button">close</button>
-
-            <button id="display-data-button">ANALYSE EXPENSES</button>
-
-        </section>
-        
-        
-        <section class="no-display">
-            <div>
-
-            <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
-   DIARY SECTION
-                </div>
-            </section>
-
-            <section class="no-display">
-                <div>
-    
-                <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
-   INSIGHTS SECTION
-                </div>
-            </section>
-
-            <section class="no-display">
-                <div>
-    
-                <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
-   SETUP SECTION
-                </div>
-            </section>
-
-    <section id="About" class="about-section yes-display">
-            <div>
-                
-            <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
-    <div id="about-us">
-        <h3>WHO WE ARE</h3>
-        <p>Meet the team!</p>
-    </div>
-        
   <!-- Main section introducing the team behind the project -->      
 
-    <main>
-        <section id="about" class="">
-        <div id="team-intro">
-            <div>
-                <i class="fas fa sack-dollar"></i>  <strong>BudgetWise</strong> - The BudgetWise team was formed to rapidly build a prototype to help with January Budget Busting!! 
-                Notwithstanding our dwindling numbers (we didn't budget for that!), 
-                we are committed to helping you manage your finances using a helpful app which runs on the device of your choosing.
-            </div>
-        </div>
+  <main>
+
+    <!-- <section id="About" class="about-section yes-display"> -->
+    <div id="about-us">
+        <h3>WHO WE ARE</h3>
+        <h3>Meet the team!</h3>
         <hr>
+    </div>
+    <div id="team-intro" class="">
+        <div class="profile-header">
+            <i class="fas fa sack-dollar"></i>  <strong>BudgetWise</strong> <br>
+            - The BudgetWise team was formed to rapidly build a prototype to help with January Budget Busting!! 
+            Notwithstanding our dwindling numbers (we didn't budget for that!), 
+            we are committed to helping you manage your finances using a helpful app which runs on the device of your choosing.
+        </div> <!-- end profile-header -->
+    </div> <!-- end div team-intro -->
+    <hr>
+       
+    <section id="profiles" class="profile-body">
         <div id="profile-container" class="profile-container">
-            <div id="container-team-profiles">
-                <!-- Kayla's card -->
-                <div class="profile-card-container">
-                    <div class="card">
-                        <img src="assets/images/kayla2.jpg" alt="Picture of Kayla">
-                        <div class="profile-card_info">
-                            <span>Scrum Master</span></a>
-                            <br>
-                            <span>Hackathon Veteran</span></a>
-                        </div>
-                        <div class="profile-card-info">
-                            <h4>Kayla</h4>
-                        </div>
-                        <div class="profile-links">
-                        <a href="https://github.com/kaylaesmith" aria-label="Kayla's Github page" target="_blank">
+            <!-- <div id="container-team-profiles"> -->
+            <!-- Kayla's card -->
+            <div class="profile-card-container">
+                <div class="profile-card">
+                    <img class="profile-image" src="assets/images/kayla2.jpg" alt="Picture of Kayla">
+                    <div class="profile-card-info">
+                        <span>Scrum Master</span>
+                        <br>
+                        <span>Hackathon Veteran</span>
+                        <h4>Kayla</h4>
+                    </div>
+                    <div class="profile-links">
+                    <a href="https://github.com/kaylaesmith" aria-label="Kayla's Github page" target="_blank">
+                        <i class="fab fa-github-square github-icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kayla-smith-ab1595101//" aria-label="Kayla's LinkedIn page" target="_blank">
+                        <i class="fab fa-linkedin linkedin-icon"></i>
+                    </a>
+                    </div>
+                </div> <!-- end card -->
+            </div> <!-- end profile-card-container-->    
+            <!-- Nikolas' card -->
+            <div class="profile-card-container">
+                <div class="profile-card">
+                    <img class="profile-image" src="assets/images/nikola.png" alt="Picture of Nikola">
+                    <div class="profile-card-info">
+                        <span>Hackathon Newbie</span>
+                        <br>
+                    </div>
+                    <div class="profile-card-text">
+                        <h4>Nikola</h4>
+                    </div>
+                    <div class="profile-links">
+                        <a href="https://github.com/nlekkerman" aria-label="Nikola's Github page" target="_blank">
                             <i class="fab fa-github-square github-icon"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/kayla-smith-ab1595101//" aria-label="Kayla's LinkedIn page" target="_blank">
+                        <a href="https://www.linkedin.com" aria-label="Nikola's LinkedIn page" target="_blank">
                             <i class="fab fa-linkedin linkedin-icon"></i>
                         </a>
-                        </div>
-                   </div> <!-- end card -->
-                </div> <!-- end profile-card-container-->
-            
-                <!-- Nikolas' card -->
-                <div class="profile-card-container">
-                    <div class="card">
-                        <img src="assets/images/nikola.png" alt="Picture of Nikola">
-                        <div class="profile-card_info">
-                            <span>Hackathon Newbie</span>
-                        </div>
-                        <div class="profile-card_text">
-                            <h4>Nikola</h4>
-                        </div>
-                        <div class="profile-links">
-                            <a href="https://github.com/nlekkerman" aria-label="Nikola's Github page" target="_blank">
-                                <i class="fab fa-github-square github-icon"></i>
-                            </a>
-                            <a href="https://www.linkedin.com" aria-label="Nikola's LinkedIn page" target="_blank">
-                                <i class="fab fa-linkedin linkedin-icon"></i>
-                            </a>
-                        </div>
-                    </div> <!-- end card -->
-                </div> <!-- end profile-card-container -->
-
-                <!-- Caylin's card -->
-                <div class="profile-card-container">
-                <div class="card">
-                    <img src="assets/images/caylin.jpg" alt="Picture of Caylin">
+                    </div>
+                </div> <!-- end card -->
+            </div> <!-- end profile-card-container -->
+            <!-- Caylin's card -->
+            <div class="profile-card-container">
+                <div class="profile-card">
+                    <img class="profile-image" src="assets/images/caylin.jpg" alt="Picture of Caylin">
                     <div class="profile-card-info">
                         <span>Hackathon Enthusiast</span>
+                        <br>
                     </div>
                     <div class="profile-card-text">
                         <h4>Caylin</h4>
@@ -264,11 +248,10 @@
                     </div>
                 </div> <!-- end card -->
             </div> <!-- end profile-card-container -->
-        
             <!-- Deirdre's card  -->
             <div class="profile-card-container">
-                <div class="card">
-                    <img src="assets/images/deirdre.jpg" alt="Picture of Caylin">
+                <div class="profile-card">
+                    <img class="profile-image" src="assets/images/deirdre.jpg" alt="Picture of Caylin">
                     <div class="profile-card_info">
                         <span>Hackathon Enthusiast</span>
                     </div>
@@ -285,8 +268,9 @@
                     </div> <!-- end profile-links -->
                 </div> <!-- end card -->
             </div> <!-- end profile-card-container -->
-        </div> <!-- end div container-team-profiles -->
-    </section>
+
+        <!-- </div> --><!-- end div container-team-profiles -->
+    </section> <!-- end section profile-body -->
 </main>
 
         <!-- BACK TO TOP SCROLL BUTTON -->
@@ -314,8 +298,6 @@
         <p>&copy; 2024 Your Website Name</p>
         <!-- <div><a href="#" class="foot-link">Contact Us</a></div> -->
     </footer>
-
-    <script src="assets/js/script.js"></script>
 </body>
 
 <script>   
