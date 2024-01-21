@@ -458,8 +458,8 @@ textarea {
 
 /*INSIGHT SCREEN SECTION*/
 #insights-container{
-     color: white;
-     display: flex;
+    color: white;
+    display: flex;
     display: block;
     align-items: center;
     justify-content: center;

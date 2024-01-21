@@ -38,6 +38,32 @@
     .yes-display {
         display: flex;
     }
+
+    .container-team-profiles {
+    grid-area: hd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 75px;
+    padding: 0;
+    background-color: rgb(96, 239, 191);
+    }
+
+    .profile-card {
+    position: relative;
+    background-color: transparent;
+    border: 3px solid;
+    border-color: rgb(2, 136, 209);
+    border-radius: 15%;
+    width: 200px;
+    height: 150px;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
     </style>
     
 </head>
@@ -129,9 +155,7 @@
 
     <section id="About" class="about-section yes-display">
             <div>
-                <section class="yes-display">
-                    <h2>About</h2>
-                </section>
+                
             <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
     <div id="about-us">
         <h3>WHO WE ARE</h3>
@@ -139,7 +163,7 @@
     </div>
         
   <!-- Main section introducing the team behind the project -->      
-    <section>
+    <section id="" class="">
         <div id="team-intro">
             <div>
                 <i class="fas fa sack-dollar"></i>  <strong>BudgetWise</strong> - The BudgetWise team was formed to rapidly build a prototype to help with January Budget Busting!! 
@@ -148,10 +172,10 @@
             </div>
         </div>
         <hr>
-        <div id="team-container">
-            <div id="team-card-container">
+        <div id="profile-container" class="profile-team-container">
+            <div id="container-team-profiles">
                 <!-- Kayla's card -->
-                <div class="team-card">
+                <div class="profile-card">
                     <div class="team-picture-container">
                         <img src="assets/pictures/kayla2.jpeg" alt="Picture of Kayla">
                         <div class="team-card_info">
@@ -161,7 +185,7 @@
                         </div>
                     </div>
                     <div class="team-card_text">
-                        <h3>Kayla</h3>
+                        <h4>Kayla</h4>
                     </div>
                 </div>
                 <div class="team-card-icon-container">
@@ -175,7 +199,7 @@
             </div>
             <!-- Nikolas' card -->
             <div id="team-card-container">
-                <div class="team-card">
+                <div class="profile-card">
                     <div class="team-picture-container">
                         <img src="assets/pictures/nikola.jpeg" alt="Picture of Nikola">
                         <div class="team-card_info">
@@ -183,53 +207,42 @@
                         </div>
                     </div>
                     <div class="team-card_text">
-                        <h3>Nikola</h3>
+                        <h4>Nikola</h4>
                     </div>
                 </div>
                 <div class="team-card-icon-container">
-                    <a href="https://github.com/stef-cruz" aria-label="Stef's Github page" target="_blank">
+                    <a href="https://github.com/nlekkerman" aria-label="Nikola's Github page" target="_blank">
                         <i class="fab fa-github-square github-icon"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/stefaniecruz" aria-label="Stef's LinkedIn page" target="_blank">
+                    <a href="https://www.linkedin.com" aria-label="Nikola's LinkedIn page" target="_blank">
                         <i class="fab fa-linkedin linkedin-icon"></i>
                     </a>
                 </div>
             </div>
             <!-- Caylin's card -->
             <div id="team-card-container">
-                <div class="team-card">
+                <div class="profiile-card">
                     <div class="team-picture-container">
-                        <img src="assets/pictures/valentino.jpeg" alt="Picture of Valentino">
+                        <img src="assets/pictures/caylin.jpg" alt="Picture of Caylin">
                         <div class="team-card_info">
                             <span>Hackathon<br> Enthusiast</span>
                         </div>
                     </div>
                     <div class="team-card_text">
-                        <h3>Caylin</h3>
+                        <h4>Caylin</h4>
                     </div>
                 </div>
                 <div class="team-card-icon-container">
-                    <a href="https://github.com/tinobragaa" aria-label="Valentino's Github page" target="_blank">
+                    <a href="https://github.com/CaylinDewey" aria-label="Caylin's Github page" target="_blank">
                         <i class="fab fa-github-square github-icon"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/valentinobragaa/" aria-label="Valentino's LinkedIn page" target="_blank">
+                    <a href="https://www.linkedin.com/in/caylin-dewey-info/" aria-label="Caylin's LinkedIn page" target="_blank">
                         <i class="fab fa-linkedin linkedin-icon"></i>
                     </a>
                 </div>
             </div>
             <!-- Deirdre's card  -->
             <div id="team-card-container">
-                <div class="team-card">
-                    <div class="team-picture-container">
-                        <img src="assets/pictures/georgina.jpeg" alt="Picture of Deirdre">
-                        <div class="team-card_info">
-                            <span>Hackathon<br> Enthusiast</span>
-                        </div>
-                    </div>
-                    <div class="team-card_text">
-                        <h3>Deirdre</h3>
-                    </div>
-                </div>
                 <div class="team-card-icon-container">
                     <a href="https://github.com/DeeMcCart" aria-label="Deirdre's Github page" target="_blank">
                         <i class="fab fa-github-square github-icon"></i>
@@ -238,6 +251,7 @@
                         <i class="fab fa-linkedin linkedin-icon"></i>
                     </a>
                 </div>
+                
             </div>
             
     </section>
@@ -248,55 +262,11 @@
             </div>
         </section>
     </div>
-
-
-    <div>
-
-        <section class="testKay no-display">
-            <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
-            <!-- Contact Form -->
-            <div class="contact-body">
-                <div class="contact-container w-50 mt-5">
-                    <form class="contact-form" method="get" action="thankyou.html">
-                        <!-- <h2>Contact Us<span style="font-size: 1.5em;"></span></h2> -->
-    
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
-    
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-    
-                        <div class="file-upload-container">
-                            <label for="file" class="btn btn-outline-light h-50 m-1 search-button">Choose File</label>
-                            <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
-                        </div>
-    
-                        <label for="enquiry-type">Enquiry Type:</label>
-                        <select id="enquiry-type" name="enquiry-type" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="general">General Enquiry</option>
-                            <option value="advertising">Advertising Enquiry</option>
-                        </select>
-    
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
-    
-                        <button class="search-button btn btn-outline-light w-100" type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-
-        </section>
-    </div>
-
-
     </section>
 
 
 
     <main>
-
-
     </main>
 
         <!-- BACK TO TOP SCROLL BUTTON -->
@@ -308,8 +278,6 @@
             Top -->
           </div>
           <!-- END SCROLL TO TOP BUTTON -->
-
-
 
     <!-- Footer -->
     <footer class="footer">
