@@ -61,8 +61,47 @@
 
     <main>
         <!-- INSIGHT CONTAINER-->
-        <div id="insights-container">
+     
     <h3 id="analyse-menu">ANALYSE EXPENSES</h2>
+        <button id="filter-data-button" class="button-text card">FILTER</button>
+
+        <div id="insights-container">
+            <div id="calendar" class="calendar-class">
+                <div class="dropdowns-container">
+                    <i id="calendar-icon" class="fas fa-calendar-alt"></i>
+                    <select id="year-select"></select>
+                    <select id="month-select">
+                        <!-- Options for months with Font Awesome icons -->
+                        <option value="0"><i class="fas fa-calendar-alt"></i> January</option>
+                        <option value="1"><i class="fas fa-calendar-alt"></i> February</option>
+                        <option value="2"><i class="fas fa-calendar-alt"></i> March</option>
+                        <option value="3"><i class="fas fa-calendar-alt"></i> April</option>
+                        <option value="4"><i class="fas fa-calendar-alt"></i> May</option>
+                        <option value="5"><i class="fas fa-calendar-alt"></i> June</option>
+                        <option value="6"><i class="fas fa-calendar-alt"></i> July</option>
+                        <option value="7"><i class="fas fa-calendar-alt"></i> August</option>
+                        <option value="8"><i class="fas fa-calendar-alt"></i> September</option>
+                        <option value="9"><i class="fas fa-calendar-alt"></i> October</option>
+                        <option value="10"><i class="fas fa-calendar-alt"></i> November</option>
+                        <option value="11"><i class="fas fa-calendar-alt"></i> December</option>
+                    </select>
+                </div>
+                <div id="days-container"></div>
+                <div id="calendar-grid"></div>
+            </div> 
+       
+            <div id="insights-buttons-container" class="card">
+                <button id="get-data-general" class="button-text">GENERAL</button>
+                <button id="get-data-by-type" class="button-text">BY EXPENSE TYPE</button>
+                <button id="get-data-by-category" class="button-text">BY EXPENSE CATEGORY</button>
+                <button id="get-data-by-date" class="button-text">BY DATE</button>
+
+            </div>
+     
+          
+         <div id="display-data-inner-container">
+            <h3 id="data-analytics-title">GENERAL DATA</h3>
+
         <div id="display-data">
             <h4 id="analyse-menu-title"></h4>
             <div class="calendar-container">
@@ -88,13 +127,13 @@
 
             <h3 id="data-analytics-title"></h3>
             <ul id="data-display-list"></ul>
-            <ul id="data-display-for-date-list"></ul>
             <button id="close-data-for-date-button">close</button>
+        </div>
 </div>
      
 </div>
 
-
+</div>
         <div id="expense-section">
             <!-- Elemets to display budget container -->
             <div id="display-budget-container">
