@@ -149,7 +149,6 @@
                         <table>
                             <tr>
         
-                                <!-- <div class="buttons-container"> -->
                                 <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button>
                                 </td>
                                 <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
@@ -183,52 +182,8 @@
 
         <section class="contact-section">
             <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
-    <!-- TEST CONTACT FORM -->
-    <!-- <div class="container">
-        <form id="contact-form">
-            <div class="row">
-                
-            <div class="col-lg-6 col-md-6">
-            <label for="name">First Name:</label>
-            <br >
-            <input type="text" id="fname" name="fname" required>
-        </div>
-        
-        <div class="col-lg-6 col-md-6">
-            <label for="name">Last Name:</label>
-            <br >
-            <input type="text" id="lname" name="lname" required>
-        </div>
-        </div>
 
-        <div class="row">  
-            <div class="col-lg-6 col-md-6">
-            <label for="email">Email:</label>
-            <br >
-            <input type="email" id="email" name="email" required>
-        </div>
-
-            <div class="col-lg-6 col-md-6">
-            <label for="file" >Attachment:</label>
-            <br >
-            <input type="file" id="file" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
-        
-    </div>
-</div>
-    
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-                <br>
-    
-            <button class="submit-button" type="button" onclick="sendEmail()">Submit</button>
-        </form>
-    </div>
-
-        </section> 
-     </div> -->
-
-     <!-- CONTACT FORM TEST -->
+     <!-- CONTACT FORM -->
      <div class="container">
      <div class="contact-form">
         <form onsubmit="return sendMail(this);">
@@ -262,7 +217,7 @@
                 <br >
             <div class="form-row text-center">
                 <div class="col">
-                    <button type="submit" class="submit-button">Submit</button>
+                    <button type="submit" class="submit-button" onclick="submitForm()">Submit</button>
 
                 </div>
         
@@ -272,13 +227,11 @@
                 </div>
 
             </div>
+
         </form>
     </div>
 </div>
-
     <!-- END CONTACT FORM -->
-
-    
     </main>
 
 
