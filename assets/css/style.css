@@ -3,8 +3,8 @@
 
 * {
     /* background-color: #F9F0D9; */
-    background-color: #FFFAED;    
-    color:#262828;
+    background-color: #FFFAED;
+    color: #262828;
 }
 
 .active {
@@ -15,10 +15,11 @@
 /* LOGO */
 .logo-image {
     height: 85px;
-  }
+}
 
 h1,
-h2, .section {
+h2,
+.section {
     padding: 10px;
     margin: 0;
     background-color: #3D946E;
@@ -50,10 +51,11 @@ h3 {
     justify-content: center;
     align-items: center;
 }
+
 .analytics-list-item {
-    border: 1px solid #ccc; 
-    margin: 0px 0; 
-    list-style: none; 
+    border: 1px solid #ccc;
+    margin: 0px 0;
+    list-style: none;
 
 }
 
@@ -66,6 +68,7 @@ h3 {
     justify-content: center;
     align-items: center;
 }
+
 #display-data {
     display: flex;
     flex-direction: column;
@@ -79,29 +82,39 @@ h3 {
 }
 
 #data-analytics-title {
-    margin-top: 0; /* Reset top margin for the title */
+    width: 100%;
+    background-color: #EEB533;
+    justify-content: center;
+    display: flex;
+    text-align: center;
 }
 
 #data-display-list {
-    list-style: none; /* Remove default list item bullets */
-    padding: 0; /* Remove default padding for the list */
+    list-style: none;
+    /* Remove default list item bullets */
+    padding: 0;
+    /* Remove default padding for the list */
 }
 
 
 #close-data-for-date-button {
-    margin-top: 10px; /* Add margin at the top of the button for spacing */
+    margin-top: 10px;
+    /* Add margin at the top of the button for spacing */
 }
-#cost-value-input{
+
+#cost-value-input {
     display: block;
-    margin: 0 auto;/* This will center the element horizontally */
+    margin: 0 auto;
+    /* This will center the element horizontally */
     text-align: center;
 }
 
 .expense-buttons h3 {
     margin-bottom: 10px;
 }
+
 /*goals section*/
-#goals-section{
+#goals-section {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -111,7 +124,7 @@ h3 {
 }
 
 /*goals text for empty goals container*/
-#goals-container p{
+#goals-container p {
     flex: 1;
     border: 1px solid black;
     display: flex;
@@ -121,17 +134,19 @@ h3 {
     min-height: 3em;
     background: #EEB533;
 }
+
 /*display budget input*/
-#update-budget-container{
+#update-budget-container {
 
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    
+
 }
+
 /* Allow buttons to wrap into multiple rows */
 .expense-buttons {
-  
+
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -152,16 +167,18 @@ h3 {
     justify-content: center;
     width: 100%;
 }
-.buttons-container{
+
+.buttons-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 #basic-needs-buttons button {
-    width: 30%; 
-    padding: 20px; 
-    font-size: 0.8rem; 
-    margin-bottom: 10px; 
+    width: 30%;
+    padding: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
 }
 
 
@@ -215,7 +232,8 @@ footer p {
 
 /* TESTING CSS */
 
-h3, .card td {
+h3,
+.card td {
     background-color: #B8F3D9;
 }
 
@@ -273,7 +291,8 @@ h3, .card td {
 
 }
 
-input, textarea#message {
+input,
+textarea#message {
     padding: 5px;
     border-radius: 3px;
     border: 3px solid #EEB533;
@@ -286,7 +305,8 @@ input {
 textarea {
     height: 150px;
 }
-#update-budget-button{
+
+#update-budget-button {
     width: 100%;
     padding: 5px;
     border-radius: 3px;
@@ -329,10 +349,12 @@ textarea {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 /*animations for expanse and budget inputs*/
 .fadeout-animation {
     animation: fadeOut 1s ease-in-out forwards;
 }
+
 /* Updated calendar styles */
 #calendar {
     max-width: 400px;
@@ -366,10 +388,17 @@ textarea {
     font-weight: bold;
     margin-bottom: 10px;
 }
- 
+
 @keyframes fadeOut {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-200%); }
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
 }
 
 /* SCROLL TO TOP BUTTON */
@@ -388,7 +417,7 @@ textarea {
     border-radius: 50%;
     margin-right: 15px;
     width: 45px;
-    height: 45px;  
+    height: 45px;
 }
 
 #scroll-button:hover {
@@ -423,6 +452,7 @@ form {
     display: flex;
     flex-direction: column;
 }
+
 form#contact-form {
     font-family: 'Tienne', sans-serif;
     font-size: 16px;
@@ -454,12 +484,12 @@ input#file {
 }
 
 .submit-button:hover {
-    background-color:#B8F3D9;
+    background-color: #B8F3D9;
 }
 
 
 /*INSIGHT SCREEN SECTION*/
-#insights-container{
+#insights-container {
     color: white;
     display: flex;
     display: block;
@@ -470,16 +500,18 @@ input#file {
     z-index: 13883;
     background-color: rgba(249, 247, 247, 1);
 }
- /*INSIGHST BUTTOONS*/
- #insights-buttons-container{
+
+/*INSIGHST BUTTOONS*/
+#insights-buttons-container {
     display: flex;
     position: absolute;
     display: none;
     background-color: #212529;
     z-index: 13;
     justify-content: center;
- }
-#close-data-for-date-button{
+}
+
+#close-data-for-date-button {
     display: none;
 }
 

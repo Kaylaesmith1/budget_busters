@@ -97,8 +97,16 @@ function displayCostsList(entries) {
 
     // Display each entry in the list
     entries.forEach(entry => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `Expense: ${entry.expense_value}, Category: ${entry.expense_category}, Type: ${entry.expense_type}, Description: ${entry.description}`;
+        const listItem = document.createElement("div");
+        listItem.classList.add("analytics-list-item"); 
+        listItem.innerHTML = `
+        <strong>Expense:</strong> 
+        <span style="color: ${entry.expense_value >= 0 ? 'green' : 'red'};">€${entry.expense_value.toFixed(2)}</span>, 
+        <strong>Category:</strong> ${entry.expense_category}, <strong>Type:</strong> ${entry.expense_type}, 
+     
+    `;
+
+       
         dataDisplayList.appendChild(listItem);
     });
 }
