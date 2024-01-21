@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeDataListButton = document.getElementById('close-data-for-date-button')
 
 
-    const calendarIcon = document.getElementById("calendar-icon");
+ 
     const calendar = document.getElementById("calendar");
     const yearSelect = document.getElementById("year-select");
     const monthSelect = document.getElementById("month-select");
@@ -17,10 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const calendarCheckbox = document.getElementById('calendar-checkbox');
 
 
-  calendarIcon.addEventListener('click', () => {
-    calendarCheckbox.checked = !calendarCheckbox.checked;
-    calendar.classList.toggle('active', calendarCheckbox.checked);
-  });
+
     let initialBudget = 0;
 
     function addButtonClickListeners(category, type) {
@@ -230,59 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
     dataDisplayList.appendChild(remainingBudgetItem);
 }
-  let isDataListDisplayed = false;
-
-  // Event listener for the "ANALYSE" button
-  displayDataButton.addEventListener("click", function () {
-      if (isDataListDisplayed) {
-          // Hide data and update button text
-          dataDisplayList.style.display = "none";
-          displayDataButton.textContent = "ANALYSE EXPENSES";
-          isDataListDisplayed = false;
-      } else {
-          // Display data and update button text
-          displayAnalyticsData(); // Display analytics for the selected day
-          dataDisplayList.style.display = "block";
-          displayDataButton.textContent = "Close";
-          isDataListDisplayed = true;
-
-      }
-  });
-  
-closeDataListButton.addEventListener("click", function () {
-    console.log("Button clicked. Performing actions:");
-
-    // Check and log the current state of closeDataDateContainer
-    console.log("closeDataDateContainer display style:", closeDataDateContainer.style.display);
-
-    // Check and log the current state of closeDataListButton
-    console.log("closeDataListButton display style:", closeDataListButton.style.display);
-
-    // Check and log the current state of dataTitle
-    console.log("dataTitle display style:", dataTitle.style.display);
-
-    // Check and log the current state of displayDataButton
-    console.log("displayDataButton display style:", displayDataButton.style.display);
-
-    // Perform actions
-    console.log("Hiding closeDataDateContainer");
-    closeDataDateContainer.style.display = 'none';
-
-    console.log("Hiding closeDataListButton");
-    closeDataListButton.style.display = 'none';
-
-    console.log("Hiding dataTitle");
-    dataTitle.style.display = 'none';
-
-    console.log("Displaying displayDataButton");
-    displayDataButton.style.display = 'block';
-
-    // Log the updated state after the actions
-    console.log("Updated closeDataDateContainer display style:", closeDataDateContainer.style.display);
-    console.log("Updated closeDataListButton display style:", closeDataListButton.style.display);
-    console.log("Updated dataTitle display style:", dataTitle.style.display);
-    console.log("Updated displayDataButton display style:", displayDataButton.style.display);
-});
+ 
 
 
 function toggleCalendar() {
@@ -455,7 +400,6 @@ function onDayClick(year, month, day) {
   initYearSelect();
 
   // Event listeners
-  calendarIcon.addEventListener("click", showCalendar);
   yearSelect.addEventListener("change", updateYearAndMonth);
   monthSelect.addEventListener("change", updateYearAndMonth);
   function getLocalStorageData(storageKey) {
@@ -604,18 +548,18 @@ calendarGrid.addEventListener("click", function (event) {
     }
 
 
-// CONTACT FORM
+    function ToggleDisplayById(displayItemId, displayOn) {
+        let displayItemID = document.getElementById(displayItemId);
+        if displayOn==True {
+            displayItemId.classList.remove('noDisplay');
+            displayItemId.classList.add('yesDisplay');
+        }
+        else  {
+            displayItemId.classList.add('noDisplay');
+            displayItemId.classList.remove('yesDisplay');
+        }
 
-emailjs.init("RWaSLQKXIbSTBLpY2");
 
-function sendEmail() {
-    const form = document.getElementById("contact-form");
-    emailjs.sendForm("service_6a8xgnp", "template_1nbot8m", form)
-        .then(function(response) {
-            console.log("Email sent:", response);
-            alert("Thank you! Your message has been sent.");
-        }, function(error) {
-            console.error("Error sending email:", error);
-            alert("Oops! Something went wrong. Please try again later.");
-        });
-}
+        calendar.style.display = "none";
+      }
+

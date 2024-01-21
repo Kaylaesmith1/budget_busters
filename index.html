@@ -58,58 +58,57 @@
         </div>
     </nav>
 
-    <!-- <h2>About</h2> -->
-   <div class="calendar-container">
-     <!-- Toggle checkbox for the calendar -->
-  <input type="checkbox" id="calendar-checkbox">
 
-  <!-- Calendar icon (label for the checkbox) -->
-  <label for="calendar-checkbox" id="calendar-icon">&#128197;</label>
+    <h2>About</h2>
+    <main>
+        <!-- INSIGHT CONTAINER-->
+        <div id="insights-container">
+    <h3 id="analyse-menu">ANALYSE EXPENSES</h2>
+        <div id="display-data">
+            <h4 id="analyse-menu-title"></h4>
+            <div class="calendar-container">
+             <div id="calendar" class="calendar-class">
+               <select id="year-select"></select>
+               <select id="month-select">
+                 <option value="0">January</option>
+                 <option value="1">February</option>
+                 <option value="2">March</option>
+                 <option value="3">April</option>
+                 <option value="4">May</option>
+                 <option value="5">June</option>
+                 <option value="6">July</option>
+                 <option value="7">August</option>
+                 <option value="8">September</option>
+                 <option value="9">October</option>
+                 <option value="10">November</option>
+                 <option value="11">December</option>
+               </select>
+               <div id="calendar-grid"></div>
+             </div>
+           </div>
+         <div id="display-data-inner-container">
 
-  <div id="calendar" class="calendar-class">
-    <select id="year-select"></select>
-    <select id="month-select">
-      <option value="0">January</option>
-      <option value="1">February</option>
-      <option value="2">March</option>
-      <option value="3">April</option>
-      <option value="4">May</option>
-      <option value="5">June</option>
-      <option value="6">July</option>
-      <option value="7">August</option>
-      <option value="8">September</option>
-      <option value="9">October</option>
-      <option value="10">November</option>
-      <option value="11">December</option>
-    </select>
-    <div id="calendar-grid"></div>
-</div>
-        <section id="display-data">
-<div id="display-data-inner-conatiner">
             <h3 id="data-analytics-title"></h3>
             <ul id="data-display-list"></ul>
             <ul id="data-display-for-date-list"></ul>
-        </div>
-        <button id="close-data-for-date-button">close</button>
+            <button id="close-data-for-date-button">close</button>
+</div>
+     
+</div>
 
-            <button id="display-data-button">ANALYSE EXPENSES</button>
 
-        </section>
         <div id="expense-section">
-        
-         
             <!-- Elemets to display budget container -->
-         <div id="display-budget-container">
+            <div id="display-budget-container">
 
-<!-- Text to display planned budget-->
-             <p id="budget-display"></p>
-             <p id="input-animation-value-display" class="fadeout-animation"></p>
-
-<!--Button that add to the budget getting values from amount/type input not styled -->
-             <button id="update-budget-button">UPDATE BUDGET</button>
-         </div>
-            </div>
-
+                <!-- Text to display planned budget-->
+                             <p id="budget-display"></p>
+                             <p id="input-animation-value-display" class="fadeout-animation"></p>
+                
+                <!--Button that add to the budget getting values from amount/type input not styled -->
+                             <button id="update-budget-button">UPDATE BUDGET</button>
+                         </div>
+      
                 <div class="card-container">
                     <div class="card">
                         <h3>Basic Needs</h3>
@@ -156,42 +155,7 @@
                 </div>
         
             </div>
-            <!-- <div> -->
-
-        <div id="content-container">
-            <section>
-                <div>
-    
-                <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
-   DIARY SECTION
-                </div>
-            </section>
-
-            <section>
-                <div>
-    
-                <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
-   INSIGHTS SECTION
-                </div>
-            </section>
-
-            <section>
-                <div>
-    
-                <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
-   SETUP SECTION
-                </div>
-            </section>
-
-        <section>
-            <div>
-
-            <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
-ADD PROPER CONTENT ABOUT THE APP HERE
-            </div>
-        </section>
-    </div>
-
+           
 
     <div>
 
@@ -242,15 +206,6 @@ ADD PROPER CONTENT ABOUT THE APP HERE
 
         </section>
     </div>
-
-
-    </section>
-
-
-
-    <main>
-
-
     </main>
 
         <!-- BACK TO TOP SCROLL BUTTON -->
