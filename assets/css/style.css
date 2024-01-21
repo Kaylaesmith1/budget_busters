@@ -86,10 +86,7 @@ h3 {
     list-style: none; /* Remove default list item bullets */
     padding: 0; /* Remove default padding for the list */
 }
-#data-display-list > li:nth-last-child(2) {
-border-top: 0.2rem solid gray;
-border-bottom: 0.2rem solid gray;
-}
+
 
 #close-data-for-date-button {
     margin-top: 10px; /* Add margin at the top of the button for spacing */
@@ -300,6 +297,7 @@ textarea {
     width: 300px;
     text-align: center;
 }
+
 
 /*styles top regulate color displayed budget*/
 /* Add this style to your CSS file */
