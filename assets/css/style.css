@@ -466,15 +466,15 @@ textarea {
 #insights-container{
     color: white;
     display: flex;
-    display: block;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     position: absolute;
     flex-direction: column;
     z-index: 13883;
-    background-color: rgba(249, 247, 247, 0);
+    background-color: rgba(249, 247, 247, 1);
 }
  /*INSIGHST BUTTOONS*/
  #insights-buttons-container{
