@@ -132,31 +132,11 @@ h3 {
     font-size: 0.8rem; 
     margin-bottom: 10px; 
 }
-/* #luxury-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-} */
-
-/* #luxury-buttons button {
-    width: 32%; 
-    padding: 20px; 
-    font-size: 0.7rem; 
-    margin-bottom: 10px; 
-} */
-
-.testKay{
-    display: none;
-}
-
 
 
 /* Footer styles */
 footer {
     color: black;
-    /* Example text color */
-    padding: 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -178,7 +158,7 @@ footer {
     /* Adjust the font size as needed */
 }
 
-.social-links a:hover {
+.fab:hover {
     color: #EEB533 !important;
 }
 
@@ -292,7 +272,6 @@ textarea {
 .positive-budget {
     color: #3D946E;
     font-family: 'Tienne', sans-serif;
-    font-size: 24px;
     font-weight: bolder;
 }
 
@@ -489,3 +468,7 @@ textarea {
     display: none;
 }
 
+
+.contact-section {
+    margin-bottom: 80px;
+}
