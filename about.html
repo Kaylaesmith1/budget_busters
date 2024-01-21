@@ -39,7 +39,7 @@
         display: flex;
     }
 
-    .container-team-profiles {
+  /*  .container-team-profiles {
     grid-area: hd;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+    } */
 
     </style>
     
@@ -163,7 +163,9 @@
     </div>
         
   <!-- Main section introducing the team behind the project -->      
-    <section id="" class="">
+
+    <main>
+        <section id="about" class="">
         <div id="team-intro">
             <div>
                 <i class="fas fa sack-dollar"></i>  <strong>BudgetWise</strong> - The BudgetWise team was formed to rapidly build a prototype to help with January Budget Busting!! 
@@ -172,102 +174,95 @@
             </div>
         </div>
         <hr>
-        <div id="profile-container" class="profile-team-container">
+        <div id="profile-container" class="card-container">
             <div id="container-team-profiles">
                 <!-- Kayla's card -->
-                <div class="profile-card">
-                    <div class="team-picture-container">
-                        <img src="assets/pictures/kayla2.jpeg" alt="Picture of Kayla">
-                        <div class="team-card_info">
+                <div class="card-container">
+                    <div class="card">
+                        <img src="assets/images/kayla2.jpg" alt="Picture of Kayla">
+                        <div class="profile-card_info">
                             <span>Scrum<br> Master</span></a>
                             <span>Hackathon<br> Veteran</span></a>
-                            
                         </div>
-                    </div>
-                    <div class="team-card_text">
-                        <h4>Kayla</h4>
-                    </div>
-                </div>
-                <div class="team-card-icon-container">
-                    <a href="https://github.com/kaylaesmith" aria-label="Kayla's Github page" target="_blank">
-                        <i class="fab fa-github-square github-icon"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/kayla-smith-ab1595101//" aria-label="Kayla's LinkedIn page" target="_blank">
-                        <i class="fab fa-linkedin linkedin-icon"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- Nikolas' card -->
-            <div id="team-card-container">
-                <div class="profile-card">
-                    <div class="team-picture-container">
-                        <img src="assets/pictures/nikola.jpeg" alt="Picture of Nikola">
-                        <div class="team-card_info">
+                        <div class="profile-card-info card">
+                            <h4>Kayla</h4>
+                        </div>
+                        <div class="profile-links">
+                        <a href="https://github.com/kaylaesmith" aria-label="Kayla's Github page" target="_blank">
+                            <i class="fab fa-github-square github-icon"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kayla-smith-ab1595101//" aria-label="Kayla's LinkedIn page" target="_blank">
+                            <i class="fab fa-linkedin linkedin-icon"></i>
+                        </a>
+                        </div>
+                   </div> <!-- end card -->
+                </div> <!-- end card-container-->
+            
+                <!-- Nikolas' card -->
+                <div class="card-container">
+                    <div class="card">
+                        <img src="assets/images/nikola.jpeg" alt="Picture of Nikola">
+                        <div class="profile-card_info">
                             <span>Hackathon<br> Newbie</span>
                         </div>
-                    </div>
-                    <div class="team-card_text">
-                        <h4>Nikola</h4>
-                    </div>
-                </div>
-                <div class="team-card-icon-container">
-                    <a href="https://github.com/nlekkerman" aria-label="Nikola's Github page" target="_blank">
-                        <i class="fab fa-github-square github-icon"></i>
-                    </a>
-                    <a href="https://www.linkedin.com" aria-label="Nikola's LinkedIn page" target="_blank">
-                        <i class="fab fa-linkedin linkedin-icon"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- Caylin's card -->
-            <div id="team-card-container">
-                <div class="profiile-card">
-                    <div class="team-picture-container">
-                        <img src="assets/pictures/caylin.jpg" alt="Picture of Caylin">
-                        <div class="team-card_info">
-                            <span>Hackathon<br> Enthusiast</span>
+                        <div class="profile-card_text">
+                            <h4>Nikola</h4>
                         </div>
+                        <div class="profile-links">
+                            <a href="https://github.com/nlekkerman" aria-label="Nikola's Github page" target="_blank">
+                                <i class="fab fa-github-square github-icon"></i>
+                            </a>
+                            <a href="https://www.linkedin.com" aria-label="Nikola's LinkedIn page" target="_blank">
+                                <i class="fab fa-linkedin linkedin-icon"></i>
+                            </a>
+                        </div>
+                    </div> <!-- end card -->
+                </div> <!-- end card-container -->
+
+                <!-- Caylin's card -->
+                <div class="card-container">
+                <div class="card">
+                    <img src="assets/images/caylin.jpg" alt="Picture of Caylin">
+                    <div class="profile-card-info">
+                        <span>Hackathon<br> Enthusiast</span>
                     </div>
-                    <div class="team-card_text">
+                    <div class="profile-card-text">
                         <h4>Caylin</h4>
                     </div>
-                </div>
-                <div class="team-card-icon-container">
-                    <a href="https://github.com/CaylinDewey" aria-label="Caylin's Github page" target="_blank">
-                        <i class="fab fa-github-square github-icon"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/caylin-dewey-info/" aria-label="Caylin's LinkedIn page" target="_blank">
-                        <i class="fab fa-linkedin linkedin-icon"></i>
-                    </a>
-                </div>
-            </div>
+                    <div class="profile-links">
+                        <a href="https://github.com/CaylinDewey" aria-label="Caylin's Github page" target="_blank">
+                            <i class="fab fa-github-square github-icon"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/caylin-dewey-info/" aria-label="Caylin's LinkedIn page" target="_blank">
+                            <i class="fab fa-linkedin linkedin-icon"></i>
+                        </a>
+                    </div>
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        
             <!-- Deirdre's card  -->
-            <div id="team-card-container">
-                <div class="team-card-icon-container">
-                    <a href="https://github.com/DeeMcCart" aria-label="Deirdre's Github page" target="_blank">
-                        <i class="fab fa-github-square github-icon"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/deirdre-mccarthy-2ba3b0a/" aria-label="Deirdre's LinkedIn page" target="_blank">
-                        <i class="fab fa-linkedin linkedin-icon"></i>
-                    </a>
-                </div>
-                
-            </div>
-            
+            <div class="card-container">
+                <div class="card">
+                    <img src="assets/images/deirdre.jpg" alt="Picture of Caylin">
+                    <div class="profile-card_info">
+                        <span>Hackathon<br> Enthusiast</span>
+                    </div>
+                    <div class="profile-card_text">
+                        <h4>Deirdre</h4>
+                    </div>
+                    <div class="profile-links">
+                        <a href="https://github.com/DeeMcCart" aria-label="Deirdre's Github page" target="_blank">
+                            <i class="fab fa-github-square github-icon"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/deirdre-mccarthy-2ba3b0a/" aria-label="Deirdre's LinkedIn page" target="_blank">
+                            <i class="fab fa-linkedin linkedin-icon"></i>
+                        </a>
+                    </div> <!-- end profile-links -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end div container-team-profiles -->
     </section>
 </main>
-
-
-
-            </div>
-        </section>
-    </div>
-    </section>
-
-
-
-    <main>
-    </main>
 
         <!-- BACK TO TOP SCROLL BUTTON -->
         <div class="scroll-top" id="scroll-top">
