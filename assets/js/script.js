@@ -57,7 +57,7 @@ initializeCalendar();
         initialBudget -= costValue;
         localStorage.setItem("budget", initialBudget);
         displayBudget(initialBudget);
-        displayAnimationValue(costValue, "red");
+        displayAnimationValue(costValue, "red", "-");
 
         console.log(`Current content of "${storageKey}" database after manipulation:`);
         console.log(localStorage.getItem(storageKey));
@@ -99,17 +99,16 @@ initializeCalendar();
         initialBudget += plannedBudget;
         localStorage.setItem("budget", initialBudget);
         displayBudget(initialBudget);
-        displayAnimationValue(plannedBudget, "green");
+        displayAnimationValue(plannedBudget, "green","+");
 
         costBudgetInput.value = "";
     }
-
-    function displayAnimationValue(value, color) {
+    function displayAnimationValue(value, color, preSign) {
         const animationDisplay = document.getElementById("input-animation-value-display");
-
-        animationDisplay.textContent = `${value < 0 ? "-" : "+"}${Math.abs(value)}`;
+    
+        animationDisplay.textContent = `${preSign}${Math.abs(value)}`;
         animationDisplay.style.color = color;
-
+    
         animationDisplay.classList.remove("fadeout-animation");
         void animationDisplay.offsetWidth;
         animationDisplay.classList.add("fadeout-animation");
