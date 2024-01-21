@@ -2,24 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
     const dataDisplayList = document.getElementById("data-display-list");
-    const dataDisplayForDateList = document.getElementById("data-display-for-date-list");
-    const closeDataDateContainer = document.getElementById("display-data-inner-conatiner");
+    const getDataByDateButton = document.getElementById('get-data-by-date');
+    const getDataGeneralButton = document.getElementById('get-data-by-date');
     const dataTitle = document.getElementById("data-analytics-title");
-    const displayDataButton = document.getElementById("display-data-button"); 
-    const closeDataListButton = document.getElementById('close-data-for-date-button')
+   
 
 
- 
-    const calendar = document.getElementById("calendar");
-    const yearSelect = document.getElementById("year-select");
-    const monthSelect = document.getElementById("month-select");
-    const calendarGrid = document.getElementById("calendar-grid");
-    const calendarCheckbox = document.getElementById('calendar-checkbox');
-
-
-
+initializeCalendar();
+  
     let initialBudget = 0;
-
+    getDataByDateButton.addEventListener('click', function() {
+        toggleCalendar();
+        console.log('Button Clicked:', getDataByDateButton.id);
+    });
+    getDataGeneralButton.addEventListener('click', function() { 
+        dataDisplayList.style.display ='block'       
+        displayAnalyticsData();
+        console.log('Button Clicked:', getDataByDateButton.id);
+    });
     function addButtonClickListeners(category, type) {
         document.getElementById(`${type.toLowerCase()}-button`).addEventListener("click", function () {
             manipulateExpenses(category, type);
@@ -227,181 +227,44 @@ document.addEventListener("DOMContentLoaded", function () {
         <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">€${remainingBudget.toFixed(2)}</span>`;
     dataDisplayList.appendChild(remainingBudgetItem);
 }
- 
-
 
 function toggleCalendar() {
-    const calendar = document.getElementById("calendar");
-    calendar.style.display = calendar.style.display === "none" ? "block" : "none";
-    if (calendar.style.display === "block") {
-        renderCalendar();
-    }
+    const calendar = document.getElementById('calendar');
+    calendar.style.display = (calendar.style.display === 'none') ? 'block' : 'none';
 }
 
-
-function renderCalendar() {
-    const calendar = document.getElementById("calendar");
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const firstDay = new Date(year, month, 1).getDay();
-
-    const monthNames = [
-        "January", "February", "March",
-        "April", "May", "June", "July",
-        "August", "September", "October",
-        "November", "December"
-    ];
-
-    // Clear previous content
-    calendar.innerHTML = "";
-
-    // Render header
-    const header = document.createElement("div");
-    header.className = "calendar-header";
-    header.textContent = `${monthNames[month]} ${year}`;
-    calendar.appendChild(header);
-
-    // Render days
-    const daysContainer = document.createElement("div");
-    daysContainer.className = "calendar-days";
-
-    // Create an array to hold the days of the week
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-    // Render day names
-    for (let dayName of daysOfWeek) {
-        const dayElement = document.createElement("div");
-        dayElement.className = "calendar-day";
-        dayElement.textContent = dayName;
-        daysContainer.appendChild(dayElement);
-    }
-
-    // Render blank spaces for the first days
-    for (let i = 0; i < firstDay; i++) {
-        const dayElement = document.createElement("div");
-        dayElement.className = "calendar-day";
-        daysContainer.appendChild(dayElement);
-    }
-
-    // Render days of the month
-    for (let day = 1; day <= daysInMonth; day++) {
-        const dayElement = document.createElement("div");
-        dayElement.className = "calendar-day";
-        dayElement.textContent = day;
-        dayElement.addEventListener("click", () => onDayClick(year, month, day));
-        daysContainer.appendChild(dayElement);
-    }
-
-    calendar.appendChild(daysContainer);
-}
-
-function onDayClick(year, month, day) {
-    // You can implement logic to display costs for the selected date here
-    alert(`Selected date: ${month + 1}/${day}/${year}`);
-}
-
-
-
-  let selectedYear = new Date().getFullYear();
-  let selectedMonth = new Date().getMonth();
-
-  function updateCalendar() {
-    // Clear previous calendar
-    calendarGrid.innerHTML = "";
-
-    // Set the year and month in the selects
-    yearSelect.value = selectedYear;
-    monthSelect.value = selectedMonth;
-
-    // Get the first day of the month
-    const firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
-
-    // Get the last day of the month
-    const lastDay = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-
-    // Create header row
-    const headerRow = document.createElement("div");
-    headerRow.classList.add("calendar-row");
-
-    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    for (const day of daysOfWeek) {
-      const dayCell = document.createElement("div");
-      dayCell.classList.add("calendar-cell");
-      dayCell.textContent = day;
-      headerRow.appendChild(dayCell);
-    }
-
-    calendarGrid.appendChild(headerRow);
-
-    // Create calendar days
-    let dayCounter = 1;
-    for (let i = 0; i < 6; i++) {
-      const calendarRow = document.createElement("div");
-      calendarRow.classList.add("calendar-row");
-
-      for (let j = 0; j < 7; j++) {
-        const calendarCell = document.createElement("div");
-        calendarCell.classList.add("calendar-cell");
-
-        if (i === 0 && j < firstDay) {
-          // Empty cells before the first day
-          calendarCell.classList.add("empty-cell");
-        } else if (dayCounter <= lastDay) {
-          // Cells with days
-          calendarCell.textContent = dayCounter;
-          calendarCell.addEventListener("click", () => {
-            // Handle day click (you can implement cost display logic here)
-            console.log(`Clicked on ${selectedYear}-${selectedMonth + 1}-${dayCounter}`);
-          });
-          dayCounter++;
-        }
-
-        calendarRow.appendChild(calendarCell);
-      }
-
-      calendarGrid.appendChild(calendarRow);
-
-      if (dayCounter > lastDay) {
-        // Stop creating rows if we've displayed all days
-        break;
-      }
-    }
-  }
-
-  function updateYearAndMonth() {
-    selectedYear = parseInt(yearSelect.value);
-    selectedMonth = parseInt(monthSelect.value);
-    updateCalendar();
-  }
-
-  function initYearSelect() {
+function initializeCalendar() {
     const currentYear = new Date().getFullYear();
-    for (let year = currentYear - 5; year <= currentYear + 5; year++) {
-      const option = document.createElement("option");
-      option.value = year;
-      option.textContent = year;
-      yearSelect.appendChild(option);
+    const currentMonth = new Date().getMonth();
+
+    // Populate the year-select with the current year and the next 10 years
+    const yearSelect = document.getElementById('year-select');
+    for (let i = currentYear; i <= currentYear + 10; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        yearSelect.appendChild(option);
     }
-  }
 
-  function showCalendar() {
-    calendar.style.display = "block";
-    updateCalendar();
-  }
+    // Set the default selected year to the current year
+    yearSelect.value = currentYear;
 
-  function hideCalendar() {
-    calendar.style.display = "none";
-  }
+    // Set the default selected month to the current month
+    const monthSelect = document.getElementById('month-select');
+    monthSelect.value = currentMonth;
 
-  // Initialize year select options
-  initYearSelect();
+    // Populate the calendar grid
+    const calendarGrid = document.getElementById('calendar-grid');
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-  // Event listeners
-  yearSelect.addEventListener("change", updateYearAndMonth);
-  monthSelect.addEventListener("change", updateYearAndMonth);
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day';
+        dayElement.textContent = day;
+        calendarGrid.appendChild(dayElement);
+    }
+}
+
   function getLocalStorageData(storageKey) {
     let savedData;
     try {
@@ -483,23 +346,18 @@ remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong>
     <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">${remainingBudget.toFixed(2)} €</span>`;
 dataDisplayForDateList.appendChild(remainingBudgetItem);
 }
-// Event listener for day clicks
-calendarGrid.addEventListener("click", function (event) {
-    const clickedCell = event.target;
-    const day = parseInt(clickedCell.textContent);
-  
-    if (!isNaN(day)) {
-      handleDayClick(day);
-      hideCalendar();
-      displayDataButton.style.display = 'none'
-      closeDataListButton.style.display = 'block'
-      closeDataDateContainer.style.display = 'block'
 
-    }
+displayAnalyticsData();
 
-  });
-  // Initially hide the calendar
-  hideCalendar();
+
+const filterDataButton = document.getElementById('filter-data-button');
+const insightsButtonsContainer = document.getElementById('insights-buttons-container');
+
+filterDataButton.addEventListener('click', function () {
+    // Toggle the visibility of insights-buttons-container
+    insightsButtonsContainer.style.display = (insightsButtonsContainer.style.display === 'none') ? 'flex' : 'none';
+});
+
 });
 
 

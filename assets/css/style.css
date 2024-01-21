@@ -302,54 +302,60 @@ input {
     animation: fadeOut 1s ease-in-out forwards;
 }
 /*calendar styles*/
-.calendar-container {
-    position: relative;
-    z-index: 5;
-    
-  }
-
-
-  #calendar {
-    position: absolute;
-    top: 35px;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-
-  #calendar-checkbox {
+#calendar { 
     display: none;
-  }
-
-  #calendar-icon {
-    cursor: pointer;
-  }
-
- 
-  #year-select,
-  #month-select {
-    margin-bottom: 10px;
-  }
-  
-  .calendar-row {
-    display: flex;
-  }
-  
-  .calendar-cell {
-    flex: 1;
     text-align: center;
-    padding: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .empty-cell {
-    background-color: #eee;
-  }
-/*calendar data button*/
-#close-data-for-date-button{
-    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
+
+.dropdowns-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Add the following line to make the dropdown open downwards */
+    transform: scaleY(1);
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: #ddd;
+}
+
+.fa-calendar-alt {
+    margin-right: 5px;
+    color: #007BFF;
+}
+
+.fa-chevron-down {
+    margin-left: 5px;
+    color: #007BFF;
+}
+ 
 @keyframes fadeOut {
     0% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-200%); }
@@ -408,14 +414,22 @@ a#setupSection {
     display: block;
     align-items: center;
     justify-content: center;
-    max-width: 100%;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     position: absolute;
-    z-index: 3;
-    background-color: rgba(253, 251, 251, 0.8);
+    flex-direction: column;
+    z-index: 13883;
+    background-color: rgba(249, 247, 247, 0);
 }
-#analytics-buttons-container{
+ /*INSIGHST BUTTOONS*/
+ #insights-buttons-container{
     display: flex;
+    position: absolute;
+    display: none;
     background-color: #212529;
+    z-index: 13;
+    justify-content: center;
+ }
+#close-data-for-date-button{
+    display: none;
 }
