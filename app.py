@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from datetime import datetime
 import sys
 import os.path
@@ -6,6 +6,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
 from termcolor import colored
+from dotenv import load_dotenv
+load_dotenv()
+STATIC_DIR = '/workspace/budget_busters/assets'
 
 # credentials for linking to google drive/ google sheets
 SCOPE = [
@@ -14,15 +17,16 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-# CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+CREDS = Credentials.from_service_account_file('creds.json')
+
+CREDS = SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("budget_busters")
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 TEMPLATE_DIR = os.path.abspath('templates')
-STATIC_DIR = os.path.abspath('../static')
+STATIC_DIR = os.path.abspath('assets')
 
 
 #Utility functions for messaging
@@ -116,7 +120,6 @@ def list_worksheet(worksheet, row_num, user):
                                     data[6], data[7], data[8]])
             all_data = print_cols
     table1 = tabulate(all_data, headers='firstrow', tablefmt='fancy_grid')
-    print(table1)
     return all_data
 
 
@@ -172,9 +175,9 @@ def add_record(worksheet, data):
         spend_cat_name = "Food"
         spend_amt = 50.00
         spend_date = datetime.now().strftime("%d/%m/%Y")
-        spend_YYMM = datetime.now().strftime("%YY%MM")
+        spend_YYMM = datetime.now().strftime("%y%m")
         new_record = [next_index("user_spend"), user, spend_cat, spend_cat_name,
-                    spend_amt, spend_date, spend_YYMM]
+                    spend_amt, spend_date, 2401]
     
     else:
         print_error("Invalid worksheet")
@@ -213,30 +216,33 @@ def append_worksheet(worksheet, data):
 
 
 
-app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
-    # template_folder and sttaic_folder hange the default folders for the
-    # templates and static files used by the render function
 
+app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
+    # template_folder and static_folder hange the default folders for the
+    # templates and static files used by the render function
+print(f"TEMPLATE_DIR is", TEMPLATE_DIR)
+
+print(f"STATIC_DIR is", STATIC_DIR)
 list_worksheet("user_spend", 2, "fred")
 # list_worksheet("user_config", 1) throwing index out of range error
 list_worksheet("user_goals", 0, "") 
 
-# start off by showing the 'default user' config
+# start off by showing the 'default user' confi#g
 config_data = list_worksheet("user_config", 1, "default")
-print(f'Default user config is:', config_data )
+# print(f'Default user config is:', config_data )
+
 
 @app.route('/')
 def index():
     return render_template('index_gs.html', user_config=config_data)
 
-@app.route('/show_user_data/', methods=['POST']) 
-def show_user_data(): 
+@app.route('/user_data/<string:username>', methods=['GET', 'POST']) 
+def user_data(username): 
     # call your Python function here 
-    user_goals = list_worksheet("user_goals", 0, "fred") 
-    user_spend = list_worksheet("user_spend", 0, "fred")
-    user_config = list_worksheet("user_config", 1, "default")
-
-    return render_template('index_gs.html', user_goals=user_goals, user_spend=user_spend, user_config=user_config)
+        user_goals = list_worksheet("user_goals", 0, username) 
+        user_spend = list_worksheet("user_spend", 0, username)
+        user_config = list_worksheet("user_config", 1, "default")
+        return render_template('index_gs.html', user_goals=user_goals, user_spend=user_spend, user_config=user_config)
 
 @app.route('/add_data/', methods=['POST']) 
 def add_data(): 
