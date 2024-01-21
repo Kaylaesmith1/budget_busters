@@ -3,16 +3,104 @@ document.addEventListener("DOMContentLoaded", function () {
     const budgetDisplay = document.getElementById("budget-display");
     const dataDisplayList = document.getElementById("data-display-list");
     const getDataByDateButton = document.getElementById('get-data-by-date');
-    const getDataGeneralButton = document.getElementById('get-data-by-date');
+    const getDataGeneralButton = document.getElementById('get-data-general');
     const dataTitle = document.getElementById("data-analytics-title");
    
+const filterDataButton = document.getElementById('filter-data-button');
+const insightsButtonsContainer = document.getElementById('insights-buttons-container');
+
+const calendarGrid = document.getElementById("calendar-grid");
 
 
-initializeCalendar();
+function generateCalendar(year, month) {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const daysInMonth = lastDay.getDate();
+
+    // Clear previous calendar
+    calendarGrid.innerHTML = "";
+
+    // Add current month header
+    const currentMonthHeader = document.createElement("div");
+    currentMonthHeader.classList.add("current-month");
+    currentMonthHeader.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(firstDay);
+    calendarGrid.appendChild(currentMonthHeader);
+
+    // Add day cells
+    for (let i = 0; i < firstDay.getDay(); i++) {
+        const emptyCell = document.createElement("div");
+        emptyCell.classList.add("day");
+        calendarGrid.appendChild(emptyCell);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayCell = document.createElement("div");
+        dayCell.classList.add("day");
+        dayCell.textContent = day;
+        dayCell.addEventListener("click", () => handleDayClick(year, month, day));
+        calendarGrid.appendChild(dayCell);
+    }
+}
+
+function handleDayClick(year, month, day) {
+    const selectedDate = new Date(year, month, day).toLocaleDateString();
+    displayExpensesForSelectedDay(year, month, day);
+calendarGrid.style.display = 'none'
+}
+function displayExpensesForSelectedDay(selectedYear, selectedMonth, selectedDay) {
+    let savedData;
+    const storageKey = "expense_tracker_DB";
+
+    try {
+        savedData = JSON.parse(localStorage.getItem(storageKey)) || [];
+    } catch (error) {
+        console.error("Error parsing existing data:", error);
+        savedData = [];
+    }
+
+    // Filter entries for the selected date
+    const entriesForSelectedDate = savedData.filter(entry => {
+        const entryDate = new Date(entry.expense_date);
+        return (
+            entryDate.getFullYear() === selectedYear &&
+            entryDate.getMonth() === selectedMonth &&
+            entryDate.getDate() === selectedDay
+        );
+    });
+
+    // Check if there are entries for the selected date
+    if (entriesForSelectedDate.length === 0) {
+        alert(`No entries found for ${selectedYear}-${selectedMonth + 1}-${selectedDay}`);
+        calendarGrid.style.display = 'block'; // Show the calendar grid
+        return;
+    }
+
+    // Display the filtered entries
+    displayCostsList(entriesForSelectedDate);
+}
+
+// Function to display the filtered entries
+function displayCostsList(entries) {
+    const dataDisplayList = document.getElementById("data-display-list");
+
+    dataDisplayList.innerHTML = "";
+
+    // Display each entry in the list
+    entries.forEach(entry => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `Expense: ${entry.expense_value}, Category: ${entry.expense_category}, Type: ${entry.expense_type}, Description: ${entry.description}`;
+        dataDisplayList.appendChild(listItem);
+    });
+}
+// Initial rendering for the current month
+const currentDate = new Date();
+generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
   
     let initialBudget = 0;
     getDataByDateButton.addEventListener('click', function() {
         toggleCalendar();
+        insightsButtonsContainer.style.display = 'none';
+
         console.log('Button Clicked:', getDataByDateButton.id);
     });
     getDataGeneralButton.addEventListener('click', function() { 
@@ -67,7 +155,7 @@ initializeCalendar();
 
     function displayBudget(remainingBudget) {
         const formattedBudget = remainingBudget.toFixed(2);
-        budgetDisplay.textContent = `Remaining Budget: $${formattedBudget}`;
+        budgetDisplay.textContent = `Remaining Budget: € ${formattedBudget}`;
 
         budgetDisplay.classList.remove("positive-budget", "negative-budget");
 
@@ -200,7 +288,7 @@ initializeCalendar();
         const categoryData = categories[category];
         const categoryItem = document.createElement("li");
         categoryItem.innerHTML = `<strong>${category}</strong>, 
-            Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">€${categoryData.total.toFixed(2)}</span>, 
+            Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">${categoryData.total.toFixed(2)}</span>, 
             Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
         dataDisplayList.appendChild(categoryItem);
     }
@@ -232,130 +320,22 @@ function toggleCalendar() {
     calendar.style.display = (calendar.style.display === 'none') ? 'block' : 'none';
 }
 
-function initializeCalendar() {
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth();
-
-    // Populate the year-select with the current year and the next 10 years
-    const yearSelect = document.getElementById('year-select');
-    for (let i = currentYear; i <= currentYear + 10; i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        yearSelect.appendChild(option);
-    }
-
-    // Set the default selected year to the current year
-    yearSelect.value = currentYear;
-
-    // Set the default selected month to the current month
-    const monthSelect = document.getElementById('month-select');
-    monthSelect.value = currentMonth;
-
-    // Populate the calendar grid
-    const calendarGrid = document.getElementById('calendar-grid');
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-    for (let day = 1; day <= daysInMonth; day++) {
-        const dayElement = document.createElement('div');
-        dayElement.className = 'day';
-        dayElement.textContent = day;
-        calendarGrid.appendChild(dayElement);
-    }
-}
-
-  function getLocalStorageData(storageKey) {
-    let savedData;
-    try {
-        const storedData = localStorage.getItem(storageKey);
-        savedData = storedData ? JSON.parse(storedData) : [];
-    } catch (error) {
-        console.error("Error parsing existing data:", error);
-        savedData = [];
-    }
-    console.log("Retrieved Data:", savedData);
-    return savedData;
-}
-  
-  function handleDayClick(day) {
-    // Log the selected day, month, and year
-    console.log(`Selected Date: ${selectedYear}-${selectedMonth + 1}-${day}`);
-
-    // Check local storage for expenses on the selected date
-    const selectedDate = new Date(selectedYear, selectedMonth, day).toLocaleDateString();
-    const savedData = getLocalStorageData("expense_tracker_DB");
-
-    const expensesForSelectedDate = savedData.filter(entry => entry.expense_date === selectedDate);
-
-    if (expensesForSelectedDate.length > 0) {
-        // If there are expenses for the selected date, display analytics data
-        calculateDateSpecificAnalyticsData(expensesForSelectedDate, selectedDate);
-    } else {
-        // If there are no expenses for the selected date, you can handle it accordingly
-        console.log("No expenses for the selected date.");
-    }
-}
-
-function calculateDateSpecificAnalyticsData(expensesForSelectedDate, selectedDate) {
-    dataDisplayForDateList.innerHTML = "";
-    const totalSpend = expensesForSelectedDate.reduce((total, entry) => total + parseFloat(entry.expense_value), 0);
-    const analyticsData = calculateAnalyticsData(expensesForSelectedDate, totalSpend);
-    displayAnalyticsListForDate(analyticsData, selectedDate);
-}
-
-function displayAnalyticsListForDate(analyticsData, selectedDate) {
-    const categories = analyticsData.categories;
-    const types = analyticsData.types;
-    const totalSpend = analyticsData.totalSpend;
-    const remainingBudget = analyticsData.remainingBudget;
-
-    // Display selected date and time
-    const selectedDateItem = document.createElement("li");
-    dataTitle.innerHTML = `<strong>Expenses for Date:</strong> ${selectedDate}`;
-    dataDisplayForDateList.appendChild(selectedDateItem);
-
-  // Display category data
-  for (const category in categories) {
-    const categoryData = categories[category];
-    const categoryItem = document.createElement("li");
-    categoryItem.innerHTML = `<strong>${category}</strong>, 
-        Total: <span style="color: ${categoryData.total >= 0 ? 'green' : 'red'};">${categoryData.total.toFixed(2)} €</span>, 
-        Percentage: <span style="color: ${categoryData.percentage >= 0 ? 'green' : 'red'};">${categoryData.percentage.toFixed(2)}%</span>`;
-    dataDisplayForDateList.appendChild(categoryItem);
-}
-
-// Display type data
-for (const type in types) {
-    const typeData = types[type];
-    const typeItem = document.createElement("li");
-    typeItem.innerHTML = `<strong>${type}</strong>: 
-        Total: <span style="color: ${typeData.total >= 0 ? 'green' : 'red'};">${typeData.total.toFixed(2)} €</span>, 
-        Percentage: <span style="color: ${typeData.percentage >= 0 ? 'green' : 'red'};">${typeData.percentage.toFixed(2)}%</span>`;
-    dataDisplayForDateList.appendChild(typeItem);
-}
-
-// Display total spend and remaining budget
-const totalSpendItem = document.createElement("li");
-totalSpendItem.innerHTML = `<strong>Total Spent:</strong> 
-    <span style="color: ${totalSpend >= 0 ? 'green' : 'red'};">${totalSpend.toFixed(2)} €</span>`;
-dataDisplayForDateList.appendChild(totalSpendItem);
-
-const remainingBudgetItem = document.createElement("li");
-remainingBudgetItem.innerHTML = `<strong>Remaining Budget:</strong> 
-    <span style="color: ${remainingBudget >= 0 ? 'green' : 'red'};">${remainingBudget.toFixed(2)} €</span>`;
-dataDisplayForDateList.appendChild(remainingBudgetItem);
-}
 
 displayAnalyticsData();
 
 
-const filterDataButton = document.getElementById('filter-data-button');
-const insightsButtonsContainer = document.getElementById('insights-buttons-container');
-
 filterDataButton.addEventListener('click', function () {
     // Toggle the visibility of insights-buttons-container
     insightsButtonsContainer.style.display = (insightsButtonsContainer.style.display === 'none') ? 'flex' : 'none';
+
+    // Close the calendar if it is open
+    const calendar = document.getElementById('calendar');
+    if (calendar.style.display !== 'none') {
+        calendar.style.display = 'none';
+    }
 });
+
+
 
 });
 
