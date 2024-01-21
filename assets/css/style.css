@@ -58,7 +58,6 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; 
 }
 
 #cost-value-input{
@@ -274,7 +273,10 @@ input {
 }
 
 .negative-budget {
-    color: red;
+    color: #f20e0e;
+    font-family: 'Tienne', sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
 }
 
 /*animation for cost?budget number styles*/
@@ -379,7 +381,11 @@ input {
 
 
 /* JUMP TO SPECIFIC SECTION */
-a#aboutSection, a#contactSection {
+a#aboutSection,
+a#contactSection,
+a#diarySection,
+a#insightsSection,
+a#setupSection {
     color: #212529;
 }
 /* .section {
