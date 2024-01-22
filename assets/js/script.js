@@ -43,9 +43,9 @@ const closeDataList = document.getElementById('close-data-for-date-button');
   // Add click event listeners to the buttons
   homeButton.addEventListener("click", function() {
     openExpensesScreen.style.display = 'block';
+    aboutScreen.style.display = 'none';
     contactScreen.style.display = 'none'
     insinghstScreen.style.display = 'none';
-    openExpensesScreen.style.display = 'none';
 
 
   });
@@ -53,8 +53,8 @@ const closeDataList = document.getElementById('close-data-for-date-button');
   insightsButton.addEventListener("click", function() {
     insinghstScreen.style.display = 'block';
     openExpensesScreen.style.display = 'none';
-    aboutScreen.style.display = 'none';
-
+    aboutScreen.style.display = 'block';
+    contactScreen.style.display = 'none'
 
 
   });
