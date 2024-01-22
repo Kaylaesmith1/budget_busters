@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let insightsLink = document.getElementById("nav-link-insights");
 const homeButton = document.getElementById("homeButton");
 const insightsButton = document.getElementById("nav-link-insights");
-const setupButton = document.getElementById("setupButton")
 const aboutButton = document.getElementById("aboutButton");
 const contactButton = document.getElementById("contactButton");
 

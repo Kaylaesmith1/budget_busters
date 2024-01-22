@@ -546,7 +546,6 @@ position: absolute;
 /*expenses container*/
 #wrap-expenses-container{
     color: white;
-
     align-items: center;
     justify-content: center;
     max-width: 100%;
@@ -560,10 +559,11 @@ position: absolute;
     color: white;
     display: flex;
     display: none;
-    align-items: center;
-    justify-content: center;
     position:absolute;
     width: 100%;
+
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     flex-direction: column;
     z-index: 100400;
@@ -574,6 +574,7 @@ position: absolute;
     flex-direction: column;
     display: flex;
     position: absolute;
+   
 }
 #insights-navigation-buttons{
     width: 100%;
