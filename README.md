@@ -1,7 +1,7 @@
 
 <br>
 
-![Favicon](assets/images/logo-bolder.png)
+![Favicon](assets/images/logo.png)
 
 </h1>
 
