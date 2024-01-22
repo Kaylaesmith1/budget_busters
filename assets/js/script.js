@@ -5,21 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const getDataByDateButton = document.getElementById('get-data-by-date');
     const getDataByTypeButton = document.getElementById('get-data-by-type');
     const getDataByCategoryButton = document.getElementById('get-data-by-category');
+    const openInsinghstScreen = document.getElementById('get-insights-nav-button');
+    const insinghstScreen = document.getElementById('insights-container');
+    
    
     const getDataGeneralButton = document.getElementById('get-data-general');
     const dataTitle = document.getElementById("data-analytics-title");
     const calendar = document.getElementById("calendar");
 
+    
     const createGoalForm = document.getElementById('create-goal-form')
 const filterDataButton = document.getElementById('tracker-data-button');
 const insightsButtonsContainer = document.getElementById('insights-buttons-container');
+const insightsNavContainer = document.getElementById('insight-navigation-buttons');
 const goalsButton = document.getElementById('goals-data-button');
 const displayGoals = document.getElementById('display-goals');
 const createGoalButton = document.getElementById('create-goal-button')
 const submitGoal = document.getElementById('submit-goal-button');
+const closeGoalScreenButton = document.getElementById('close-goals-button');
+const closePopup = document.getElementById('close-popup');
+const closeDataList = document.getElementById('close-data-for-date-button');
 
 
-/** CODE FOR GOALS SCREEN HANDELING
+/** CODE FOR GOALS; SCREEN HANDELING
  * 
  */
 
@@ -43,7 +51,30 @@ submitGoal.addEventListener('click', function () {
     console.log('Create Goal button clicked!');
 });
 
+closeGoalScreenButton.addEventListener('click', function () {
+   
+        displayGoals.style.display = 'none';
+    
+    console.log('Create Goal button clicked!');
+});
 
+
+closePopup.addEventListener('click', function () {
+   
+    document.getElementById("goals-popup").style.display = "none";
+
+
+console.log('Create Goal button clicked!');
+});
+closeDataList.addEventListener('click', function () {
+   dataDisplayList.style.display = 'none'
+   insightsNavContainer.style.display = 'block';
+   closeDataList.style.display = 'none';
+   
+
+  
+
+});
 goalsButton.addEventListener('click', function () {
     // Toggle the visibility of the display-goals element
     if (displayGoals.style.display === 'none') {
@@ -54,32 +85,85 @@ goalsButton.addEventListener('click', function () {
 });
 const calendarGrid = document.getElementById("calendar-grid");
 
-// Function to display goals from local storage
 function displayGoalsList() {
     let goalListDiv = document.getElementById("goals-display-list");
+    let goalsPopupDiv = document.getElementById("goals-popup");
+    let dataGoalsDetailsList = document.getElementById("data-goals-details-list");
+
     goalListDiv.innerHTML = ""; // Clear existing content
 
-    // Loop through local storage keys
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
 
-        // Check if the key represents a goal
         if (key.startsWith("goal_")) {
-            // Retrieve goal data from local storage
             let goalData = JSON.parse(localStorage.getItem(key));
 
-            // Create a div element for each goal and append it to the goal list
             let goalDiv = document.createElement("div");
             goalDiv.innerHTML =
-                "<strong>Name:</strong> " + goalData.goalName + "<br>" +
-                "<strong>Value:</strong> " + goalData.goalValue + "<br>" +
-                "<strong>Duration:</strong> " + goalData.goalDuration + "<br>" +
-                "<strong>Status:</strong> " + goalData.goalStatus + "<br><br>";
+                "<strong>Goal:</strong> " + goalData.goalName + "<br>" +  "<strong>click here:</strong> " +
+                "<strong>Status:</strong> " + goalData.goalStatus + "<br>" +  "<strong> //CLICK MORE DATA// </strong> "+"<br><br>";
+
+            // Apply styles based on goal status
+            if (goalData.goalStatus === "active") {
+                goalDiv.style.color = "green"; 
+                goalDiv.style.border = "1px solid #3D946E"; 
+            } else if (goalData.goalStatus === "reached") {
+                goalDiv.style.color = "red"; 
+                goalDiv.style.border = "1px solid red";
+            }
+
+            goalDiv.addEventListener("click", function() {
+                console.log("Goal clicked:", goalData);
+                displayChildrenOfGoalsDatabase(goalData);
+
+                // Make the goals-popup visible
+                goalsPopupDiv.style.display = "block";
+
+                // Populate data-goals-details-list with data from the database
+                populateGoalsDetailsList(dataGoalsDetailsList, goalData);
+            });
 
             goalListDiv.appendChild(goalDiv);
         }
     }
 }
+
+function displayChildrenOfGoalsDatabase(goalData) {
+    console.log("Children of goals database for goal:", goalData);
+    console.log("Child 1:", goalData.child1);
+    console.log("Child 2:", goalData.child2);
+    // ...
+}
+function populateGoalsDetailsList(listElement, goalData) {
+    // Clear existing content in the list
+    listElement.innerHTML = "";
+
+    // Add some styles to the list
+    listElement.style.listStyleType = "none";
+    listElement.style.padding = "0";
+    listElement.style.margin = "0";
+
+    // Iterate over properties of the goalData object and add list items
+    for (let key in goalData) {
+        if (goalData.hasOwnProperty(key)) {
+            addListItem(listElement, key, goalData[key]);
+        }
+    }
+
+    // You can customize the content and structure based on your needs
+}
+
+// Helper function to add a styled list item
+function addListItem(listElement, label, value) {
+    let listItem = document.createElement("li");
+    listItem.style.marginBottom = "8px"; // Adjust the margin as needed
+    listItem.innerHTML = `<strong>${label}:</strong> ${value}`;
+    listElement.appendChild(listItem);
+}
+// Additional logs
+console.log("Page loaded. Initiating displayGoalsList()");
+displayGoalsList();
+
 function saveGoal() {
     // Retrieve input values
     let goalName = document.getElementById("goal-name").value;
@@ -89,12 +173,25 @@ function saveGoal() {
     // Create a unique key for each goal based on the timestamp
     let goalKey = "goal_" + Date.now();
 
+    // Retrieve the budget from localStorage
+    let expenseTrackerData = JSON.parse(localStorage.getItem("expense_tracker_DB"));
+    let budget = expenseTrackerData ? expenseTrackerData.budget : 0;
+
+    // Get the current date formatted as day/month/year
+    let currentDate = new Date();
+    let formattedCurrentDate = currentDate.toLocaleDateString("en-GB"); // Adjust the locale as needed
+
+   
+
     // Create an object to represent the goal
     let goalData = {
         goalName: goalName,
         goalValue: goalValue,
         goalDuration: goalDuration,
-        goalStatus: "active"
+        goalStatus: "active",
+        budget: budget,
+        currentDate: formattedCurrentDate,
+      
     };
 
     // Store the goal data in local storage
@@ -103,7 +200,18 @@ function saveGoal() {
     // Refresh the goal list
     displayGoalsList();
 }
+function clearGoalDatabase() {
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
 
+        if (key.startsWith("goal_")) {
+            localStorage.removeItem(key);
+        }
+    }
+
+    // Optionally refresh the goal list after clearing the goals
+    displayGoalsList();
+}
   // Refresh the goal list
   displayGoalsList();
 function generateCalendar(year, month) {
@@ -139,6 +247,7 @@ function generateCalendar(year, month) {
 function handleDayClick(year, month, day) {
     const selectedDate = new Date(year, month, day).toLocaleDateString();
     displayExpensesForSelectedDay(year, month, day);
+    insightsNavContainer.style.display = 'none';
 
     calendar.style.display = 'none'
 
@@ -210,6 +319,8 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         insightsButtonsContainer.style.display = 'none';
        clearDataDisplayList();
        dataTitle.innerHTML = "EXPENSES BY DATE";
+       dataDisplayList.style.display = 'block'
+       closeDataList.style.display = 'block';
 
         console.log('Button Clicked:', getDataByDateButton.id);
     });
@@ -218,6 +329,9 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         displayAnalyticsData();
         dataTitle.innerHTML = "GENERAL EXPENSES";
         insightsButtonsContainer.style.display = 'none';
+        insightsNavContainer.style.display = 'none';
+        closeDataList.style.display = 'block';
+
         console.log('Button Clicked:', getDataByDateButton.id);
     });
     function addButtonClickListeners(category, type) {
@@ -230,9 +344,13 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         const savedData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
         dataTitle.innerHTML = "EXPENSES BY CATEGORY";
         insightsButtonsContainer.style.display = 'none';
+        insightsNavContainer.style.display = 'none';
+        closeDataList.style.display = 'block';
+
         // Calculate analytics data for expense categories
         const categoryAnalyticsData = calculateCategoryAnalyticsData(savedData);
-    
+        dataDisplayList.style.display = 'block'
+
         // Clear previous data in the list
         dataDisplayList.innerHTML = "";
     
@@ -240,17 +358,23 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         displayCategoryAnalyticsList(categoryAnalyticsData);
     });
     
+    openInsinghstScreen.addEventListener('click', function () {
+        insinghstScreen.style.display = 'block';
+
+    });
     getDataByTypeButton.addEventListener('click', function () {
         // Retrieve your expense data from local storage
         const savedTypeData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
         insightsButtonsContainer.style.display = 'none';
-
+        dataDisplayList.style.display = 'block'
+        insightsNavContainer.style.display = 'none';
         clearDataDisplayList();
         dataTitle.innerHTML = "EXPENSES BY TYPE";
+        closeDataList.style.display = 'block';
 
         // Call the function to display analytics data for expense types
         const typeAnalyticsData = calculateTypeAnalyticsData(savedTypeData);
-    
+
         // Clear previous data in the list
         dataDisplayList.innerHTML = "";
     
@@ -716,35 +840,6 @@ function sendMail(contactForm) {
         return false;
     }
 
-    // POPUP SUCCESS / FAILURE MESSAGE
-    // function popup() {
-    //     var fname = document.getElementById('fullname');
-    //     var lname = document.getElementById('lname');
-    //     var email = document.getElementById('emailaddress');
-    //     var attachment = document.getElementById('attachment');
-    //     var message = document.getElementById('message');
-    //     const success = document.getElementById('success');
-    //     const danger = document.getElementById('danger');
-    
-    //     if (fname.value === '' || lname.value === '' || email.value === '' || message.value === '') {
-    //         danger.style.display = 'block';
-    //     } else {
-    //         setTimeout(() => {
-    //             fname.value = '';
-    //             lname.value = '';
-    //             email.value = '';
-    //             attachment.value = '';
-    //             message.value = '';
-    //             success.style.display = 'none';
-    //         }, 3000);
-    
-    //         success.style.display = 'block';
-    //     }
-    
-    //     setTimeout(() => {
-    //         danger.style.display = 'none';
-    //     }, 3000);
-    // }
     
 
-    // CLEAR FORM FIELDS AFTER SUBMIT
+   
