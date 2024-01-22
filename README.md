@@ -30,7 +30,9 @@ In this section, we will briefly discuss how our team addressed the applicable c
 
 # 📮 ABOUT SUBMISSION
 ## Intro
-One or two paragraphs providing an overview of our project
+Budget Wise provides a low-cost, responsive, fully-accessible financial tracker and planner, and to help users achieve their financial goals.
+
+It is aimed towards users who have access to a smartphone or larger-screen device, who have an income (we are currently thinking in terms of monthly income) which is their spending budget, and who are wish to track their spending data, in order to get insights on spending patterns and track progress towards their financial goals.
 
 ## 🎯Project Goals
 The overall objective is to provide a low-cost, fully accessible financial tracker and planner that helps users achieve their financial goals.
@@ -43,9 +45,9 @@ The overall objective is to provide a low-cost, fully accessible financial track
 
 ➡️ Benefits - Insights can be gained on spending habits and patterns. Monitoring progress toward reaching your financial goals is easy and accessible. 
 
-While creating this project we were mindful to future-proof for scalibility.  Google sheets was initially used as a backend - this was chosen as it was felt that this app should really have a way of saving data so that a returning user can enter spending data, in particular, over a period of time.
+While creating this project we were mindful to future-proof for scalibility.  Google sheets with Flast/Jinga data transfers between HTML & python was initially trialled as a backend - this was chosen as it was felt that this app should really have a way of saving data so that a returning user can enter spending data, in particular, over a period of time.   However, while this worked successfully in a development environment, deployment presented time-consuming challenges!  A workaround was taken for BudgetWise version 1.  With this workaround, user data is preserved per device, therefore a mobile phone user can see insights on spedning patterns recorded on their device, over a period of time. 
 
-One way (perhaps a final solution) would be to build this using Django frameworks which support full database and authentication functionality. To reduce deployment complexity, we opted for Google sheets. This has embarked us on a learning curve with Flask (used as the bridge between HTML and Python).
+A future version of BudgetWise could use Django frameworks which support full database and authentication functionality. 
 
 ## Design
 ### Color Scheme
@@ -58,17 +60,15 @@ One way (perhaps a final solution) would be to build this using Django framework
 
 ### UX Design - Strategy
 ------------------------
-
+Mobile-first development.
 
 
 ### UX Design Strategy - Target audience
-* The target audience includes
+* The target audience includes users who have access to a smartphone or larger-screen device, who have an income (we are currently thinking in terms of monthly income) which is their spending budget, and who are wish to track their spending data, in order to get insights on spending patterns and track progress towards their financial goals.
+
 
 ## UX Design Scope
 ----------------
-
-### UX Design Scope -- User Requirements and Expectations
-
 
 ### UX Design Scope - Data
 The data being captured and displayed relates to a user's personal financial circumstances.
@@ -198,13 +198,24 @@ The site performs well and satisfies accessibiliyt guidenlines (CHECK)
 <screenprint of W3C accessibility checker>
 
 **F05 Comprehsnsive site pages**
+There are 5 areas of functionality available to the user:
+* Spending diary and budget setting
+* Insights to spending patterns
+* Financial Goal setting
+* Feedback Form
+* About Us
+    
+**F06 Spending Diary
 
-  
-F06
-F07
-F08
-F09
-F10
+**F07 Insights
+
+**F08 Goal Setting
+
+**F09 Contact Us Page
+
+**F10 About Us
+
+
 
 ### Features in Scope - features vs user stories (requirements) 
 This website includes 6 functional screens and XX features 
