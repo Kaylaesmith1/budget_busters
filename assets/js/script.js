@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const getDataByDateButton = document.getElementById('get-data-by-date');
     const getDataByTypeButton = document.getElementById('get-data-by-type');
     const getDataByCategoryButton = document.getElementById('get-data-by-category');
+    const openInsinghstScreen = document.getElementById('get-insights-nav-button');
+    const insinghstScreen = document.getElementById('insights-container');
+    
    
     const getDataGeneralButton = document.getElementById('get-data-general');
     const dataTitle = document.getElementById("data-analytics-title");
@@ -65,6 +68,9 @@ console.log('Create Goal button clicked!');
 });
 closeDataList.addEventListener('click', function () {
    dataDisplayList.style.display = 'none'
+   insightsNavContainer.style.display = 'block';
+   closeDataList.style.display = 'none';
+   
 
   
 
@@ -94,8 +100,8 @@ function displayGoalsList() {
 
             let goalDiv = document.createElement("div");
             goalDiv.innerHTML =
-                "<strong>Goal:</strong> " + goalData.goalName + "<br>" +
-                "<strong>Status:</strong> " + goalData.goalStatus + "<br><br>";
+                "<strong>Goal:</strong> " + goalData.goalName + "<br>" +  "<strong>click here:</strong> " +
+                "<strong>Status:</strong> " + goalData.goalStatus + "<br>" +  "<strong> //CLICK MORE DATA// </strong> "+"<br><br>";
 
             // Apply styles based on goal status
             if (goalData.goalStatus === "active") {
@@ -314,6 +320,7 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
        clearDataDisplayList();
        dataTitle.innerHTML = "EXPENSES BY DATE";
        dataDisplayList.style.display = 'block'
+       closeDataList.style.display = 'block';
 
         console.log('Button Clicked:', getDataByDateButton.id);
     });
@@ -323,6 +330,7 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         dataTitle.innerHTML = "GENERAL EXPENSES";
         insightsButtonsContainer.style.display = 'none';
         insightsNavContainer.style.display = 'none';
+        closeDataList.style.display = 'block';
 
         console.log('Button Clicked:', getDataByDateButton.id);
     });
@@ -337,6 +345,7 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         dataTitle.innerHTML = "EXPENSES BY CATEGORY";
         insightsButtonsContainer.style.display = 'none';
         insightsNavContainer.style.display = 'none';
+        closeDataList.style.display = 'block';
 
         // Calculate analytics data for expense categories
         const categoryAnalyticsData = calculateCategoryAnalyticsData(savedData);
@@ -349,6 +358,10 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         displayCategoryAnalyticsList(categoryAnalyticsData);
     });
     
+    openInsinghstScreen.addEventListener('click', function () {
+        insinghstScreen.style.display = 'block';
+
+    });
     getDataByTypeButton.addEventListener('click', function () {
         // Retrieve your expense data from local storage
         const savedTypeData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
@@ -357,6 +370,7 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         insightsNavContainer.style.display = 'none';
         clearDataDisplayList();
         dataTitle.innerHTML = "EXPENSES BY TYPE";
+        closeDataList.style.display = 'block';
 
         // Call the function to display analytics data for expense types
         const typeAnalyticsData = calculateTypeAnalyticsData(savedTypeData);

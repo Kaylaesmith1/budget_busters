@@ -496,7 +496,7 @@ input#file {
 #insights-container {
     color: white;
     display: flex;
-    display: block;
+    display: none;
     align-items: center;
     justify-content: center;
     position:absolute;
