@@ -16,6 +16,7 @@ const contactButton = document.getElementById("contactButton");
     const openExpensesScreen = document.getElementById('expense-section');
     const insinghstScreen = document.getElementById('insights-container');
     const contactScreen = document.getElementById('contact-container');
+    const aboutScreen = document.getElementById('about-section-wraper');
     
    
     const getDataGeneralButton = document.getElementById('get-data-general');
@@ -42,8 +43,9 @@ const closeDataList = document.getElementById('close-data-for-date-button');
   // Add click event listeners to the buttons
   homeButton.addEventListener("click", function() {
     openExpensesScreen.style.display = 'block';
-    insinghstScreen.style.display = 'none';
     contactScreen.style.display = 'none'
+    insinghstScreen.style.display = 'none';
+    openExpensesScreen.style.display = 'none';
 
 
   });
@@ -51,19 +53,27 @@ const closeDataList = document.getElementById('close-data-for-date-button');
   insightsButton.addEventListener("click", function() {
     insinghstScreen.style.display = 'block';
     openExpensesScreen.style.display = 'none';
+    aboutScreen.style.display = 'none';
+
 
 
   });
   
   
   aboutButton.addEventListener("click", function() {
-
+    aboutScreen.style.display = 'block';
+    contactScreen.style.display = 'none'
+    insinghstScreen.style.display = 'none';
+    openExpensesScreen.style.display = 'none';
   });
+  
   
   contactButton.addEventListener("click", function() {
    contactScreen.style.display = 'block'
    insinghstScreen.style.display = 'none';
    openExpensesScreen.style.display = 'none';
+   aboutScreen.style.display = 'none';
+
   })
 /** CODE FOR GOALS; SCREEN HANDELING
  * 
@@ -141,7 +151,7 @@ function displayGoalsList() {
 
             let goalDiv = document.createElement("div");
             goalDiv.innerHTML =
-                "<strong>Goal:</strong> " + goalData.goalName + "<br>" +  "<strong>click here:</strong> " +
+                "<strong>Goal:</strong> " + goalData.goalName + "<br>" +
                 "<strong>Status:</strong> " + goalData.goalStatus + "<br>" +  "<strong> //CLICK MORE DATA// </strong> "+"<br><br>";
 
             // Apply styles based on goal status
