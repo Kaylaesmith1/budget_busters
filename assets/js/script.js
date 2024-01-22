@@ -1,12 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+    let insightsLink = document.getElementById("nav-link-insights");
+const homeButton = document.getElementById("homeButton");
+const insightsButton = document.getElementById("nav-link-insights");
+const setupButton = document.getElementById("setupButton");
+const aboutButton = document.getElementById("aboutButton");
+const contactButton = document.getElementById("contactButton");
+
+
     const costBudgetInput = document.getElementById("cost-value-input");
     const budgetDisplay = document.getElementById("budget-display");
     const dataDisplayList = document.getElementById("data-display-list");
     const getDataByDateButton = document.getElementById('get-data-by-date');
     const getDataByTypeButton = document.getElementById('get-data-by-type');
     const getDataByCategoryButton = document.getElementById('get-data-by-category');
-    const openInsinghstScreen = document.getElementById('get-insights-nav-button');
+    const openExpensesScreen = document.getElementById('expense-section');
     const insinghstScreen = document.getElementById('insights-container');
+    const contactScreen = document.getElementById('contact-container');
     
    
     const getDataGeneralButton = document.getElementById('get-data-general');
@@ -27,6 +36,36 @@ const closePopup = document.getElementById('close-popup');
 const closeDataList = document.getElementById('close-data-for-date-button');
 
 
+/** NAvigation */
+
+  
+  // Add click event listeners to the buttons
+  homeButton.addEventListener("click", function() {
+    openExpensesScreen.style.display = 'block';
+    insinghstScreen.style.display = 'none';
+    contactScreen.style.display = 'none'
+
+
+  });
+  
+  insightsButton.addEventListener("click", function() {
+    insinghstScreen.style.display = 'block';
+    openExpensesScreen.style.display = 'none';
+
+
+  });
+  
+  setupButton.addEventListener("click", function() {
+  });
+  
+  aboutButton.addEventListener("click", function() {
+  });
+  
+  contactButton.addEventListener("click", function() {
+   contactScreen.style.display = 'block'
+   insinghstScreen.style.display = 'none';
+   openExpensesScreen.style.display = 'none';
+  })
 /** CODE FOR GOALS; SCREEN HANDELING
  * 
  */
@@ -84,7 +123,11 @@ goalsButton.addEventListener('click', function () {
     }
 });
 const calendarGrid = document.getElementById("calendar-grid");
-
+    // Add a click event listener to the element
+    insightsLink.addEventListener("click", function() {
+        // Alert when the element is clicked
+        alert("Insights link clicked!");
+    });
 function displayGoalsList() {
     let goalListDiv = document.getElementById("goals-display-list");
     let goalsPopupDiv = document.getElementById("goals-popup");
@@ -358,10 +401,7 @@ generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         displayCategoryAnalyticsList(categoryAnalyticsData);
     });
     
-    openInsinghstScreen.addEventListener('click', function () {
-        insinghstScreen.style.display = 'block';
-
-    });
+   
     getDataByTypeButton.addEventListener('click', function () {
         // Retrieve your expense data from local storage
         const savedTypeData = JSON.parse(localStorage.getItem("expense_tracker_DB")) || [];
