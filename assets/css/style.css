@@ -90,16 +90,13 @@ h3 {
 
 #data-display-list {
     list-style: none;
+
     /* Remove default list item bullets */
     padding: 0;
     /* Remove default padding for the list */
 }
 
 
-#close-data-for-date-button {
-    margin-top: 10px;
-    /* Add margin at the top of the button for spacing */
-}
 
 #cost-value-input {
     display: block;
@@ -236,6 +233,7 @@ h3,
     display: flex;
     justify-content: center;
 }
+
 
 .card {
     padding: 10px;
@@ -446,7 +444,7 @@ form {
     flex-direction: column;
 }
 
-form#contact-form {
+form #contact-form {
     font-family: 'Tienne', sans-serif;
     font-size: 16px;
 }
@@ -480,7 +478,14 @@ input#file {
     background-color: #B8F3D9;
 }
 
-
+/*navigation container*/
+#navigation-container{
+    display: none;
+}
+/*contact container*/
+#contact-container{
+    display: none;
+}
 /*INSIGHT SCREEN SECTION*/
 #insights-container {
     color: white;
@@ -488,24 +493,91 @@ input#file {
     display: block;
     align-items: center;
     justify-content: center;
+    position:absolute;
     width: 100%;
+    min-height: 100vh;
     flex-direction: column;
     z-index: 13883;
 }
 
 /*INSIGHST BUTTOONS*/
+#insight-navigation-buttons{
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+}
+#insights-navigation-buttons{
+    width: 100%;
+}
 #insights-buttons-container {
     display: flex;
     position: absolute;
     display: none;
+    width: 80%;
+    top: 6.3em;
+    margin: 0 auto;
     background-color: #212529;
+    margin-left: 0.4rem;
     z-index: 13;
     justify-content: center;
  }
-#close-data-for-date-button{
-    display: none;
+
+/* Set the display-data-inner-container to cover the full viewport height */
+#display-data-inner-container {
+    min-height: 100vh;
+    display: flex;
+    max-width:100%;
 }
 
+/* Style the data-analytics-title */
+#data-analytics-title {
+    margin-top: 0;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Style the data-display-list */
+#data-display-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the list items within data-display-list */
+#data-display-list li {
+   width: 100vw;
+    border-bottom: 1px solid #ddd; /* Add a border between list items */
+}
+
+/* Style the close button */
+#close-data-for-date-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#close-data-for-date-button:hover {
+    background-color: #2980b9;
+}
+.insights-buttons{
+     margin: 5px;
+     padding: 10px;
+     background-color: white;
+     box-shadow: 4px 4px 8px 0 rgba(38, 40, 40, 0.7);
+     color:#3D946E ;
+     width: 18em;
+     font-weight: 600;
+     border-radius: 26px;
+     border: 2px solid #EEB533;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+}
 .contact-section {
     margin-bottom: 80px;
 }
@@ -532,4 +604,26 @@ input#file {
     transition: .3s;
     animation: buttons .3s linear;
     display: none;
+}
+
+/*dosplay goals container*/
+#create-goal-form{
+    display: none;
+}
+#display-goals{
+    z-index: 87876;
+    position: absolute;
+    display: flex;
+    display: none;
+    flex-direction: column;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+  background-color: #EEB533;
+}
+#goals-analytics-title{
+    font-size: 1.3rem;
+}
+#goals-menu-title {
+    text-align: center;
 }

@@ -5,17 +5,107 @@ document.addEventListener("DOMContentLoaded", function () {
     const getDataByDateButton = document.getElementById('get-data-by-date');
     const getDataByTypeButton = document.getElementById('get-data-by-type');
     const getDataByCategoryButton = document.getElementById('get-data-by-category');
-
+   
     const getDataGeneralButton = document.getElementById('get-data-general');
     const dataTitle = document.getElementById("data-analytics-title");
     const calendar = document.getElementById("calendar");
 
-const filterDataButton = document.getElementById('filter-data-button');
+    const createGoalForm = document.getElementById('create-goal-form')
+const filterDataButton = document.getElementById('tracker-data-button');
 const insightsButtonsContainer = document.getElementById('insights-buttons-container');
+const goalsButton = document.getElementById('goals-data-button');
+const displayGoals = document.getElementById('display-goals');
+const createGoalButton = document.getElementById('create-goal-button')
+const submitGoal = document.getElementById('submit-goal-button');
 
+
+/** CODE FOR GOALS SCREEN HANDELING
+ * 
+ */
+
+// Add an event listener to the button
+createGoalButton.addEventListener('click', function () {
+    if (createGoalForm.style.display === 'none') {
+        createGoalForm.style.display ='block'
+    } else {
+        createGoalForm.style.display = 'none';
+    }
+    console.log('Create Goal button clicked!');
+});
+
+submitGoal.addEventListener('click', function () {
+    saveGoal();
+    if (createGoalForm.style.display === 'none') {
+        createGoalForm.style.display ='block'
+    } else {
+        createGoalForm.style.display = 'none';
+    }
+    console.log('Create Goal button clicked!');
+});
+
+
+goalsButton.addEventListener('click', function () {
+    // Toggle the visibility of the display-goals element
+    if (displayGoals.style.display === 'none') {
+        displayGoals.style.display = 'block';
+    } else {
+        displayGoals.style.display = 'none';
+    }
+});
 const calendarGrid = document.getElementById("calendar-grid");
 
+// Function to display goals from local storage
+function displayGoalsList() {
+    let goalListDiv = document.getElementById("goals-display-list");
+    goalListDiv.innerHTML = ""; // Clear existing content
 
+    // Loop through local storage keys
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+
+        // Check if the key represents a goal
+        if (key.startsWith("goal_")) {
+            // Retrieve goal data from local storage
+            let goalData = JSON.parse(localStorage.getItem(key));
+
+            // Create a div element for each goal and append it to the goal list
+            let goalDiv = document.createElement("div");
+            goalDiv.innerHTML =
+                "<strong>Name:</strong> " + goalData.goalName + "<br>" +
+                "<strong>Value:</strong> " + goalData.goalValue + "<br>" +
+                "<strong>Duration:</strong> " + goalData.goalDuration + "<br>" +
+                "<strong>Status:</strong> " + goalData.goalStatus + "<br><br>";
+
+            goalListDiv.appendChild(goalDiv);
+        }
+    }
+}
+function saveGoal() {
+    // Retrieve input values
+    let goalName = document.getElementById("goal-name").value;
+    let goalValue = document.getElementById("goal-amount").value;
+    let goalDuration = document.getElementById("duration").value;
+
+    // Create a unique key for each goal based on the timestamp
+    let goalKey = "goal_" + Date.now();
+
+    // Create an object to represent the goal
+    let goalData = {
+        goalName: goalName,
+        goalValue: goalValue,
+        goalDuration: goalDuration,
+        goalStatus: "active"
+    };
+
+    // Store the goal data in local storage
+    localStorage.setItem(goalKey, JSON.stringify(goalData));
+
+    // Refresh the goal list
+    displayGoalsList();
+}
+
+  // Refresh the goal list
+  displayGoalsList();
 function generateCalendar(year, month) {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);

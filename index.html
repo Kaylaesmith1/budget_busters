@@ -72,37 +72,65 @@
   
         <div id="insights-container">
               
-    <h3 id="analyse-menu">ANALYSE EXPENSES</h2>
-        <button id="filter-data-button" class="button-text card">FILTER</button>
-
-            <div id="insights-buttons-container" class="card">
-                <button id="get-data-general" class="button-text">GENERAL</button>
-                <button id="get-data-by-type" class="button-text">BY EXPENSE TYPE</button>
-                <button id="get-data-by-category" class="button-text">BY EXPENSE CATEGORY</button>
-                <button id="get-data-by-date" class="button-text">BY DATE</button>
-
-            </div>
-     
-          
-         <div id="display-data-inner-container">
-            <h5 id="data-analytics-title"></h5>
-
+    <h3 id="analyse-menu">Insights</h2>
+        <div id="insight-navigation-buttons">
+        <button id="tracker-data-button" class="button-text insights-buttons">FINANCAL TRACKER</button>
+        <button id="goals-data-button" class="button-text insights-buttons">GOALS</button>
+    </div>
+    <div id="insights-buttons-container" class="card insights-buttons">
+        <button id="get-data-general" class="button-text">GENERAL</button>
+        <button id="get-data-by-type" class="button-text">BY EXPENSE TYPE</button>
+        <button id="get-data-by-category" class="button-text">BY EXPENSE CATEGORY</button>
+        <button id="get-data-by-date" class="button-text">BY DATE</button>
+    </div>
+    
+    <div id="display-data-inner-container">
+        <h5 id="data-analytics-title"></h5>
         <div id="display-data">
             <h4 id="analyse-menu-title"></h4>
             <div class="calendar-container">
                 <div id="calendar" class="calendar-class">
                     <div id="calendar-grid"></div>
                 </div>
-                
-         <div id="display-data-inner-container">
-
+            </div>
             <h3 id="data-analytics-title"></h3>
             <ul id="data-display-list"></ul>
-            <button id="close-data-for-date-button">close</button>
+            <button id="close-data-for-date-button" class="">close</button>
         </div>
-</div>
-     
-</div>
+    </div>
+
+<div id="display-goals">
+    <h4 id="goals-menu-title">GOALS</h4>
+   
+
+    <button id="create-goal-button" class="">CREATE GOAL</button>
+    <div id="create-goal-form" >
+        <form id="goal-form">
+            <label for="goal-name">Goal Name (max 12 characters):</label>
+            <input type="text" id="goal-name" maxlength="12" required>
+    
+            <label for="goal-amount">Goal Amount:</label>
+            <input type="number" id="goal-amount" required>
+    
+            <label for="duration">Duration:</label>
+            <select id="duration">
+                <option value="1-month">1 Month</option>
+                <option value="3-months">3 Months</option>
+                <option value="6-months">6 Months</option>
+                <option value="1-year">1 Year</option>
+            </select>
+            <p id="no-goal-yet-message">"You don't have anby goat created, click button to create one"</p>
+
+            <button type="submit" id="submit-goal-button">SUBMIT</button>
+        </form>
+    </div>
+    
+        <p id="no-goal-yet-message">"You don't have anby goat created, click button to create one"</p>
+    
+    <ul id="goals-display-list"></ul>
+
+    <button id="close-goals-button" class="insights-buttons">CLOSE</button>
+
 
 </div>
 </div>
@@ -166,7 +194,7 @@
             </div>
            
 
-    <div>
+    <div id="navigation-container">
         <section>
             <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
         </section>
@@ -182,9 +210,9 @@
 
         <section class="contact-section">
             <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
-
+        </div>
      <!-- CONTACT FORM -->
-     <div class="container">
+     <div id="contact-container" class="container">
      <div class="contact-form">
         <form onsubmit="return sendMail(this);">
             <div class="row">  
@@ -261,7 +289,7 @@
 
 
 
-<script src="assets/js/sendEmail.js"></script>
+<!--<script src="assets/js/sendEmail.js"></script>-->
 
 <script src="assets/js/script.js"></script>
 
