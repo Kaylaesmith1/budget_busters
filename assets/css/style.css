@@ -636,6 +636,22 @@ position: absolute;
     margin-top: 125px;
 }
 
+#close-goals-button {
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid #3D946E;
+    background-color: #85CCAD;
+    color: #262828;
+    font-size: 18px;
+    font-weight: 700;
+    width: 15rem;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+}
+
 #close-data-for-date-button:hover {
     background-color: #FFFAED;
     border: 3px solid #EEB533;
@@ -725,8 +741,8 @@ position: absolute;
     top: 0;
     width: 100%;
     min-height: 100%;
-  background-color: #EEB533;
 }
+
 #goals-analytics-title{
     font-size: 1.3rem;
 }
@@ -738,4 +754,21 @@ position: absolute;
     width: 50%;
     margin-left: 25%;
     margin-right: auto;
+}
+
+button#create-goal-button {
+    width: 80%;
+    background-color: #EEB533;
+    border: 2px solid #262828;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+p#no-goal-yet-message {
+    margin: 15px;
+    /* justify-content: center; */
+    text-align: inherit;
 }
