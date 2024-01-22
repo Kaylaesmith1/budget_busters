@@ -102,6 +102,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 100%;
 }
 
 #display-data {
@@ -358,6 +359,7 @@ textarea {
     color: #3D946E;
     font-family: 'Tienne', sans-serif;
     font-size: 1.1rem;
+    text-align: center;
     font-weight: bolder;
 }
 
@@ -528,7 +530,20 @@ input#file {
 #contact-container{
     display: none;
     position: absolute;
-    z-index: 99;
+    z-index: 99993;
+}
+
+#about-section-wraper{
+display: none;
+color: white;
+align-items: center;
+justify-content: center;
+max-width: 100%;
+overflow: scroll;
+z-index: 100;
+width: 100%;
+height: 100%;
+position: absolute;
 }
 
 /*expenses container*/
@@ -554,7 +569,7 @@ input#file {
     width: 100%;
     min-height: 100vh;
     flex-direction: column;
-    z-index: 1000;
+    z-index: 100400;
 }
 
 /*INSIGHST BUTTOONS*/
@@ -660,11 +675,13 @@ input#file {
 
 .nav-link:hover {
     background-color: #EEB533; 
+
 }
 
 /* Active button style */
 .nav-link.active {
     background-color: #262828; 
+
 }
 
 #nav-buttons-container{
