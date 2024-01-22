@@ -1,7 +1,7 @@
 
 <br>
 
-![Favicon](assets/images/logo-bolder.png)
+![Logo](assets/images/logo-new.png)
 
 </h1>
 
@@ -12,8 +12,8 @@
 
 # SUBMISSION
 ## 🚀 Deployment
-#### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-The project is deployed and can be accessed at [http://your-deployed-link.com](http://your-deployed-link.com).
+#### 
+The project is deployed and can be accessed at [here](https://kaylaesmith1.github.io/budget_busters/).
 
 ## ✔️ Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
@@ -234,7 +234,11 @@ This screen is designed to minimise keying and is a really strong feature of the
 This is a really powerful feature of the app.  
 
 - __Contact/feedback screen__
-This screen encourages users to interact with the applciation by entering feedback, useful comments, and participating in the development roadmap for this app.  Note that the user has the ability to add an attachment with their feedback.  This is really useful if they are commenting on existing site features, bugs they find (hopefully none!) and additional features they would like included in future versions of the app.
+This screen encourages users to interact with the applciation by entering feedback, useful comments, and participating in the development roadmap for this app. The ability to send a contact form will enable the user to comment on existing site features, bugs they find (hopefully none!) and/or additional features they would like included in future versions of the app.
+
+    The contact email is fully functional, though we ran into some issues with the attachement option. As of now, the user can attach a document but it is not delivered in the email to Budget Wise. In a future version, we would hope to rectify this and implement a pop up telling the user their email was sent successfully and clear the input fields after they submit their form.
+
+![Email](/assets/images/ExampleEmail.png)
 
 
 - __About__
@@ -265,7 +269,7 @@ Considerable development work was done for the app version 1 to create a Google 
 ## Validation
 
 ## 🙌 Credits
-The team consisted of: Kaylae Smith (scrum master), Nikola Simic, Caylin Dewey, and Deidre McCarthy.
+The team consisted of: Kayla Smith (scrum master), Nikola Simic, Caylin Dewey, and Deirdre McCarthy.
 
 ## 🌐 Media, Frameworks, Libraries & Programs Used
 

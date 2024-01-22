@@ -70,6 +70,10 @@ h3 {
     background-color: white;
 }
 
+.navbar-nav .nav-link {
+    padding: 5px !important;
+}
+
 .goals-box {
     padding: 15px;
     border-radius: 4px;
@@ -622,18 +626,37 @@ position: absolute;
 
 /* Style the close button */
 #close-data-for-date-button {
-    margin-top: 10px;
+    margin: 0 auto;
     padding: 10px;
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
+    border-radius: 20px;
+    border: 3px solid #3D946E;
+    background-color: #85CCAD;
+    font-size: 18px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-top: 125px;
+}
+
+#close-goals-button {
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid #3D946E;
+    background-color: #85CCAD;
+    color: #262828;
+    font-size: 18px;
+    font-weight: 700;
+    width: 15rem;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #close-data-for-date-button:hover {
-    background-color: #2980b9;
+    background-color: #FFFAED;
+    border: 3px solid #EEB533;
+
 }
 .insights-buttons{
      margin: 5px;
@@ -669,15 +692,13 @@ position: absolute;
 }
 
 .nav-link:hover {
-        color: #EEB533;
-    background-color: #3D946E; /* Set your desired hover background color */
+    background-color: #EEB533; 
+
 }
 
 /* Active button style */
 .nav-link.active {
-    background-color:#3D946E; 
-    color: #EEB533;
-    background-color: rgba(253, 251, 251, 0.8);
+    background-color: #262828; 
 
 }
 
@@ -697,20 +718,6 @@ position: absolute;
     justify-content: center;
 }
 
-.message .success {
-    font-size: 20px;
-    color: green;
-    animation: buttons .3s linear;
-    display: none;
-}
-
-.message .danger {
-    font-size: 20px;
-    color: red;
-    transition: .3s;
-    animation: buttons .3s linear;
-    display: none;
-}
 /*DEPOSIT AND GOALS STYLES*/
 #goals-popup {
     top: 50%;
@@ -735,8 +742,8 @@ position: absolute;
     top: 0;
     width: 100%;
     min-height: 100%;
-  background-color: #EEB533;
 }
+
 #goals-analytics-title{
     font-size: 1.3rem;
 }
@@ -748,4 +755,21 @@ position: absolute;
     width: 50%;
     margin-left: 25%;
     margin-right: auto;
+}
+
+button#create-goal-button {
+    width: 80%;
+    background-color: #EEB533;
+    border: 2px solid #262828;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+p#no-goal-yet-message {
+    margin: 15px;
+    /* justify-content: center; */
+    text-align: inherit;
 }
