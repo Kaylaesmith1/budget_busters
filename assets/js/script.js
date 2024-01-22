@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let insightsLink = document.getElementById("nav-link-insights");
 const homeButton = document.getElementById("homeButton");
 const insightsButton = document.getElementById("nav-link-insights");
-const setupButton = document.getElementById("setupButton");
+const setupButton = document.getElementById("setupButton")
 const aboutButton = document.getElementById("aboutButton");
 const contactButton = document.getElementById("contactButton");
 
@@ -55,10 +55,9 @@ const closeDataList = document.getElementById('close-data-for-date-button');
 
   });
   
-  setupButton.addEventListener("click", function() {
-  });
   
   aboutButton.addEventListener("click", function() {
+
   });
   
   contactButton.addEventListener("click", function() {
@@ -125,8 +124,7 @@ goalsButton.addEventListener('click', function () {
 const calendarGrid = document.getElementById("calendar-grid");
     // Add a click event listener to the element
     insightsLink.addEventListener("click", function() {
-        // Alert when the element is clicked
-        alert("Insights link clicked!");
+       
     });
 function displayGoalsList() {
     let goalListDiv = document.getElementById("goals-display-list");
@@ -852,12 +850,7 @@ filterDataButton.addEventListener('click', function () {
         elementToHide.style.display = 'none';
     }
 
-    function scrollToSection(sectionId) {
-        var section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
+    
 
 
 // CONTACT FORM
