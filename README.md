@@ -207,10 +207,13 @@ There are 5 areas of functionality available to the user:
 * About Us
     
 **F06 Spending Diary**
-This page allow the user to set a working budget
+
+This page allow the user to set a working budget:
+
 ![Set budget- spending diary page](/assets/images/f06-set-a-budget1.png)
 
 and then to record spending against it
+
 ![Record a spend - spending diary page](/assets/images/f07-enter-a-luxury-cost.png)
 
 **F07 Insights**
