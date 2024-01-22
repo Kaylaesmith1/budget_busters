@@ -98,6 +98,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 100%;
 }
 
 #display-data {
@@ -354,6 +355,7 @@ textarea {
     color: #3D946E;
     font-family: 'Tienne', sans-serif;
     font-size: 1.1rem;
+    text-align: center;
     font-weight: bolder;
 }
 
