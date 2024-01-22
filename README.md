@@ -173,6 +173,7 @@ There is an infomative 'About' page and an opportunity for the user to provide f
 <screenprints to folllow>
 <landing page>
 <navbar>
+![Consistent look and feel](/assets/images/f01-logo-and-favicon.png)
 
 This satisfies user required FTU01 - clear site purpose in order to decide to proceed.
 
@@ -186,9 +187,11 @@ This satisfies user requirements FTU02, FTU03, allowing the user, whether first-
 **F03 Responsivess**
 The site was constructed on a mobile-first principle.   Each section has been constructed to be responsive to the screen size of the device it is run on.   
 <am-i-responsive- screenprint>
+![Responsive Screenprint](/assets/images/responsive.png)
 
 Responsive design principles such as using on-sceen buttons, pre-filled prompts and pop-ups rather than text-based entry,  make the site good for small-screen usage.
 <screenprint(s) of spending entry panel>
+![Responsive layout and buttons - spending diary page](/assets/images/f06-spending-diary.png)
 
 This satisfies first-time user requirements FTU05
 
@@ -205,15 +208,31 @@ There are 5 areas of functionality available to the user:
 * Feedback Form
 * About Us
     
-**F06 Spending Diary
+**F06 Spending Diary**
+This page allow the user to set a working budget
+![Set budget- spending diary page](/assets/images/f06-set-a-budget1.png)
 
-**F07 Insights
+and then to record spending against it
+![Record a spend - spending diary page](/assets/images/f07-enter a luxury-cost.png)
 
-**F08 Goal Setting
+**F07 Insights**
+This screen is very powerful and will definitely be an area for future development.  For now, a good 'engine' has been developed, and in future versions, the graphical feedback to the user could be enhanced
 
-**F09 Contact Us Page
+Choose a type of analysis:
+![Insights menu](/assets/images/f07-analyse-expenses-filters.png)
 
-**F10 About Us
+And see a detailed breakdown of spending:
+![Spending analysis](/assets/images/f07-analyse-expenses-by-category.png)
+
+
+**F08 Goal Setting**
+A goal setting screen is provided where the user can add customised financial goals.
+
+**F09 Contact Us Page**
+![Feedback Form](/assets/images/f09-feedback-form.png)
+
+**F10 About Us**
+![About us - the team](/assets/images/f10-about-page.png)
 
 
 
