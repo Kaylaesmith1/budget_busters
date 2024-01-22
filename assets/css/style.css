@@ -87,15 +87,21 @@ h3 {
     display: flex;
     text-align: center;
 }
-
-#data-display-list {
-    list-style: none;
-
-    /* Remove default list item bullets */
+#goals-display-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
     padding: 0;
-    /* Remove default padding for the list */
 }
 
+#goals-display-list > div {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 2px;
+    padding: 10px;
+    box-sizing: border-box;
+    border:3px solid #212529;
+}
 
 
 #cost-value-input {
@@ -605,7 +611,17 @@ input#file {
     animation: buttons .3s linear;
     display: none;
 }
-
+/*DEPOSIT AND GOALS STYLES*/
+#goals-popup {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 0.3rem solid #3D946E;
+    width: 80%;
+    position: fixed;
+    z-index: 4444444;
+}
 /*dosplay goals container*/
 #create-goal-form{
     display: none;
@@ -626,4 +642,10 @@ input#file {
 }
 #goals-menu-title {
     text-align: center;
+}
+
+.resize-buttons {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: auto;
 }
