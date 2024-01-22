@@ -14,7 +14,7 @@ const contactButton = document.getElementById("contactButton");
     const getDataByCategoryButton = document.getElementById('get-data-by-category');
     const openExpensesScreen = document.getElementById('expense-section');
     const insinghstScreen = document.getElementById('insights-container');
-    const contactScreen = document.getElementById('contact-container');
+    const contactScreen = document.getElementById('contact-wraper');
     const aboutScreen = document.getElementById('about-section-wraper');
     
    
