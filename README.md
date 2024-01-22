@@ -170,9 +170,7 @@ This makes the app particularly suitable for entry on small-screen/ mobile devic
 (Future.  as in the very near future before we submit)
 Information is organised logically, with goal-setting, spend tracking, budget monitoring and insight analysis.
 There is an infomative 'About' page and an opportunity for the user to provide feedback, suggestions for future development, or issues withthe site. 
-<screenprints to folllow>
-<landing page>
-<navbar>
+
 ![Consistent look and feel](/assets/images/f01-logo-and-favicon.png)
 
 This satisfies user required FTU01 - clear site purpose in order to decide to proceed.
@@ -186,17 +184,17 @@ This satisfies user requirements FTU02, FTU03, allowing the user, whether first-
 
 **F03 Responsivess**
 The site was constructed on a mobile-first principle.   Each section has been constructed to be responsive to the screen size of the device it is run on.   
-<am-i-responsive- screenprint>
+
 ![Responsive Screenprint](/assets/images/responsive.png)
 
 Responsive design principles such as using on-sceen buttons, pre-filled prompts and pop-ups rather than text-based entry,  make the site good for small-screen usage.
-<screenprint(s) of spending entry panel>
+
 ![Responsive layout and buttons - spending diary page](/assets/images/f06-spending-diary.png)
 
 This satisfies first-time user requirements FTU05
 
 **F04 Accessibility and Performance**
-The site performs well and satisfies accessibiliyt guidenlines (CHECK)
+The site performs well and satisfies accessibility guidenlines
 <screenprint of lighthouse performance>
 <screenprint of W3C accessibility checker>
 
@@ -213,7 +211,7 @@ This page allow the user to set a working budget
 ![Set budget- spending diary page](/assets/images/f06-set-a-budget1.png)
 
 and then to record spending against it
-![Record a spend - spending diary page](/assets/images/f07-enter a luxury-cost.png)
+![Record a spend - spending diary page](/assets/images/f07-enter-a-luxury-cost.png)
 
 **F07 Insights**
 This screen is very powerful and will definitely be an area for future development.  For now, a good 'engine' has been developed, and in future versions, the graphical feedback to the user could be enhanced
