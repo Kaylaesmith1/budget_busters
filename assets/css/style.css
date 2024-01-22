@@ -641,7 +641,17 @@ position: absolute;
     padding: 0;
     margin: 0;
 }
+#goals-display-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
+#goals-display-list > li {
+   /* Set the font size to 23px for each list item */
+    margin: 0; /* Remove any margins */
+    /* Add other styles as needed */
+}
 /* Style the list items within data-display-list */
 #data-display-list li {
    width: 100vw;
