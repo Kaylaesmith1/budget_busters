@@ -115,6 +115,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 #data-analytics-title {
@@ -332,6 +333,7 @@ textarea#message {
     padding: 5px;
     border-radius: 3px;
     border: 3px solid #EEB533;
+    height: 4em;
 }
 
 input {
@@ -488,10 +490,23 @@ form {
     display: flex;
     flex-direction: column;
 }
-
+#contact-wraper{
+    display: none;
+color: white;
+align-items: center;
+justify-content: center;
+max-width: 100%;
+overflow: scroll;
+z-index: 100;
+width: 100%;
+height: 100%;
+position: absolute;
+}
 form #contact-form {
     font-family: 'Tienne', sans-serif;
-    font-size: 16px;
+    font-size: 16px;  
+
+    
 }
 
 label {
@@ -529,9 +544,16 @@ input#file {
 }
 /*contact container*/
 #contact-container{
-    display: none;
+   
+    display: block;
+    color: white;
+  
+    max-width: 100%;
+    overflow: scroll;
+    z-index: 100;
+    width: 100%;
+ 
     position: absolute;
-    z-index: 99993;
 }
 
 #about-section-wraper{
@@ -550,7 +572,6 @@ position: absolute;
 /*expenses container*/
 #wrap-expenses-container{
     color: white;
-
     align-items: center;
     justify-content: center;
     max-width: 100%;
@@ -564,24 +585,28 @@ position: absolute;
     color: white;
     display: flex;
     display: none;
-    align-items: center;
-    justify-content: center;
     position:absolute;
     width: 100%;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     flex-direction: column;
     z-index: 100400;
 }
 
 /*INSIGHST BUTTOONS*/
-#insight-navigation-buttons{
-    flex-direction: column;
+#insight-navigation-buttons {
     display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the children horizontally */
+    justify-content: center; /* Center the children vertically */
     position: absolute;
+    width: 90%;
+    margin: 0 auto;
+    top: 20%; /* Adjust as needed */
+    transform: translateY(-50%);
 }
-#insights-navigation-buttons{
-    width: 100%;
-}
+
 #insights-buttons-container {
     display: flex;
     position: absolute;
@@ -595,12 +620,6 @@ position: absolute;
     justify-content: center;
  }
 
-/* Set the display-data-inner-container to cover the full viewport height */
-#display-data-inner-container {
-    min-height: 100vh;
-    display: flex;
-    max-width:100%;
-}
 
 /* Style the data-analytics-title */
 #data-analytics-title {
@@ -627,13 +646,14 @@ position: absolute;
 #close-data-for-date-button {
     margin: 0 auto;
     padding: 10px;
+    display: none;
     border-radius: 20px;
     border: 3px solid #3D946E;
     background-color: #85CCAD;
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
-    margin-top: 125px;
+  
 }
 
 #close-goals-button {

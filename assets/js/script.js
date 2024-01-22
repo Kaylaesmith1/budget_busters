@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let insightsLink = document.getElementById("nav-link-insights");
 const homeButton = document.getElementById("homeButton");
 const insightsButton = document.getElementById("nav-link-insights");
-const setupButton = document.getElementById("setupButton")
 const aboutButton = document.getElementById("aboutButton");
 const contactButton = document.getElementById("contactButton");
 
@@ -15,7 +14,7 @@ const contactButton = document.getElementById("contactButton");
     const getDataByCategoryButton = document.getElementById('get-data-by-category');
     const openExpensesScreen = document.getElementById('expense-section');
     const insinghstScreen = document.getElementById('insights-container');
-    const contactScreen = document.getElementById('contact-container');
+    const contactScreen = document.getElementById('contact-wraper');
     const aboutScreen = document.getElementById('about-section-wraper');
     
    
