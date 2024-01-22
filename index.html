@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Calendar-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 
     <!-- Bootstrap CSS -->
@@ -26,14 +26,14 @@
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
-        <!-- INSTALL EMAIL JS -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-        </script>
-        <script type="text/javascript">
-            (function () {
-                emailjs.init("RWaSLQKXIbSTBLpY2");
-            })();
-        </script>
+    <!-- INSTALL EMAIL JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("RWaSLQKXIbSTBLpY2");
+        })();
+    </script>
 
 </head>
 
@@ -43,129 +43,136 @@
 
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a href="/index.html">
+      
 
             <img class="logo-image" src="assets/images/logo.png" alt="Budget Wise logo" />
-        </a>
+      
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link diary" href="#" onclick="scrollToSection('diarySection')">Diary</a></li>
-                <li class="nav-item"><a class="nav-link insights" href="#" onclick="scrollToSection('insightsSection')">Insights</a></li>
-                <li class="nav-item"><a class="nav-link setup" href="#" onclick="scrollToSection('setupSection')">Setup</a></li>
-                <li class="nav-item"><a class="nav-link about" href="#" onclick="scrollToSection('aboutSection')">About</a></li>
-                <li class="nav-item"><a class="nav-link contact" href="#" onclick="scrollToSection('contactSection')">Contact</a></li>
-
-            </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="navbar-nav" id="navbar-nav">
+                    <button class="nav-link active" id="homeButton">Home</button>
+                    <button class="nav-link insights" id="nav-link-insights">Insights</button>
+                    <button class="nav-link setup" id="setupButton">Setup</button>
+                    <button class="nav-link about" id="aboutButton">About</button>
+                    <button class="nav-link contact" id="contactButton">Contact</button>
+                </div>
+            </div>
         </div>
     </nav>
 
 
     <main>
-        <!-- INSIGHT CONTAINER-->
-        <button id="get-insights-nav-button" class="button-text card">INSIGHTS</button>
 
 
         <div id="insights-container">
-              
-    <h3 id="analyse-menu">Insights</h2>
-        <div id="insight-navigation-buttons">
-        <button id="tracker-data-button" class="button-text insights-buttons">FINANCAL TRACKER</button>
-        <button id="goals-data-button" class="button-text insights-buttons">GOALS</button>
-    </div>
-    <div id="insights-buttons-container" class="card insights-buttons">
-        <button id="get-data-general" class="button-text">GENERAL</button>
-        <button id="get-data-by-type" class="button-text">BY EXPENSE TYPE</button>
-        <button id="get-data-by-category" class="button-text">BY EXPENSE CATEGORY</button>
-        <button id="get-data-by-date" class="button-text">BY DATE</button>
-    </div>
-    
-    <div id="display-data-inner-container">
-        <h5 id="data-analytics-title"></h5>
-        <div id="display-data">
-            <h4 id="analyse-menu-title"></h4>
-            <div class="calendar-container">
-                <div id="calendar" class="calendar-class">
-                    <div id="calendar-grid"></div>
+
+            <h3 id="analyse-menu">Insights</h2>
+                <div id="insight-navigation-buttons">
+                    <button id="tracker-data-button" class="button-text insights-buttons">FINANCAL TRACKER</button>
+                    <button id="goals-data-button" class="button-text insights-buttons">GOALS</button>
                 </div>
-            </div>
-            <h3 id="data-analytics-title"></h3>
-            <ul id="data-display-list"></ul>
-            <button id="close-data-for-date-button" class="">close</button>
+                <div id="insights-buttons-container" class="card insights-buttons">
+                    <button id="get-data-general" class="button-text">GENERAL</button>
+                    <button id="get-data-by-type" class="button-text">BY EXPENSE TYPE</button>
+                    <button id="get-data-by-category" class="button-text">BY EXPENSE CATEGORY</button>
+                    <button id="get-data-by-date" class="button-text">BY DATE</button>
+                </div>
+
+                <div id="display-data-inner-container">
+                    <h5 id="data-analytics-title"></h5>
+                    <div id="display-data">
+                        <h4 id="analyse-menu-title"></h4>
+                        <div class="calendar-container">
+                            <div id="calendar" class="calendar-class">
+                                <div id="calendar-grid"></div>
+                            </div>
+                        </div>
+                        <h3 id="data-analytics-title"></h3>
+                        <ul id="data-display-list"></ul>
+                        <button id="close-data-for-date-button" class="">close</button>
+                    </div>
+                </div>
+
+                <div id="goals-popup">
+                    <ul id="data-goals-details-list"></ul>
+                    <button id="close-popup" class="button-text insights-buttons resize-buttons">close</button>
+
+                </div>
+                <div id="display-goals">
+                    <h4 id="goals-menu-title">GOALS</h4>
+
+
+                    <button id="create-goal-button" class="">CREATE GOAL</button>
+                    <div id="create-goal-form">
+                        <form id="goal-form">
+                            <label for="goal-name">Goal Name (max 12 characters):</label>
+                            <input type="text" id="goal-name" maxlength="12" required>
+
+                            <label for="goal-amount">Goal Amount:</label>
+                            <input type="number" id="goal-amount" required>
+
+                            <label for="duration">Duration:</label>
+                            <select id="duration">
+                                <option value="1-month">1 Month</option>
+                                <option value="3-months">3 Months</option>
+                                <option value="6-months">6 Months</option>
+                                <option value="1-year">1 Year</option>
+                            </select>
+                            <p id="no-goal-yet-message">"You don't have anby goat created, click button to create one"
+                            </p>
+
+                            <button type="submit" id="submit-goal-button">SUBMIT</button>
+                        </form>
+                    </div>
+
+                    <p id="no-goal-yet-message">"You don't have anby goat created, click button to create one"</p>
+
+                    <ul id="goals-display-list"></ul>
+
+                    <button id="close-goals-button" class="insights-buttons">CLOSE</button>
+
+
+                </div>
         </div>
-    </div>
 
-    <div id="goals-popup">
-        <ul id="data-goals-details-list"></ul>
-        <button id="close-popup" class="button-text insights-buttons resize-buttons">close</button>
-     
-    </div>
-<div id="display-goals">
-    <h4 id="goals-menu-title">GOALS</h4>
-   
+        
+            <!-- EXPENSE CONTAINER-->
+        <div id="wrap-expenses-container">
+            
+            <div id="expense-section">
+                <!-- Elemets to display budget container -->
+                <div id="display-budget-container">
 
-    <button id="create-goal-button" class="">CREATE GOAL</button>
-    <div id="create-goal-form" >
-        <form id="goal-form">
-            <label for="goal-name">Goal Name (max 12 characters):</label>
-            <input type="text" id="goal-name" maxlength="12" required>
-    
-            <label for="goal-amount">Goal Amount:</label>
-            <input type="number" id="goal-amount" required>
-    
-            <label for="duration">Duration:</label>
-            <select id="duration">
-                <option value="1-month">1 Month</option>
-                <option value="3-months">3 Months</option>
-                <option value="6-months">6 Months</option>
-                <option value="1-year">1 Year</option>
-            </select>
-            <p id="no-goal-yet-message">"You don't have anby goat created, click button to create one"</p>
+                    <!-- Text to display planned budget-->
+                    <p id="budget-display"></p>
+                    <p id="input-animation-value-display" class="fadeout-animation"></p>
 
-            <button type="submit" id="submit-goal-button">SUBMIT</button>
-        </form>
-    </div>
-    
-        <p id="no-goal-yet-message">"You don't have anby goat created, click button to create one"</p>
-    
-    <ul id="goals-display-list"></ul>
+                    <!--Button that add to the budget getting values from amount/type input not styled -->
+                    <button id="update-budget-button">UPDATE BUDGET</button>
+                </div>
 
-    <button id="close-goals-button" class="insights-buttons">CLOSE</button>
-
-
-</div>
-</div>
-        <div id="expense-section">
-            <!-- Elemets to display budget container -->
-            <div id="display-budget-container">
-
-                <!-- Text to display planned budget-->
-                             <p id="budget-display"></p>
-                             <p id="input-animation-value-display" class="fadeout-animation"></p>
-                
-                <!--Button that add to the budget getting values from amount/type input not styled -->
-                             <button id="update-budget-button">UPDATE BUDGET</button>
-                         </div>
-      
                 <div class="card-container">
                     <div class="card">
                         <h3>Basic Needs</h3>
                         <table>
                             <tr>
-                                <td><button class="button-text basic-needs-buttons"id="food-button">Food</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="transport-button">Transport</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="education-button">Education</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="food-button">Food</button></td>
+                                <td><button class="button-text basic-needs-buttons"
+                                        id="transport-button">Transport</button></td>
+                                <td><button class="button-text basic-needs-buttons"
+                                        id="education-button">Education</button></td>
                             </tr>
                             <tr>
-                                <td><button class="button-text basic-needs-buttons" id="healthcare-button">Healthcare</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button></td>
-                                <td><button class="button-text basic-needs-buttons" id="utilities-button">Utilities</button></td>
+                                <td><button class="button-text basic-needs-buttons"
+                                        id="healthcare-button">Healthcare</button></td>
+                                <td><button class="button-text basic-needs-buttons" id="housing-button">Housing</button>
+                                </td>
+                                <td><button class="button-text basic-needs-buttons"
+                                        id="utilities-button">Utilities</button></td>
                             </tr>
                         </table>
                     </div>
@@ -173,7 +180,7 @@
             </div>
 
             <div class="input-type" id="main-content-container">
-                <input type="number" id="cost-value-input"  placeholder="Enter amount & click type of cost...">
+                <input type="number" id="cost-value-input" placeholder="Enter amount & click type of cost...">
                 <p id="input-animation-value-display" class="fadeout-animation"></p>
 
             </div>
@@ -183,100 +190,86 @@
                         <h3>Luxury</h3>
                         <table>
                             <tr>
-        
-                                <td><button class="button-text luxury-buttons" id="entertainment-button">Entertainment</button>
+
+                                <td><button class="button-text luxury-buttons"
+                                        id="entertainment-button">Entertainment</button>
                                 </td>
                                 <td><button class="button-text luxury-buttons" id="travel-button">Travel</button></td>
                                 <td><button class="button-text luxury-buttons" id="dining-button">Dining</button></td>
                             </tr>
                             <tr>
                                 <td><button class="button-text luxury-buttons" id="gadgets-button">Gadgets</button></td>
-                                <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button></td>
+                                <td><button class="button-text luxury-buttons" id="clothing-button">Clothing</button>
+                                </td>
                                 <td><button class="button-text luxury-buttons" id="beauty-button">Beauty</button></td>
                             </tr>
                         </table>
                     </div>
                 </div>
-        
+
             </div>
-           
 
-    <div id="navigation-container">
-        <section>
-            <h2><a href="#" class="section" id="diarySection" onclick="showContent('diary')">Diary</a></h2>
-        </section>
-        <section>
-            <h2><a href="#" class="section" id="insightsSection" onclick="showContent('insights')">Insights</a></h2>
-        </section>
-        <section>
-            <h2><a href="#" class="section" id="setupSection" onclick="showContent('setup')">Setup</a></h2>
-        </section>
-        <section>
-            <h2><a href="#" class="section" id="aboutSection" onclick="showContent('about')">About</a></h2>
-        </section>
-
-        <section class="contact-section">
-            <h2><a href="#" class="section" id="contactSection" onclick="showContent('contact')">Contact Us</a></h2>
         </div>
-     <!-- CONTACT FORM -->
-     <div id="contact-container" class="container">
-     <div class="contact-form">
-        <form onsubmit="return sendMail(this);">
-            <div class="row">  
-             <div class="col-lg-6 col-md-6"> 
-                <label for="name">First name:</label>           
-            <input type="text" name="name" id="fullname" class="form-control" required />
-            <br >
+     
+        <!-- CONTACT FORM -->
+        <div id="contact-container" class="container">
+            <div class="contact-form">
+                <form onsubmit="return sendMail(this);">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <label for="name">First name:</label>
+                            <input type="text" name="name" id="fullname" class="form-control" required />
+                            <br>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <label for="lname">Last name:</label>
+                            <input type="text" name="lname" id="lname" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="emailaddress" class="form-control" required />
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <label for="file">Attachment:</label>
+                            <br>
+                            <input type="file" name="file" id="file" class="form-control"
+                                accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+
+                        </div>
+                    </div>
+                    <br>
+                    <label for="file">Message:</label>
+                    <textarea rows="5" name="message" id="message" class="form-control" required></textarea>
+                    <br>
+                    <div class="form-row text-center">
+                        <div class="col">
+                            <button type="submit" class="submit-button" onclick="submitForm()">Submit</button>
+
+                        </div>
+
+                        <div class="message">
+                            <div class="success" id="success">Your message has been sent.</div>
+                            <div class="danger" id="danger">Please fill out all fields.</div>
+                        </div>
+
+                    </div>
+
+                </form>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <label for="lname">Last name:</label>
-            <input type="text" name="lname" id="lname" class="form-control" required />
         </div>
-    </div>
-    <div class="row">  
-        <div class="col-lg-6 col-md-6">
-            <label for="email" >Email:</label>
-            <input type="email" name="email" id="emailaddress" class="form-control"
-                required />
-        </div>
-                <div class="col-lg-6 col-md-6">
-                    <label for="file" >Attachment:</label>
-                    <br >
-                    <input type="file" name="file" id="file" class="form-control" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
-                
-            </div>
-    </div>
-    <br >
-    <label for="file" >Message:</label>
-            <textarea rows="5" name="message" id="message" class="form-control" required></textarea>
-                <br >
-            <div class="form-row text-center">
-                <div class="col">
-                    <button type="submit" class="submit-button" onclick="submitForm()">Submit</button>
-
-                </div>
-        
-                <div class="message">
-                    <div class="success" id="success">Your message has been sent.</div>
-                    <div class="danger" id="danger">Please fill out all fields.</div>
-                </div>
-
-            </div>
-
-        </form>
-    </div>
-</div>
-    <!-- END CONTACT FORM -->
+        <!-- END CONTACT FORM -->
     </main>
 
 
-        <!-- BACK TO TOP SCROLL BUTTON -->
-        <div class="scroll-top" id="scroll-top">
-            <button class="scroll-button" id="scroll-button">
-              <i class="fas fa-arrow-up arrow"></i>
-            </button>
-          </div>
-          <!-- END SCROLL TO TOP BUTTON -->
+    <!-- BACK TO TOP SCROLL BUTTON -->
+    <div class="scroll-top" id="scroll-top">
+        <button class="scroll-button" id="scroll-button">
+            <i class="fas fa-arrow-up arrow"></i>
+        </button>
+    </div>
+    <!-- END SCROLL TO TOP BUTTON -->
 
 
 
@@ -296,9 +289,9 @@
 
 
 
-<!--<script src="assets/js/sendEmail.js"></script>-->
+    <!--<script src="assets/js/sendEmail.js"></script>-->
 
-<script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 
 
 </body>
